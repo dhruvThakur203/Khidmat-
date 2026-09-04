@@ -1,5 +1,6 @@
 import { branchList, formatPhoneLink } from '../data/branches';
 import { getBranchGallery } from '../data/gallery';
+import { BranchDeliveryMenuCta } from '../components/locations/BranchDeliveryMenuCta';
 
 export function LocationsPage() {
   return (
@@ -64,6 +65,9 @@ export function LocationsPage() {
                       </a>
                     )}
                   </div>
+                  {branch.deliveryMenu && (
+                    <BranchDeliveryMenuCta menu={branch.deliveryMenu} />
+                  )}
                 </div>
               </article>
             );

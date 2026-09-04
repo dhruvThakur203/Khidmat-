@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
 import { brand } from '../../data/brand';
 import { featuredDishes } from '../../data/featuredDishes';
+import { externalLinkProps, noidaDeliveryMenu } from '../../data/menus';
 import { useReveal } from '../../hooks/useReveal';
 import './SignatureDishes.css';
 
@@ -51,9 +51,14 @@ export function SignatureDishes() {
         </div>
 
         <div className="dishes__cta">
-          <Link to="/menu" className="btn btn--text">
-            View Full Menu
-          </Link>
+          <a
+            href={noidaDeliveryMenu.href}
+            {...externalLinkProps}
+            className="btn btn--text"
+            aria-label={noidaDeliveryMenu.ariaLabel}
+          >
+            {noidaDeliveryMenu.headerCta}
+          </a>
         </div>
       </div>
     </section>

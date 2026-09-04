@@ -1,0 +1,15 @@
+.branch-menu-cta {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(166, 139, 91, 0.15);
+}
+
+.branch-menu-cta__label {
+  margin-bottom: 0.35rem;
+}
+
+.branch-menu-cta__link {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}

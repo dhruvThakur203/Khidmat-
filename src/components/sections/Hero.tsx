@@ -1,6 +1,7 @@
 import { useEffect, type CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 import { brand } from '../../data/brand';
+import { externalLinkProps, noidaDeliveryMenu } from '../../data/menus';
 import { cinematicIntro } from '../../data/cinematicIntro';
 import { heroImage } from '../../data/heritage';
 import { useCinematicIntro } from '../../hooks/useCinematicIntro';
@@ -91,9 +92,15 @@ export function Hero() {
             &ldquo;{brand.heroQuote}&rdquo;
           </p>
           <div className={`hero__actions${textStep >= 5 ? ' is-revealed' : ''}`}>
-            <Link to="/menu" className="btn btn--primary btn--compact" onClick={(e) => e.stopPropagation()}>
-              Explore the Menu
-            </Link>
+            <a
+              href={noidaDeliveryMenu.href}
+              {...externalLinkProps}
+              className="btn btn--primary btn--compact"
+              aria-label={noidaDeliveryMenu.ariaLabel}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {noidaDeliveryMenu.headerCta}
+            </a>
             <Link to="/our-story" className="btn btn--outline btn--compact" onClick={(e) => e.stopPropagation()}>
               Our Story
             </Link>

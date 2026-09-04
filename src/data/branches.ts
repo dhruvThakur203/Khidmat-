@@ -1,3 +1,6 @@
+import type { BranchDeliveryMenu } from './menus';
+import { noidaDeliveryMenu } from './menus';
+
 export type BranchId = 'delhi' | 'noida';
 
 export interface Branch {
@@ -10,6 +13,7 @@ export interface Branch {
   phones: string[];
   mapsUrl: string;
   whatsapp?: string;
+  deliveryMenu?: BranchDeliveryMenu;
 }
 
 export const branches: Record<BranchId, Branch> = {
@@ -35,6 +39,7 @@ export const branches: Record<BranchId, Branch> = {
     mapsUrl:
       'https://www.google.com/maps/place/khidmat+noida/data=!4m2!3m1!1s0x390ce59baf0554df:0xe728e390eee0fbd3',
     whatsapp: '919999262580',
+    deliveryMenu: noidaDeliveryMenu,
   },
 };
 

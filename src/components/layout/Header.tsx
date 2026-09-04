@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { logo } from '../../data/brandAssets';
 import { navigation } from '../../data/heritage';
+import { externalLinkProps, noidaDeliveryMenu } from '../../data/menus';
 import { useScrollHeader } from '../../hooks/useScrollHeader';
 import './Header.css';
 
@@ -54,9 +55,14 @@ export function Header({ transparent = false }: HeaderProps) {
           </nav>
 
           <div className="header__actions">
-            <Link to="/menu" className="btn btn--primary btn--compact header__cta">
-              View Menu
-            </Link>
+            <a
+              href={noidaDeliveryMenu.href}
+              {...externalLinkProps}
+              className="btn btn--primary btn--compact header__cta"
+              aria-label={noidaDeliveryMenu.ariaLabel}
+            >
+              {noidaDeliveryMenu.headerCta}
+            </a>
             <Link to="/contact" className="btn btn--ghost header__cta-ghost">
               Contact
             </Link>
@@ -91,9 +97,14 @@ export function Header({ transparent = false }: HeaderProps) {
           ))}
         </ul>
         <div className="mobile-nav__actions">
-          <Link to="/menu" className="btn btn--primary btn--compact" onClick={closeMenu}>
-            View Menu
-          </Link>
+          <a
+            href={noidaDeliveryMenu.href}
+            {...externalLinkProps}
+            className="btn btn--primary btn--compact"
+            aria-label={noidaDeliveryMenu.ariaLabel}
+          >
+            {noidaDeliveryMenu.headerCta}
+          </a>
           <Link to="/contact" className="btn btn--outline-dark" onClick={closeMenu}>
             Contact
           </Link>

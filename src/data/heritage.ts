@@ -2,7 +2,6 @@ import type { BranchId } from './branches';
 
 export const navigation = [
   { label: 'Our Story', path: '/our-story' },
-  { label: 'Menu', path: '/menu' },
   { label: 'Experience', path: '/experience' },
   { label: 'Gallery', path: '/gallery' },
   { label: 'Catering', path: '/catering' },
@@ -11,7 +10,6 @@ export const navigation = [
 
 export const footerLinks = [
   { label: 'Our Story', path: '/our-story' },
-  { label: 'Menu', path: '/menu' },
   { label: 'Gallery', path: '/gallery' },
   { label: 'Catering', path: '/catering' },
   { label: 'Locations', path: '/locations' },

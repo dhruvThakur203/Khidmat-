@@ -3,6 +3,7 @@ import { branchList, formatPhoneLink } from '../../data/branches';
 import { brand } from '../../data/brand';
 import { useReveal } from '../../hooks/useReveal';
 import { getBranchGallery } from '../../data/gallery';
+import { BranchDeliveryMenuCta } from '../locations/BranchDeliveryMenuCta';
 import './LocationsPreview.css';
 
 export function LocationsPreview() {
@@ -57,6 +58,9 @@ export function LocationsPreview() {
                       Call
                     </a>
                   </div>
+                  {branch.deliveryMenu && (
+                    <BranchDeliveryMenuCta menu={branch.deliveryMenu} />
+                  )}
                 </div>
               </article>
             );
