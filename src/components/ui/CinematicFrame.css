@@ -1,0 +1,35 @@
+.cinematic-frame {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-dark);
+}
+
+.cinematic-frame__photo {
+  position: absolute;
+  inset: 0;
+}
+
+.cinematic-frame__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--frame-pos-desktop);
+}
+
+@media (max-width: 1023px) {
+  .cinematic-frame__photo img {
+    object-position: var(--frame-pos-tablet);
+  }
+}
+
+@media (max-width: 767px) {
+  .cinematic-frame__photo img {
+    object-position: var(--frame-pos-mobile);
+  }
+}
+
+.cinematic-frame__photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 20, 16, 0.35);
+}

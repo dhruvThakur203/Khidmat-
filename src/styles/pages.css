@@ -1,0 +1,228 @@
+.story-grid,
+.experience-grid {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .story-grid,
+  .experience-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .experience-grid--reverse {
+    direction: rtl;
+  }
+
+  .experience-grid--reverse > * {
+    direction: ltr;
+  }
+}
+
+.branch-detail {
+  margin-bottom: var(--space-3xl);
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid rgba(166, 139, 91, 0.15);
+}
+
+.branch-detail:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.branch-detail__area {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.branch-detail__header {
+  margin-bottom: var(--space-lg);
+}
+
+.branch-detail__address {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+.branch-detail__gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .branch-detail__gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.branch-detail__gallery img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 4/3;
+}
+
+.branch-detail__phones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-bottom: var(--space-md);
+}
+
+.branch-detail__phone {
+  font-size: 0.95rem;
+  color: var(--color-text);
+  transition: color var(--transition-base);
+}
+
+.branch-detail__phone:hover {
+  color: var(--color-maroon);
+}
+
+.branch-detail__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.contact-summary {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+  padding-bottom: var(--space-xl);
+  border-bottom: 1px solid rgba(166, 139, 91, 0.15);
+}
+
+.contact-summary__location {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  color: var(--color-maroon);
+  margin-bottom: 0.35rem;
+}
+
+.contact-summary__email {
+  display: inline-block;
+  margin-top: var(--space-md);
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  color: var(--color-maroon);
+  transition: color var(--transition-base);
+}
+
+.contact-summary__email:hover {
+  color: var(--color-maroon-deep);
+}
+
+.contact-grid {
+  display: grid;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+}
+
+@media (min-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contact-card {
+  background-color: var(--color-cream);
+  padding: var(--space-lg);
+}
+
+.contact-card__label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.contact-card__name {
+  color: var(--color-maroon);
+  margin: 0.5rem 0;
+}
+
+.contact-card__address {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.contact-card__phones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: var(--space-md) 0;
+}
+
+.contact-card__phones a {
+  font-size: 0.95rem;
+  transition: color var(--transition-base);
+}
+
+.contact-card__phones a:hover {
+  color: var(--color-maroon);
+}
+
+.contact-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.contact-social {
+  text-align: center;
+  padding-top: var(--space-xl);
+  border-top: 1px solid rgba(166, 139, 91, 0.15);
+}
+
+.contact-social .social-links {
+  margin-top: var(--space-sm);
+}
+
+.catering-categories__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .catering-categories__list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.catering-categories__item {
+  text-align: center;
+  padding: var(--space-md);
+  border: 1px solid rgba(166, 139, 91, 0.2);
+}
+
+.catering-categories__item span {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--color-maroon);
+}
+
+.menu-artwork {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.menu-artwork img {
+  max-width: 100%;
+  height: auto;
+}

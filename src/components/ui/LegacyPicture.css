@@ -1,0 +1,27 @@
+.legacy-picture {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+.legacy-picture__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Cinematic — natural aspect ratio, centered, never cover-cropped */
+.legacy-picture--cinematic {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-dark);
+}
+
+.legacy-picture--cinematic .legacy-picture__img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+}

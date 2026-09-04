@@ -1,0 +1,50 @@
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-links__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color var(--transition-base), opacity var(--transition-base);
+}
+
+.social-links__icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+/* Page sections — contact, gallery */
+.social-links--page .social-links__item {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-maroon);
+}
+
+.social-links--page .social-links__item:hover {
+  color: var(--color-maroon-deep);
+}
+
+/* Footer */
+.social-links--footer {
+  justify-content: flex-start;
+  gap: 1.25rem;
+  margin-top: var(--space-md);
+}
+
+.social-links--footer .social-links__item {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(247, 243, 235, 0.7);
+}
+
+.social-links--footer .social-links__item:hover {
+  color: var(--color-gold-muted);
+}

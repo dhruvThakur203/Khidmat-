@@ -1,0 +1,8 @@
+.delhi-silhouette {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  color: var(--color-gold);
+  margin-inline: auto;
+  opacity: 0.7;
+}

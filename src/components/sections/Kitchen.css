@@ -1,0 +1,108 @@
+.kitchen__grid {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .kitchen__grid {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: var(--space-2xl);
+  }
+}
+
+.kitchen__body {
+  margin-top: var(--space-md);
+  color: rgba(245, 241, 232, 0.8);
+}
+
+.kitchen__body + .kitchen__body {
+  margin-top: var(--space-sm);
+}
+
+.kitchen__stats {
+  margin-top: var(--space-lg);
+}
+
+.kitchen__stat {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--color-text-light);
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+}
+
+.kitchen__stat-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245, 241, 232, 0.55);
+  margin-top: 0.25rem;
+}
+
+.kitchen__stat-location {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--color-gold-muted);
+  margin-top: 0.5rem;
+}
+
+.kitchen__video-wrap {
+  position: relative;
+  background-color: var(--color-charcoal);
+}
+
+.kitchen__video {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.catering-preview__inner {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .catering-preview__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+  }
+}
+
+.catering-preview__categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  margin-top: var(--space-md);
+}
+
+.catering-preview__categories li {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(247, 243, 235, 0.7);
+  position: relative;
+  padding-left: 1rem;
+}
+
+.catering-preview__categories li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  background-color: var(--color-gold);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.catering-preview__image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 4/3;
+}

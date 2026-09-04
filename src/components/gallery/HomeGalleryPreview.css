@@ -1,0 +1,121 @@
+.home-gallery {
+  background-color: var(--color-cream);
+}
+
+.home-gallery__header {
+  margin-bottom: var(--space-xl);
+  max-width: 480px;
+}
+
+.home-gallery__composition {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.home-gallery__hero,
+.home-gallery__thumb {
+  position: relative;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+}
+
+.home-gallery__hero img,
+.home-gallery__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.home-gallery__hero:hover img,
+.home-gallery__thumb:hover img {
+  transform: scale(1.02);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-gallery__hero:hover img,
+  .home-gallery__thumb:hover img {
+    transform: none;
+  }
+}
+
+.home-gallery__hero:focus-visible,
+.home-gallery__thumb:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.home-gallery__hero img {
+  aspect-ratio: 16/10;
+  min-height: 280px;
+}
+
+.home-gallery__thumb img {
+  aspect-ratio: 4/3;
+}
+
+.home-gallery__supporting {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.home-gallery__supporting .home-gallery__thumb:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 768px) {
+  .home-gallery__composition {
+    grid-template-columns: 1.35fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    gap: var(--space-sm);
+    min-height: 540px;
+  }
+
+  .home-gallery__hero {
+    grid-row: 1 / -1;
+  }
+
+  .home-gallery__hero img {
+    aspect-ratio: auto;
+    min-height: 100%;
+    max-height: 560px;
+  }
+
+  .home-gallery__supporting {
+    display: contents;
+  }
+
+  .home-gallery__thumb--1 { grid-column: 2; grid-row: 1; }
+  .home-gallery__thumb--2 { grid-column: 2; grid-row: 2; }
+  .home-gallery__thumb--3 { grid-column: 2; grid-row: 3; }
+
+  .home-gallery__thumb img {
+    aspect-ratio: auto;
+    height: 100%;
+    min-height: 0;
+  }
+}
+
+.home-gallery__caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 1rem 0.75rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--color-text-light);
+  background: linear-gradient(to top, rgba(26, 20, 16, 0.7), transparent);
+  text-align: left;
+}
+
+.home-gallery__cta {
+  margin-top: var(--space-lg);
+}

@@ -1,0 +1,69 @@
+.legacy {
+  background-color: var(--color-ivory);
+}
+
+.legacy__grid {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .legacy__grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: var(--space-2xl);
+    align-items: center;
+  }
+}
+
+.legacy__text {
+  max-width: 520px;
+}
+
+.legacy__statement {
+  margin-bottom: var(--space-md);
+  color: var(--color-text);
+}
+
+.legacy__statement em {
+  font-style: italic;
+  color: var(--color-maroon);
+}
+
+.legacy__body {
+  max-width: 480px;
+}
+
+.legacy__body + .legacy__body {
+  margin-top: var(--space-md);
+}
+
+.legacy__closing {
+  max-width: 480px;
+  margin-top: var(--space-md);
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--color-maroon);
+  line-height: 1.6;
+}
+
+.legacy__archive {
+  margin: 0;
+  max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .legacy__archive {
+    max-width: 100%;
+    justify-self: end;
+    width: 100%;
+  }
+}
+
+/* Full original artwork — natural aspect ratio, never cover-cropped */
+.legacy__original {
+  display: block;
+  width: 100%;
+  height: auto;
+}
