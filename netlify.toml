@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Playwright stores browsers in the project on CI (Netlify has no global cache path).
+  PLAYWRIGHT_BROWSERS_PATH = "0"
+  # Allow extra time for browser install + preview server on cold CI builds.
+  PRERENDER_READY_TIMEOUT_MS = "120000"

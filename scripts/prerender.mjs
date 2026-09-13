@@ -4,7 +4,7 @@
  * route-specific metadata, and visible page content without relying on JS alone.
  */
 import { chromium } from 'playwright';
-import { spawn } from 'node:child_process';
+import { spawn, execSync } from 'node:child_process';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -12,8 +12,10 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
 const dist = join(root, 'dist');
-const port = 4173;
-const baseUrl = `http://localhost:${port}`;
+const port = Number(process.env.PRERENDER_PORT) || 4173;
+const host = process.env.PRERENDER_HOST || '127.0.0.1';
+const baseUrl = `http://${host}:${port}`;
+const previewReadyMs = Number(process.env.PRERENDER_READY_TIMEOUT_MS) || 90_000;
 
 const routes = JSON.parse(
   await readFile(join(__dirname, 'prerender-routes.json'), 'utf8'),
@@ -24,35 +26,83 @@ if (process.env.SKIP_PRERENDER === '1') {
   process.exit(0);
 }
 
+function ensurePlaywrightBrowser() {
+  if (process.env.SKIP_PLAYWRIGHT_INSTALL === '1') return;
+  try {
+    console.log('Ensuring Playwright Chromium is available…');
+    execSync('npx playwright install chromium', {
+      cwd: root,
+      stdio: 'inherit',
+      env: { ...process.env, PLAYWRIGHT_BROWSERS_PATH: process.env.PLAYWRIGHT_BROWSERS_PATH ?? '0' },
+    });
+  } catch (err) {
+    console.warn('Playwright browser install warning:', err.message);
+  }
+}
+
+async function waitForPreviewReady(url, maxMs) {
+  const start = Date.now();
+  let lastError = 'unknown';
+
+  while (Date.now() - start < maxMs) {
+    try {
+      const response = await fetch(url, { redirect: 'manual' });
+      if (response.ok || response.status === 304) return;
+      lastError = `HTTP ${response.status}`;
+    } catch (err) {
+      lastError = err instanceof Error ? err.message : String(err);
+    }
+    await new Promise((resolve) => setTimeout(resolve, 500));
+  }
+
+  throw new Error(`Preview server not ready at ${url} within ${maxMs}ms (last error: ${lastError})`);
+}
+
 function startPreview() {
   return new Promise((resolve, reject) => {
     const viteBin = join(root, 'node_modules', 'vite', 'bin', 'vite.js');
-    const child = spawn(process.execPath, [viteBin, 'preview', '--port', String(port), '--strictPort'], {
-      cwd: root,
-      stdio: ['ignore', 'pipe', 'pipe'],
-      env: { ...process.env, NODE_ENV: 'production' },
-    });
+    const logs = [];
 
-    let resolved = false;
-    const timeout = setTimeout(() => {
-      if (!resolved) reject(new Error('Preview server did not start within 30s'));
-    }, 30000);
+    const child = spawn(
+      process.execPath,
+      [viteBin, 'preview', '--port', String(port), '--strictPort', '--host', host],
+      {
+        cwd: root,
+        stdio: ['ignore', 'pipe', 'pipe'],
+        env: { ...process.env, NODE_ENV: 'production' },
+      },
+    );
 
-    const onData = (chunk) => {
+    const capture = (chunk) => {
       const text = chunk.toString();
-      if (text.includes('Local:') || text.includes(`localhost:${port}`)) {
-        resolved = true;
-        clearTimeout(timeout);
-        resolve(child);
-      }
+      logs.push(text);
+      if (logs.length > 40) logs.shift();
     };
 
-    child.stdout.on('data', onData);
-    child.stderr.on('data', onData);
+    child.stdout.on('data', capture);
+    child.stderr.on('data', capture);
     child.on('error', reject);
+
+    let settled = false;
+    const fail = (error) => {
+      if (settled) return;
+      settled = true;
+      if (!child.killed) child.kill('SIGTERM');
+      const tail = logs.join('').trim();
+      reject(new Error(`${error.message}${tail ? `\n\nPreview server output:\n${tail}` : ''}`));
+    };
+
     child.on('exit', (code) => {
-      if (!resolved) reject(new Error(`Preview server exited with code ${code}`));
+      if (!settled) fail(new Error(`Preview server exited with code ${code ?? 'unknown'}`));
     });
+
+    waitForPreviewReady(`${baseUrl}/`, previewReadyMs)
+      .then(() => {
+        if (settled) return;
+        settled = true;
+        resolve(child);
+      })
+      .catch((err) => fail(err));
   });
 }
 
@@ -61,7 +111,10 @@ function stopPreview(child) {
     if (!child || child.killed) return resolve();
     child.on('exit', () => resolve());
     child.kill('SIGTERM');
-    setTimeout(() => child.kill('SIGKILL'), 3000);
+    setTimeout(() => {
+      if (!child.killed) child.kill('SIGKILL');
+      resolve();
+    }, 3000);
   });
 }
 
@@ -73,8 +126,8 @@ function outputPath(route) {
 
 async function prerenderRoute(page, route) {
   const url = `${baseUrl}${route}`;
-  await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 });
-  await page.waitForSelector('#main-content h1', { timeout: 15000 });
+  await page.goto(url, { waitUntil: 'networkidle', timeout: 60_000 });
+  await page.waitForSelector('#main-content h1', { timeout: 15_000 });
 
   const title = await page.title();
   const canonical = await page.locator('link[rel="canonical"]').getAttribute('href');
@@ -92,6 +145,8 @@ async function prerenderRoute(page, route) {
 
   return { route, title, canonical, h1: h1?.trim() };
 }
+
+ensurePlaywrightBrowser();
 
 console.log(`Prerendering ${routes.length} routes…`);
 
@@ -119,4 +174,4 @@ const report = {
 };
 
 await writeFile(join(dist, 'prerender-report.json'), JSON.stringify(report, null, 2), 'utf8');
-console.log(`Prerender complete. Report: dist/prerender-report.json`);
+console.log('Prerender complete. Report: dist/prerender-report.json');
