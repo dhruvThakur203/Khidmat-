@@ -325,6 +325,13 @@ h6 {
   color: var(--color-gold);
   width: 1.15rem;
   height: 1.15rem;
+  flex-shrink: 0;
+}
+
+/* Ensure trust button label text never inherits low-contrast colours */
+.btn--trust,
+.btn--trust:visited {
+  color: var(--color-maroon);
 }
 
 .btn--text {
