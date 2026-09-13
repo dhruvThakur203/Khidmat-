@@ -1,7 +1,13 @@
 import type { FaqItem } from './faqs';
 import type { PageSeo } from './seo';
+import { ogImages } from './seo';
 import { cateringCategoryImages } from './cateringImages';
 import { whatsappMessages } from '../utils/whatsapp';
+
+export interface ServiceFocus {
+  heading: string;
+  points: readonly string[];
+}
 
 export interface CateringService {
   id: string;
@@ -13,6 +19,8 @@ export interface CateringService {
   description: string;
   /** Short card copy for the Noida catering hub */
   cardDescription?: string;
+  /** Unique intent-focused copy — sub-pages only */
+  serviceFocus?: ServiceFocus;
   image: string;
   imageAlt: string;
   whatsappMessage: string;
@@ -21,38 +29,45 @@ export interface CateringService {
   perfectFor: readonly string[];
   foodCategories: readonly string[];
   faqs: readonly FaqItem[];
+  finalCtaHeadline?: string;
 }
 
 const hubFaqs: FaqItem[] = [
   {
-    id: 'hub-areas',
-    question: 'Which areas does Khidmat provide catering in?',
-    answer:
-      'Khidmat provides catering across Noida, Greater Noida and Delhi NCR for weddings, corporate events, parties and private celebrations.',
-  },
-  {
-    id: 'hub-quote',
-    question: 'How do I get a catering quote in Noida?',
-    answer:
-      'Share your event date, location, guest count and preferences on WhatsApp or through our enquiry form. Our team will suggest suitable menus and pricing.',
-  },
-  {
     id: 'hub-types',
-    question: 'What types of events do you cater for?',
+    question: 'What types of events does Khidmat cater?',
     answer:
-      'We cater for weddings, corporate and office events, birthday parties and private family gatherings.',
-  },
-  {
-    id: 'hub-guests',
-    question: 'What guest counts can Khidmat cater for?',
-    answer:
-      'From intimate gatherings of 20 guests to celebrations of 500 or more — menus are planned around your guest count.',
+      'Khidmat caters weddings, corporate and office events, birthday parties, anniversaries and private family gatherings across Noida and Delhi NCR.',
   },
   {
     id: 'hub-menu',
-    question: 'Are catering menus customised?',
+    question: 'Does Khidmat provide customised catering menus?',
     answer:
-      'Yes. Menus are tailored to your event type, dietary preferences and guest count, drawing from Khidmat\'s North Indian and Mughlai kitchen.',
+      'Yes. Menus are tailored to your event type, dietary preferences and guest count, drawing from Khidmat\'s North Indian and Mughlai restaurant kitchen.',
+  },
+  {
+    id: 'hub-small',
+    question: 'Can catering be arranged for small gatherings?',
+    answer:
+      'Yes. Khidmat caters intimate gatherings from approximately 20 guests, with menus planned around your occasion and guest count.',
+  },
+  {
+    id: 'hub-large',
+    question: 'Can Khidmat cater large events?',
+    answer:
+      'Yes. We cater celebrations of 500 guests or more. Share your expected guest count and our team will suggest suitable menu options.',
+  },
+  {
+    id: 'hub-areas',
+    question: 'Which areas does Khidmat serve?',
+    answer:
+      'Khidmat provides catering across Noida, Greater Noida and Delhi NCR, supported from our established restaurant locations in Sector 50, Noida and Kalkaji, Delhi.',
+  },
+  {
+    id: 'hub-quote',
+    question: 'How can I request a catering quote?',
+    answer:
+      'Share your event date, venue, guest count and menu preferences on WhatsApp or through our enquiry form. Our team will respond with suitable options.',
   },
 ];
 
@@ -65,15 +80,17 @@ export const cateringServices: CateringService[] = [
     shortTitle: 'Noida Catering',
     headline: 'Catering Services in Noida, Trusted Since 1992',
     description:
-      'For over three decades, Khidmat has brought restaurant-quality food and trusted hospitality to weddings, corporate events, parties and private celebrations across Noida and Delhi NCR.',
+      'Khidmat is a trusted caterer in Noida for weddings, corporate events, birthday parties and private gatherings — restaurant-quality food and 34+ years of hospitality across Noida and Delhi NCR.',
+    finalCtaHeadline: 'Ready to plan catering in Noida?',
     image: '/images/delhi/gallery/delhi-09.jpeg',
     imageAlt: 'Khidmat catering setup for events in Noida',
     whatsappMessage: whatsappMessages.generalCatering,
     seo: {
-      title: 'Catering Services in Noida | Khidmat — Trusted Since 1992',
+      title: 'Catering Services & Caterers in Noida | Khidmat Since 1992',
       description:
-        'Catering services in Noida for weddings, corporate events, parties and private celebrations. Restaurant-quality food trusted since 1992.',
+        'Trusted caterers in Noida for weddings, corporate events, birthday parties and private gatherings. Restaurant-quality catering menus and 34+ years of hospitality.',
       path: '/noida-catering',
+      ogImage: ogImages.cateringHub,
     },
     whyChoose: [
       '34+ Years of Hospitality Experience',
@@ -107,15 +124,27 @@ export const cateringServices: CateringService[] = [
     cardDescription:
       'Memorable wedding catering with generous spreads, live counters and trusted hospitality.',
     description:
-      'Wedding catering with generous food spreads, customised menus and the warmth of hospitality Khidmat has offered to generations of guests since 1992.',
+      'Plan wedding catering in Noida with generous spreads, customised menus and live counter options — the same kitchen that has served Khidmat guests since 1992.',
+    serviceFocus: {
+      heading: 'Wedding catering built around your celebration',
+      points: [
+        'Menu planning across wedding functions, receptions and pre-wedding events',
+        'Buffet and live counter options for large guest counts',
+        'Vegetarian and non-vegetarian menus from Khidmat\'s restaurant kitchen',
+        'Professional food presentation for memorable guest experiences',
+        'Catering across Noida, Greater Noida and Delhi NCR',
+      ],
+    },
+    finalCtaHeadline: 'Planning your wedding catering?',
     image: cateringCategoryImages.wedding.src,
     imageAlt: cateringCategoryImages.wedding.alt,
     whatsappMessage: whatsappMessages.wedding,
     seo: {
-      title: 'Wedding Catering in Noida | Khidmat — Trusted Since 1992',
+      title: 'Wedding Catering in Noida | Khidmat',
       description:
-        'Wedding catering in Noida and Delhi NCR. Custom menus, generous spreads and live counter options from a heritage hospitality brand.',
+        'Wedding catering in Noida and Delhi NCR with custom menus, generous spreads and live counter options. Trusted hospitality for memorable celebrations since 1992.',
       path: '/wedding-catering-noida',
+      ogImage: ogImages.wedding,
     },
     whyChoose: [
       'Customised Wedding Menus',
@@ -181,15 +210,27 @@ export const cateringServices: CateringService[] = [
     cardDescription:
       'Professional catering for conferences, office events, client meetings and team gatherings.',
     description:
-      'Professional catering for corporate events, office gatherings, conferences, client meetings and team celebrations. With over 34 years of hospitality experience, Khidmat brings restaurant-quality food, customised menus and reliable service to every business occasion.',
+      'Corporate catering in Noida for office events, conferences, client meetings and team lunches — reliable service, customised menus and professional buffet presentation since 1992.',
+    serviceFocus: {
+      heading: 'Professional catering for business occasions',
+      points: [
+        'Office lunches, conferences and client meeting catering',
+        'Buffet setup suited to corporate venues and timelines',
+        'North Indian and Mughlai menus with vegetarian and non-vegetarian options',
+        'Recurring office lunch catering available on enquiry',
+        'Serving businesses across Noida, Greater Noida and Delhi NCR',
+      ],
+    },
+    finalCtaHeadline: 'Need corporate event catering?',
     image: cateringCategoryImages.corporate.src,
     imageAlt: cateringCategoryImages.corporate.alt,
     whatsappMessage: whatsappMessages.corporate,
     seo: {
-      title: 'Corporate Catering in Noida | Office & Business Events — Khidmat',
+      title: 'Corporate Catering in Noida | Khidmat',
       description:
-        'Corporate catering in Noida for office events, conferences, client meetings and team lunches. Custom menus and professional service since 1992.',
+        'Corporate catering in Noida for office events, conferences, client meetings and team lunches. Custom menus and reliable professional service since 1992.',
       path: '/corporate-catering-noida',
+      ogImage: ogImages.corporate,
     },
     whyChoose: [
       'Corporate Events & Business Gatherings',
@@ -255,15 +296,27 @@ export const cateringServices: CateringService[] = [
     cardDescription:
       'Birthday parties, anniversaries and festive gatherings with generous, familiar flavours.',
     description:
-      'Birthday parties, anniversaries and festive gatherings — food that feels generous, familiar and worth remembering, served with Khidmat\'s trusted hospitality.',
+      'Birthday and party catering in Noida for celebrations of every size — familiar flavours, flexible menus and professional setup for guests of all ages.',
+    serviceFocus: {
+      heading: 'Party catering that feels generous and familiar',
+      points: [
+        'Birthday parties, anniversaries and festive family gatherings',
+        'Menus planned around your guest count and celebration style',
+        'Home venues, banquet halls and event spaces across Noida',
+        'Popular North Indian and Mughlai dishes guests recognise and enjoy',
+        'Enquire from approximately 20 guests upward',
+      ],
+    },
+    finalCtaHeadline: 'Planning a birthday or party?',
     image: cateringCategoryImages.party.src,
     imageAlt: cateringCategoryImages.party.alt,
     whatsappMessage: whatsappMessages.party,
     seo: {
-      title: 'Party Catering in Noida | Birthdays & Celebrations — Khidmat',
+      title: 'Birthday & Party Catering in Noida | Khidmat',
       description:
-        'Party and birthday catering in Noida. Flexible menus, professional service and restaurant-quality food for every celebration.',
+        'Birthday and party catering in Noida for celebrations of every size. Flexible menus, professional setup and restaurant-quality food since 1992.',
       path: '/party-catering-noida',
+      ogImage: ogImages.party,
     },
     whyChoose: [
       'Celebration-Friendly Menus',
@@ -328,15 +381,27 @@ export const cateringServices: CateringService[] = [
     cardDescription:
       'Intimate home celebrations and private dinners with restaurant-quality food and attentive service.',
     description:
-      'Intimate home celebrations, family dinners and private occasions — Khidmat brings restaurant-quality food and attentive service to your table.',
+      'Private event catering in Noida for home celebrations, family dinners and intimate gatherings — restaurant-quality food with attentive, discreet service.',
+    serviceFocus: {
+      heading: 'Private catering for home and intimate venues',
+      points: [
+        'Family dinners, home celebrations and personal milestones',
+        'Customised menus for smaller guest counts from around 20',
+        'Restaurant-quality food brought to your home or private venue',
+        'Menu planning around dietary preferences and occasion type',
+        'Serving private gatherings across Noida and Delhi NCR',
+      ],
+    },
+    finalCtaHeadline: 'Planning a private gathering?',
     image: cateringCategoryImages.private.src,
     imageAlt: cateringCategoryImages.private.alt,
     whatsappMessage: whatsappMessages.private,
     seo: {
-      title: 'Private Catering in Noida | Family Gatherings — Khidmat',
+      title: 'Private Catering in Noida | Khidmat',
       description:
-        'Private catering in Noida for home celebrations and intimate gatherings. Custom menus and trusted hospitality since 1992.',
+        'Private catering in Noida for home celebrations, family dinners and intimate gatherings. Custom menus and attentive service from a trusted hospitality brand.',
       path: '/private-party-catering-noida',
+      ogImage: ogImages.private,
     },
     whyChoose: [
       'Personalised Home Event Menus',

@@ -13,7 +13,8 @@ export function RestaurantPage() {
           <p className="eyebrow">Restaurant</p>
           <h1 className="page-header__title display-lg">Dine With Khidmat</h1>
           <p className="page-header__subtitle body-lg">
-            Visit Khidmat in Kalkaji, Delhi and Sector 50, Noida. North Indian and Mughlai dining since 1992.
+            Visit Khidmat in Kalkaji, Delhi and Sector 50, Noida. The same kitchen that powers our
+            restaurant dining also supports professional catering across Noida and Delhi NCR.
           </p>
         </div>
       </header>

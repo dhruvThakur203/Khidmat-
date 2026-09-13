@@ -4,7 +4,7 @@ import { brand } from '../../data/brand';
 import { footerNavigation } from '../../data/navigation';
 import { mailtoLink, social } from '../../data/social';
 import { logo } from '../../data/brandAssets';
-import { SocialLinks } from '../ui/SocialLinks';
+import { PlatformProfiles } from '../trust/PlatformProfiles';
 import './Footer.css';
 
 export function Footer() {
@@ -28,7 +28,7 @@ export function Footer() {
             <a href={mailtoLink} className="footer__email">
               {social.email}
             </a>
-            <SocialLinks variant="footer" />
+            <PlatformProfiles variant="footer" heading="" />
           </div>
 
           <div>

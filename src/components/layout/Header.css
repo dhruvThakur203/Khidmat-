@@ -301,6 +301,13 @@ html[data-cinematic] .header--transparent {
   color: var(--color-maroon);
 }
 
+.mobile-nav__link:focus-visible,
+.mobile-nav__sublink:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+  color: var(--color-maroon);
+}
+
 .header__nav-label {
   font-size: 0.78rem;
   letter-spacing: 0.04em;
@@ -388,4 +395,22 @@ html[data-cinematic] .header--transparent {
 .header__nav-dropdown-link.is-active {
   color: var(--color-maroon);
   background-color: var(--color-cream);
+}
+
+.header__nav-dropdown-link:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: -2px;
+  color: var(--color-maroon);
+  background-color: var(--color-cream);
+}
+
+.header__nav-link:focus-visible,
+.header__nav-label--link:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 4px;
+}
+
+.header__cta-ghost:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
 }

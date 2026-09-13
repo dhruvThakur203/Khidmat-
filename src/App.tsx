@@ -14,6 +14,7 @@ import { CateringMenuPage } from './pages/CateringMenuPage';
 import { CateringEventsPage } from './pages/CateringEventsPage';
 import { GuestCountPage } from './pages/GuestCountPage';
 import { RestaurantPage } from './pages/RestaurantPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 
 const cateringRoutes = cateringServices.map((service) => ({
   path: `/${service.slug}`,
@@ -45,6 +46,7 @@ const router = createBrowserRouter([
       { path: '/menu', element: <Navigate to="/catering-menu-noida" replace /> },
       { path: '/locations', element: <LocationsPage /> },
       { path: '/contact', element: <ContactPage /> },
+      { path: '*', element: <NotFoundPage /> },
     ],
   },
 ]);

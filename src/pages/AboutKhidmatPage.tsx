@@ -1,6 +1,10 @@
+import { Link } from 'react-router-dom';
 import { PageMeta } from '../components/seo/PageMeta';
 import { brand } from '../data/brand';
 import { pageSeo } from '../data/seo';
+import { siteConfig, siteStats } from '../data/site';
+import { PlatformProfiles } from '../components/trust/PlatformProfiles';
+import { HeritageTimeline } from '../components/heritage/HeritageTimeline';
 import { useReveal } from '../hooks/useReveal';
 import { DelhiSilhouette } from '../components/ui/DelhiSilhouette';
 import { Ornament } from '../components/ui/Ornament';
@@ -50,6 +54,49 @@ export function AboutKhidmatPage() {
           <div style={{ marginTop: '4rem' }}>
             <DelhiSilhouette />
           </div>
+        </div>
+      </section>
+
+      <section className="section section--dark">
+        <div className="container" style={{ maxWidth: '640px' }}>
+          <p className="eyebrow">Why guests trust Khidmat</p>
+          <h2 className="display-md">Experience You Can See</h2>
+          <ul className="about-trust__list body-lg" style={{ marginTop: '1.25rem' }}>
+            <li>{siteStats.yearsOfExperience}+ years of hospitality since {siteConfig.since}</li>
+            <li>Restaurant dining in Delhi and Noida</li>
+            <li>Professional catering across Noida and Delhi NCR</li>
+            <li>Food prepared from Khidmat&apos;s established kitchen</li>
+            <li>Real events — weddings, corporate functions and celebrations</li>
+          </ul>
+          <p className="body-lg" style={{ marginTop: '1.25rem' }}>
+            <Link to="/events" className="btn btn--text">View Events &amp; Gallery</Link>
+          </p>
+        </div>
+      </section>
+
+      <HeritageTimeline />
+
+      <section className="section section--cream">
+        <div className="container" style={{ maxWidth: '640px' }}>
+          <p className="eyebrow">Restaurant &amp; Catering</p>
+          <h2 className="display-md">One Brand, Two Experiences</h2>
+          <p className="body-lg" style={{ marginTop: '1rem' }}>
+            Khidmat is an established hospitality brand since {siteConfig.since}. Guests know us
+            for warm restaurant dining in Delhi and Noida — and for bringing that same kitchen
+            quality to weddings, corporate events, parties and private gatherings through our
+            catering services in Noida and Delhi NCR.
+          </p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginTop: '1.5rem' }}>
+            <Link to="/restaurant" className="btn btn--outline-dark">Visit Our Restaurants</Link>
+            <Link to="/noida-catering" className="btn btn--primary btn--compact">Explore Catering</Link>
+            <Link to="/contact" className="btn btn--text">Contact Us</Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <PlatformProfiles />
         </div>
       </section>
     </>

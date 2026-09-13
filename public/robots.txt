@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://khidmatrestaurant.com/sitemap.xml
+Sitemap: https://khidmat.co.in/sitemap.xml

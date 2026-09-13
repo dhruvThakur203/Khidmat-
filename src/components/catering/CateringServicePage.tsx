@@ -1,7 +1,14 @@
 import { Link } from 'react-router-dom';
+import { QuoteCtaLink } from '../analytics/QuoteCtaLink';
 import type { CateringService } from '../../data/catering';
 import { getCateringSubServices } from '../../data/catering';
-import { contactConfig } from '../../data/site';
+import { cateringProcessSteps } from '../../data/cateringProcess';
+import { getServiceJourney } from '../../data/cateringJourney';
+import { guestCountTiers } from '../../data/guestCountTiers';
+import { getRealEventsByServiceSlug } from '../../data/realEvents';
+import { EventCaseStudy } from '../events/EventCaseStudy';
+import { contactConfig, siteConfig } from '../../data/site';
+import { CateringJourney } from './CateringJourney';
 import { Breadcrumbs } from '../ui/Breadcrumbs';
 import { FaqSection } from './FaqSection';
 import { PageMeta } from '../seo/PageMeta';
@@ -36,7 +43,16 @@ export function CateringServicePage({ service }: CateringServicePageProps) {
   return (
     <>
       <PageMeta seo={service.seo} />
-      <StructuredData breadcrumbs={structuredBreadcrumbs} faqs={service.faqs} />
+      <StructuredData
+        breadcrumbs={structuredBreadcrumbs}
+        faqs={service.faqs}
+        service={{
+          name: service.title,
+          description: service.description,
+          path: service.seo.path,
+          image: service.image,
+        }}
+      />
 
       <div className="container catering-page-breadcrumbs">
         <Breadcrumbs items={breadcrumbItems} />
@@ -52,15 +68,32 @@ export function CateringServicePage({ service }: CateringServicePageProps) {
           <h1 className="display-lg">{service.headline}</h1>
           <p className="body-lg catering-page-hero__text">{service.description}</p>
           <div className="catering-page-hero__actions">
-            <WhatsAppButton message={service.whatsappMessage}>
-              Get Catering Menu on WhatsApp
+            <WhatsAppButton
+              message={service.whatsappMessage}
+              ctaLocation="catering-hero"
+              cateringType={service.id}
+            >
+              WhatsApp Khidmat
             </WhatsAppButton>
-            <Link to="/contact?type=catering" className="btn btn--outline">
+            <QuoteCtaLink
+              ctaLocation="catering-hero"
+              cateringType={service.id}
+              className="btn btn--outline"
+            >
               Get a Catering Quote
+            </QuoteCtaLink>
+            <Link to="/catering-menu-noida" className="btn btn--ghost catering-page-hero__menu-link">
+              View Catering Menu
             </Link>
           </div>
         </div>
       </header>
+
+      <section className="section section--cream" aria-label="Catering planning steps">
+        <div className="container">
+          <CateringJourney steps={getServiceJourney(service.id)} />
+        </div>
+      </section>
 
       {service.isHub && (
         <section className="section" aria-labelledby="catering-services-heading">
@@ -69,8 +102,9 @@ export function CateringServicePage({ service }: CateringServicePageProps) {
               Catering Services in Noida
             </h2>
             <p className="body-lg catering-hub__intro">
-              Choose the catering service that fits your occasion. Each service is backed by
-              Khidmat&apos;s restaurant kitchen and 34+ years of hospitality.
+              Khidmat provides catering in Noida for every occasion — from intimate gatherings
+              of 20 guests to celebrations of 500 or more. Choose your event type, plan by guest
+              count, explore menu options and request a quote.
             </p>
             <div className="catering-hub__grid">
               {subServices.map((sub) => (
@@ -90,6 +124,44 @@ export function CateringServicePage({ service }: CateringServicePageProps) {
         </section>
       )}
 
+      {service.isHub && (
+        <section className="section section--cream" aria-labelledby="hub-guest-count-heading">
+          <div className="container">
+            <h2 className="display-md" id="hub-guest-count-heading">
+              Catering by Guest Count
+            </h2>
+            <p className="body-lg catering-hub__intro">
+              Planning food for a specific number of guests? Explore options for every scale.
+            </p>
+            <ul className="catering-hub__guest-links">
+              {guestCountTiers.map((tier) => (
+                <li key={tier.id}>
+                  <Link to={`/catering-by-guest-count#guests-${tier.id}`}>
+                    {tier.range} guests
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <Link to="/catering-by-guest-count" className="btn btn--text" style={{ marginTop: '1rem' }}>
+              View all guest count options →
+            </Link>
+          </div>
+        </section>
+      )}
+
+      {service.serviceFocus && (
+        <section className="section section--cream" aria-labelledby="service-focus-heading">
+          <div className="container">
+            <h2 className="display-md" id="service-focus-heading">{service.serviceFocus.heading}</h2>
+            <ul className="catering-benefits" style={{ marginTop: 'var(--space-md)' }}>
+              {service.serviceFocus.points.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       <section className="section section--cream" aria-labelledby="why-choose-heading">
         <div className="container">
           <h2 className="display-md" id="why-choose-heading">
@@ -105,7 +177,7 @@ export function CateringServicePage({ service }: CateringServicePageProps) {
 
       <section className="section" aria-labelledby="perfect-for-heading">
         <div className="container">
-          <h2 className="display-md" id="perfect-for-heading">Perfect For</h2>
+          <h2 className="display-md" id="perfect-for-heading">Suitable For</h2>
           <div className="perfect-for__grid">
             {service.perfectFor.map((item) => (
               <div key={item} className="perfect-for__card">
@@ -118,7 +190,7 @@ export function CateringServicePage({ service }: CateringServicePageProps) {
 
       <section className="section section--cream" aria-labelledby="food-menu-heading">
         <div className="container">
-          <h2 className="display-md" id="food-menu-heading">Food &amp; Menu Experience</h2>
+          <h2 className="display-md" id="food-menu-heading">Menu &amp; Cuisine Options</h2>
           <p className="body-lg catering-food__intro">
             Menus draw from Khidmat&apos;s restaurant kitchen — prepared with the same care
             served at our tables since 1992.
@@ -130,9 +202,42 @@ export function CateringServicePage({ service }: CateringServicePageProps) {
           </ul>
           <p style={{ marginTop: '1.25rem' }}>
             <Link to="/catering-menu-noida" className="btn btn--text">
-              View Catering Menu Options
+              Explore Catering Menu in Noida
             </Link>
           </p>
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="catering-process-heading">
+        <div className="container">
+          <h2 className="display-md" id="catering-process-heading">How Catering Works</h2>
+          <p className="body-lg catering-process__intro">
+            A straightforward process — from your first enquiry to food served at your event.
+          </p>
+          <ol className="catering-process__steps">
+            {cateringProcessSteps.map((step) => (
+              <li key={step.step} className="catering-process__step">
+                <span className="catering-process__number" aria-hidden="true">{step.step}</span>
+                <div>
+                  <h3 className="catering-process__title">{step.title}</h3>
+                  <p className="catering-process__text">{step.description}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="section section--cream" aria-labelledby="areas-serve-heading">
+        <div className="container">
+          <h2 className="display-md" id="areas-serve-heading">Areas We Serve</h2>
+          <p className="body-lg catering-areas__text">
+            Khidmat provides {service.isHub ? 'catering services' : service.shortTitle.toLowerCase()} across{' '}
+            {siteConfig.serviceAreas.join(', ')}.
+          </p>
+          <Link to="/areas-we-serve" className="btn btn--text">
+            View Areas We Serve
+          </Link>
         </div>
       </section>
 
@@ -170,25 +275,43 @@ export function CateringServicePage({ service }: CateringServicePageProps) {
         </section>
       )}
 
+      {!service.isHub && getRealEventsByServiceSlug(service.slug).length > 0 && (
+        <section className="section" aria-labelledby="related-events-heading">
+          <div className="container">
+            <p className="eyebrow">Real events</p>
+            <h2 className="display-md" id="related-events-heading">
+              Recent {service.shortTitle} Events
+            </h2>
+            {getRealEventsByServiceSlug(service.slug).map((event) => (
+              <EventCaseStudy key={event.id} event={event} variant="full" />
+            ))}
+          </div>
+        </section>
+      )}
+
       <FaqSection faqs={[...service.faqs]} />
 
       <section className="section section--maroon catering-page-cta">
         <div className="container" style={{ textAlign: 'center' }}>
-          <h2 className="display-md">Planning an Event?</h2>
+          <h2 className="display-md">{service.finalCtaHeadline ?? 'Planning an Event?'}</h2>
           <p className="body-lg" style={{ maxWidth: '520px', margin: '1rem auto 1.5rem' }}>
             Tell us about your event and our team will help you plan the right menu.
           </p>
           <div className="catering-page-hero__actions" style={{ justifyContent: 'center' }}>
-            <Link to="/contact?type=catering" className="btn btn--primary">
+            <QuoteCtaLink
+              ctaLocation="catering-final-cta"
+              cateringType={service.id}
+              className="btn btn--primary"
+            >
               Get a Catering Quote
-            </Link>
+            </QuoteCtaLink>
             <a
               href={buildWhatsAppUrl(service.whatsappMessage)}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn--outline"
             >
-              WhatsApp Us
+              WhatsApp Khidmat
             </a>
           </div>
           <p style={{ marginTop: '1.5rem' }}>

@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { siteStats } from '../../../data/site';
-import { getGoogleProfileUrl, social } from '../../../data/social';
+import { verifiedProfiles } from '../../../data/businessEntity';
+import { getGoogleProfileUrl } from '../../../data/social';
+import { trackConversion } from '../../../utils/analytics';
 import { useAnimatedNumber } from '../../../hooks/useAnimatedNumber';
 import { useReveal } from '../../../hooks/useReveal';
 import { formatCompactCount, formatRating } from '../../../utils/formatCount';
@@ -84,6 +86,12 @@ function PlatformRatingStat({
 
   const useCompact = count >= 1000;
 
+  const trackClick = () => {
+    trackConversion(platformId === 'google' ? 'google_profile_click' : 'zomato_click', {
+      label: platform,
+    });
+  };
+
   return (
     <a
       href={href}
@@ -91,6 +99,7 @@ function PlatformRatingStat({
       rel="noopener noreferrer"
       className="trust-stat trust-stat--rating trust-stat__link"
       aria-label={ariaLabel}
+      onClick={trackClick}
     >
       <div className="trust-stat__platform">
         <PlatformIcon platform={platformId} />
@@ -132,6 +141,12 @@ function CommunityStat({
 
   const platformName = platformId === 'facebook' ? 'Facebook' : 'Instagram';
 
+  const trackClick = () => {
+    trackConversion(platformId === 'facebook' ? 'facebook_click' : 'instagram_click', {
+      label: platformName,
+    });
+  };
+
   return (
     <a
       href={href}
@@ -139,6 +154,7 @@ function CommunityStat({
       rel="noopener noreferrer"
       className="trust-stat trust-stat__link"
       aria-label={ariaLabel}
+      onClick={trackClick}
     >
       <div className="trust-stat__platform">
         <PlatformIcon platform={platformId} />
@@ -179,8 +195,12 @@ export function TrustStats() {
     siteStats.zomato.rating > 0 && siteStats.zomato.reviewCount > 0;
 
   return (
-    <section className="section trust-stats" ref={sectionRef} aria-label="Khidmat trust indicators">
+    <section className="section trust-stats" ref={sectionRef} aria-labelledby="trust-stats-heading">
       <div className="container reveal" ref={ref}>
+        <p className="eyebrow trust-stats__eyebrow">Trusted since 1992</p>
+        <h2 className="display-md trust-stats__heading" id="trust-stats-heading">
+          Find Khidmat on
+        </h2>
         <div className="trust-stats__grid">
           <YearsStat active={active} />
 
@@ -202,7 +222,7 @@ export function TrustStats() {
               active={active}
               platform="Zomato"
               platformId="zomato"
-              href={social.zomato}
+              href={verifiedProfiles.zomato.url}
               ariaLabel="View Khidmat on Zomato"
               rating={siteStats.zomato.rating}
               count={siteStats.zomato.reviewCount}
@@ -216,7 +236,7 @@ export function TrustStats() {
               value={siteStats.facebookFollowers}
               label="Facebook Community"
               platformId="facebook"
-              href={social.facebook}
+              href={verifiedProfiles.facebook.url}
               ariaLabel="Visit Khidmat on Facebook"
             />
           )}
@@ -227,7 +247,7 @@ export function TrustStats() {
               value={siteStats.instagramFollowers}
               label="Instagram Community"
               platformId="instagram"
-              href={social.instagram}
+              href={verifiedProfiles.instagram.url}
               ariaLabel="Visit Khidmat on Instagram"
             />
           )}

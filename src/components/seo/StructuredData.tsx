@@ -1,46 +1,32 @@
 import type { FaqItem } from '../../data/faqs';
-import { absoluteUrl } from '../../data/seo';
+import {
+  breadcrumbSchema,
+  cateringServiceSchema,
+  faqSchema,
+  type BreadcrumbItem,
+  type ServiceSchemaInput,
+} from '../../data/schema';
 import { getPublishedTestimonials } from '../../data/testimonials';
-
-interface BreadcrumbItem {
-  name: string;
-  path: string;
-}
 
 interface StructuredDataProps {
   breadcrumbs?: BreadcrumbItem[];
   faqs?: readonly FaqItem[];
+  service?: ServiceSchemaInput;
 }
 
-export function StructuredData({ breadcrumbs, faqs }: StructuredDataProps) {
+export function StructuredData({ breadcrumbs, faqs, service }: StructuredDataProps) {
   const scripts: object[] = [];
 
   if (breadcrumbs && breadcrumbs.length > 0) {
-    scripts.push({
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: breadcrumbs.map((item, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        name: item.name,
-        item: absoluteUrl(item.path),
-      })),
-    });
+    scripts.push(breadcrumbSchema(breadcrumbs));
   }
 
   if (faqs && faqs.length > 0) {
-    scripts.push({
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: faqs.map((faq) => ({
-        '@type': 'Question',
-        name: faq.question,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: faq.answer,
-        },
-      })),
-    });
+    scripts.push(faqSchema(faqs));
+  }
+
+  if (service) {
+    scripts.push(cateringServiceSchema(service));
   }
 
   const reviews = getPublishedTestimonials();

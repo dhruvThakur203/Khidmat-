@@ -1,4 +1,14 @@
 {
+  "redirects": [
+    { "source": "/our-story", "destination": "/about-khidmat", "permanent": true },
+    { "source": "/catering", "destination": "/noida-catering", "permanent": true },
+    { "source": "/office-catering-noida", "destination": "/corporate-catering-noida", "permanent": true },
+    { "source": "/office-catering", "destination": "/corporate-catering-noida", "permanent": true },
+    { "source": "/large-celebrations", "destination": "/noida-catering", "permanent": true },
+    { "source": "/large-celebrations-noida", "destination": "/noida-catering", "permanent": true },
+    { "source": "/private-catering-noida", "destination": "/private-party-catering-noida", "permanent": true },
+    { "source": "/menu", "destination": "/catering-menu-noida", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]

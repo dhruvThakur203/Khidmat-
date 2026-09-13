@@ -2,12 +2,17 @@
 export const siteConfig = {
   name: 'Khidmat',
   legalName: 'Khidmat Restaurant',
-  domain: 'https://khidmatrestaurant.com',
+  domain: 'https://khidmat.co.in',
   tagline: 'Restaurant • Catering • Hospitality',
   since: 1992,
   yearsExperience: 34,
   primaryMarket: 'Noida',
   serviceAreas: ['Noida', 'Greater Noida', 'Delhi NCR'],
+  /**
+   * Verified Google Business Profile URL (e.g. https://g.page/r/... or Maps listing).
+   * Set once here — automatically used in trust links, schema sameAs, and testimonials.
+   * Falls back to Noida Google Maps URL until confirmed.
+   */
   googleBusinessUrl: '',
   openingHours: 'Open daily — contact branch for timings',
 } as const;

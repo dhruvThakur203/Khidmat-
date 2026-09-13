@@ -52,6 +52,40 @@
   margin-top: var(--space-lg);
 }
 
+.catering-hub__guest-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  list-style: none;
+  padding: 0;
+  margin: var(--space-md) 0 0;
+}
+
+.catering-hub__guest-links a {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  text-decoration: none;
+}
+
+.catering-hub__guest-links a:hover {
+  color: var(--color-maroon);
+}
+
+.catering-page-hero__menu-link {
+  color: var(--color-text-light);
+  border: 1px solid rgba(247, 243, 235, 0.45);
+  padding: 0.75rem 1.5rem;
+}
+
+.catering-page-hero__menu-link:hover {
+  border-color: rgba(247, 243, 235, 0.85);
+  background-color: rgba(247, 243, 235, 0.08);
+}
+
 .catering-hub__intro {
   margin-top: 0.75rem;
   max-width: 600px;
@@ -165,6 +199,52 @@
   line-height: 1.5;
   font-family: var(--font-sans);
   font-size: 0.95rem;
+}
+
+.catering-process__intro {
+  margin-top: var(--space-sm);
+  max-width: 560px;
+}
+
+.catering-process__steps {
+  display: grid;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+  max-width: 720px;
+  list-style: none;
+  padding: 0;
+}
+
+.catering-process__step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-sm);
+  align-items: start;
+}
+
+.catering-process__number {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--color-gold);
+  line-height: 1.4;
+}
+
+.catering-process__title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--color-maroon);
+}
+
+.catering-process__text {
+  margin-top: 0.35rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+.catering-areas__text {
+  margin-top: var(--space-sm);
+  max-width: 560px;
 }
 
 .catering-benefits li::before {
@@ -284,5 +364,11 @@
 }
 
 .catering-page-cta__call {
-  color: rgba(247, 243, 235, 0.75);
+  color: rgba(247, 243, 235, 0.9);
+  border-bottom-color: rgba(247, 243, 235, 0.55);
+}
+
+.catering-page-cta__call:hover {
+  color: var(--color-text-light);
+  border-bottom-color: var(--color-gold);
 }

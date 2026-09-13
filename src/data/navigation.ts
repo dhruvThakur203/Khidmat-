@@ -39,12 +39,16 @@ export const mainNavigation: NavItem[] = [
 
 export const footerNavigation = [
   { label: 'Noida Catering', path: '/noida-catering' },
-  { label: 'Corporate Catering', path: '/corporate-catering-noida' },
   { label: 'Wedding Catering', path: '/wedding-catering-noida' },
+  { label: 'Corporate Catering', path: '/corporate-catering-noida' },
+  { label: 'Party Catering', path: '/party-catering-noida' },
+  { label: 'Private Catering', path: '/private-party-catering-noida' },
+  { label: 'Catering Menu', path: '/catering-menu-noida' },
+  { label: 'Areas We Serve', path: '/areas-we-serve' },
   { label: 'About Khidmat', path: '/about-khidmat' },
+  { label: 'Restaurant', path: '/restaurant' },
   { label: 'Events', path: '/events' },
   { label: 'Gallery', path: '/gallery' },
-  { label: 'Restaurant', path: '/restaurant' },
   { label: 'Locations', path: '/locations' },
   { label: 'Contact', path: '/contact' },
 ] as const;

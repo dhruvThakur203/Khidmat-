@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { usePrefersReducedMotion } from './usePrefersReducedMotion';
 
 interface UseAnimatedNumberOptions {
   end: number;
@@ -17,11 +18,19 @@ export function useAnimatedNumber({
   enabled = true,
   decimals = 0,
 }: UseAnimatedNumberOptions): number {
-  const [value, setValue] = useState(0);
+  const reducedMotion = usePrefersReducedMotion();
+  const [value, setValue] = useState(reducedMotion ? end : 0);
   const startedRef = useRef(false);
 
   useEffect(() => {
-    if (!enabled || end <= 0 || startedRef.current) return;
+    if (!enabled || end <= 0) return;
+
+    if (reducedMotion) {
+      setValue(end);
+      return;
+    }
+
+    if (startedRef.current) return;
     startedRef.current = true;
 
     const start = performance.now();
@@ -35,7 +44,7 @@ export function useAnimatedNumber({
     };
 
     requestAnimationFrame(tick);
-  }, [end, durationMs, enabled, decimals]);
+  }, [end, durationMs, enabled, decimals, reducedMotion]);
 
   return value;
 }

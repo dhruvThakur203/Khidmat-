@@ -3,16 +3,53 @@
   color: var(--color-text-muted);
 }
 
+.catering-menu__section-title {
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-md);
+}
+
+.catering-menu__event-grid {
+  display: grid;
+  gap: var(--space-md);
+  max-width: 720px;
+}
+
+@media (min-width: 640px) {
+  .catering-menu__event-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.catering-menu__event-card {
+  padding: var(--space-md);
+  background: var(--color-cream);
+  border: 1px solid rgba(84, 32, 40, 0.16);
+}
+
+.catering-menu__event-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  margin-bottom: 0.35rem;
+}
+
+.catering-menu__event-title a {
+  color: var(--color-maroon);
+  text-decoration: none;
+}
+
+.catering-menu__event-title a:hover {
+  color: var(--color-gold);
+}
+
 .catering-menu__categories {
   display: grid;
   gap: var(--space-md);
-  margin-top: var(--space-xl);
   max-width: 720px;
 }
 
 .catering-menu__category {
   padding-bottom: var(--space-md);
-  border-bottom: 1px solid rgba(166, 139, 91, 0.15);
+  border-bottom: 1px solid rgba(84, 32, 40, 0.14);
 }
 
 .catering-menu__category:last-child {
@@ -24,6 +61,56 @@
   font-size: 1.35rem;
   color: var(--color-maroon);
   margin-bottom: 0.35rem;
+}
+
+.catering-menu__event-note {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-top: 0.5rem;
+}
+
+.catering-menu__dishes {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-md) 0 0;
+  max-width: 640px;
+}
+
+.catering-menu__dish {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid rgba(84, 32, 40, 0.14);
+}
+
+.catering-menu__dish strong {
+  font-family: var(--font-serif);
+  color: var(--color-maroon);
+}
+
+.catering-menu__dish span {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.catering-menu__custom {
+  margin-top: var(--space-xl);
+  max-width: 640px;
+}
+
+.catering-menu__custom-list {
+  margin: var(--space-md) 0;
+  padding-left: 1.25rem;
+  color: var(--color-text-muted);
+}
+
+.catering-menu__custom-list li {
+  margin-bottom: 0.35rem;
+}
+
+.catering-menu__custom-note {
+  color: var(--color-text-muted);
 }
 
 .catering-menu__cta {

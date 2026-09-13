@@ -1,10 +1,13 @@
 import { branchList, formatPhoneLink } from '../data/branches';
 import { getBranchGallery } from '../data/gallery';
 import { BranchDeliveryMenuCta } from '../components/locations/BranchDeliveryMenuCta';
+import { PageMeta } from '../components/seo/PageMeta';
+import { pageSeo } from '../data/seo';
 
 export function LocationsPage() {
   return (
     <>
+      <PageMeta seo={pageSeo.locations} />
       <header className="page-header">
         <div className="container">
           <p className="eyebrow">Locations</p>

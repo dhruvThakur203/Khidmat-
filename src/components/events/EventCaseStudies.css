@@ -1,0 +1,22 @@
+.event-case-studies__intro {
+  max-width: 560px;
+  color: var(--color-text-muted);
+  margin-top: 0.75rem;
+  margin-bottom: var(--space-xl);
+}
+
+.event-case-studies__grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .event-case-studies__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.event-case-studies__list {
+  display: flex;
+  flex-direction: column;
+}

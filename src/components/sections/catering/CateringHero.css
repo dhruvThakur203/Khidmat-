@@ -71,7 +71,18 @@
 
 .catering-hero__call {
   color: var(--color-text-light);
-  border-color: rgba(247, 243, 235, 0.35);
+  border: 1px solid rgba(247, 243, 235, 0.5);
+  padding: 0.75rem 1.5rem;
+}
+
+.catering-hero__call:hover {
+  border-color: rgba(247, 243, 235, 0.85);
+  background-color: rgba(247, 243, 235, 0.08);
+}
+
+.catering-hero__call:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
 }
 
 @media (max-width: 640px) {

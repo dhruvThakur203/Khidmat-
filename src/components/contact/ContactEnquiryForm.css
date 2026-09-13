@@ -4,6 +4,49 @@
   color: var(--color-text-muted);
 }
 
+.contact-enquiry__type-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: var(--space-md);
+}
+
+.contact-enquiry__type-link {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-text-muted);
+  padding: 0.6rem 1.1rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(84, 32, 40, 0.3);
+  background-color: var(--color-ivory);
+  transition:
+    border-color var(--transition-base),
+    color var(--transition-base),
+    background-color var(--transition-base);
+}
+
+.contact-enquiry__type-link:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.contact-enquiry__type-link:hover {
+  color: var(--color-maroon);
+  border-color: var(--color-gold);
+}
+
+.contact-enquiry__type-link.is-active {
+  color: var(--color-maroon);
+  border-color: var(--color-gold);
+  background: var(--color-ivory);
+}
+
 .contact-enquiry__form {
   margin-top: var(--space-lg);
   max-width: 640px;
@@ -45,16 +88,25 @@
   font-weight: 400;
   color: var(--color-text);
   background-color: var(--color-ivory);
-  border: 1px solid rgba(166, 139, 91, 0.25);
+  border: 1px solid rgba(84, 32, 40, 0.28);
   padding: 0.75rem 0.85rem;
-  transition: border-color var(--transition-base);
+  min-height: 48px;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.contact-enquiry__field textarea {
+  min-height: 100px;
 }
 
 .contact-enquiry__field input:focus,
 .contact-enquiry__field select:focus,
-.contact-enquiry__field textarea:focus {
+.contact-enquiry__field textarea:focus,
+.contact-enquiry__field input:focus-visible,
+.contact-enquiry__field select:focus-visible,
+.contact-enquiry__field textarea:focus-visible {
   outline: none;
-  border-color: var(--color-gold);
+  border-color: var(--color-maroon);
+  box-shadow: 0 0 0 2px rgba(154, 132, 96, 0.35);
 }
 
 .contact-enquiry__field textarea {

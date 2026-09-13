@@ -4,14 +4,16 @@
   color: rgba(247, 243, 235, 0.75);
 }
 
-.real-events__grid {
+.real-events__grid,
+.real-events__case-grid {
   display: grid;
   gap: var(--space-md);
   margin-top: var(--space-xl);
 }
 
 @media (min-width: 768px) {
-  .real-events__grid {
+  .real-events__grid,
+  .real-events__case-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }

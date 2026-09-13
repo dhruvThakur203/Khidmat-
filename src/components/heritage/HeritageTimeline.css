@@ -1,0 +1,78 @@
+.heritage-timeline__milestones {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-xl) 0 0;
+  max-width: 640px;
+}
+
+.heritage-timeline__milestone {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: var(--space-md);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid rgba(166, 139, 91, 0.15);
+  margin-bottom: var(--space-md);
+}
+
+.heritage-timeline__milestone:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.heritage-timeline__year {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+.heritage-timeline__title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--color-maroon);
+  margin-bottom: 0.35rem;
+}
+
+.heritage-timeline__evidence {
+  display: grid;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+@media (min-width: 640px) {
+  .heritage-timeline__evidence {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.heritage-timeline__evidence-card {
+  border: 1px solid rgba(166, 139, 91, 0.15);
+  background: var(--color-ivory);
+  overflow: hidden;
+}
+
+.heritage-timeline__evidence-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.heritage-timeline__evidence-card > div {
+  padding: var(--space-md);
+}
+
+.heritage-timeline__evidence-type {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.35rem;
+}
+
+.heritage-timeline__source {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-top: 0.5rem;
+}

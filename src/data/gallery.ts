@@ -166,7 +166,7 @@ function cateringsImagePath(filename: string): string {
 export const eventShowcaseItems: EventShowcaseItem[] = [
   {
     id: 'celebration',
-    src: cateringsImagePath('celebration.jpg'),
+    src: cateringsImagePath('celebration.webp'),
     alt: 'Khidmat celebration catering with buffet service',
     type: 'Celebration',
     description: 'Large gathering',

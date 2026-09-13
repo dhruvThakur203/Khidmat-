@@ -1,9 +1,9 @@
-import { getGoogleProfileUrl } from '../../../data/social';
+import { verifiedProfiles } from '../../../data/businessEntity';
 import { getPublishedTestimonials } from '../../../data/testimonials';
+import { PlatformIcon } from '../../ui/PlatformIcon';
+import { trackConversion } from '../../../utils/analytics';
 import { useReveal } from '../../../hooks/useReveal';
 import './Testimonials.css';
-
-const googleReviewsUrl = getGoogleProfileUrl();
 
 export function Testimonials() {
   const ref = useReveal();
@@ -36,14 +36,27 @@ export function Testimonials() {
               and at celebrations across Noida and Delhi NCR. Read what guests share on Google,
               or message our team to discuss your event.
             </p>
+            <p className="eyebrow" style={{ marginTop: '1.5rem' }}>Find Khidmat on</p>
             <div className="testimonials__actions">
               <a
-                href={googleReviewsUrl}
+                href={verifiedProfiles.google.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn--outline"
+                className="btn btn--trust testimonials__platform-btn"
+                onClick={() => trackConversion('google_profile_click', { label: 'testimonials' })}
               >
-                Read Google Reviews
+                <PlatformIcon platform="google" />
+                Google Reviews
+              </a>
+              <a
+                href={verifiedProfiles.zomato.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn--trust testimonials__platform-btn"
+                onClick={() => trackConversion('zomato_click', { label: 'testimonials' })}
+              >
+                <PlatformIcon platform="zomato" />
+                Zomato
               </a>
             </div>
           </div>

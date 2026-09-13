@@ -1,8 +1,11 @@
+import { Link } from 'react-router-dom';
 import { PageMeta } from '../components/seo/PageMeta';
 import { servedAreas } from '../data/catering';
 import { pageSeo } from '../data/seo';
+import { siteConfig } from '../data/site';
 import { WhatsAppButton } from '../components/ui/WhatsAppButton';
 import { whatsappMessages } from '../utils/whatsapp';
+import './AreasWeServePage.css';
 
 export function AreasWeServePage() {
   return (
@@ -13,23 +16,41 @@ export function AreasWeServePage() {
           <p className="eyebrow">Areas we serve</p>
           <h1 className="page-header__title display-lg">Catering Across Noida &amp; Delhi NCR</h1>
           <p className="page-header__subtitle body-lg">
-            Khidmat serves celebrations and corporate events across Noida, Greater Noida and Delhi NCR from our established restaurant locations.
+            Khidmat provides catering services in Noida and Delhi NCR from our established
+            restaurant locations — bringing the same kitchen quality trusted since {siteConfig.since}.
           </p>
         </div>
       </header>
 
       <section className="section">
         <div className="container">
-          <ul style={{ display: 'grid', gap: '1.5rem', maxWidth: '560px' }}>
+          <ul className="areas-serve__grid">
             {servedAreas.map((area) => (
-              <li key={area.name} style={{ paddingBottom: '1rem', borderBottom: '1px solid rgba(166,139,91,0.15)' }}>
-                <h2 className="display-md" style={{ fontSize: '1.5rem', color: 'var(--color-maroon)' }}>{area.name}</h2>
-                <p className="body-lg" style={{ marginTop: '0.35rem' }}>{area.description}</p>
+              <li key={area.name} className="areas-serve__card">
+                <h2 className="areas-serve__name">{area.name}</h2>
+                <p className="body-lg areas-serve__text">{area.description}</p>
               </li>
             ))}
           </ul>
-          <div style={{ marginTop: '2rem' }}>
-            <WhatsAppButton message={whatsappMessages.generalCatering}>Enquire About Catering</WhatsAppButton>
+
+          <div className="areas-serve__links">
+            <p className="eyebrow">Explore catering services</p>
+            <div className="areas-serve__link-row">
+              <Link to="/noida-catering">All Catering Services</Link>
+              <Link to="/wedding-catering-noida">Wedding Catering</Link>
+              <Link to="/corporate-catering-noida">Corporate Catering</Link>
+              <Link to="/party-catering-noida">Party Catering</Link>
+              <Link to="/private-party-catering-noida">Private Gatherings</Link>
+            </div>
+          </div>
+
+          <div className="areas-serve__cta">
+            <WhatsAppButton message={whatsappMessages.generalCatering}>
+              Enquire About Catering
+            </WhatsAppButton>
+            <Link to="/contact?type=catering" className="btn btn--outline-dark">
+              Get a Catering Quote
+            </Link>
           </div>
         </div>
       </section>

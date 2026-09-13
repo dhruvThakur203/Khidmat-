@@ -2,12 +2,15 @@ import { brand } from '../data/brand';
 import { useReveal } from '../hooks/useReveal';
 import { EditorialImage } from '../components/ui/EditorialImage';
 import { Ornament } from '../components/ui/Ornament';
+import { PageMeta } from '../components/seo/PageMeta';
+import { pageSeo } from '../data/seo';
 
 export function ExperiencePage() {
   const ref = useReveal();
 
   return (
     <>
+      <PageMeta seo={pageSeo.experience} />
       <header className="page-header">
         <div className="container">
           <p className="eyebrow">The Experience</p>

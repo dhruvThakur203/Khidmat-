@@ -6,21 +6,23 @@ export function buildWhatsAppUrl(message: string, phone = contactConfig.whatsapp
 
 export const whatsappMessages = {
   generalCatering:
-    'Hi Khidmat Team, I am interested in catering services in Noida. Please share suitable menu options and pricing.',
+    'Hello Khidmat, I am looking for catering services in Noida. Please share suitable menu options for my event.',
   cateringMenu:
-    'Hi Khidmat Team, I would like to receive the Khidmat catering menu for my event. Please share options and pricing.',
+    'Hello Khidmat, I would like to discuss the catering menu for my event in Noida. Please share options.',
   cateringQuote:
-    'Hi Khidmat Team, I would like a catering quote for my upcoming event in Noida. Please get in touch.',
+    'Hello Khidmat, I would like a catering quote for my upcoming event in Noida.',
+  restaurant:
+    'Hello Khidmat, I would like to enquire about dining at your restaurant.',
   corporate:
-    'Hi Khidmat Team, I am interested in Corporate Catering in Noida (office events, conferences or team gatherings). Please share suitable menu options.',
+    'Hello Khidmat, I would like to enquire about corporate event catering in Noida.',
   wedding:
-    'Hi Khidmat Team, I am planning a wedding and would like to discuss catering options with Khidmat.',
+    'Hello Khidmat, I am planning a wedding and would like to discuss catering.',
   party:
-    'Hi Khidmat Team, I am planning a party and would like to discuss catering options in Noida.',
+    'Hello Khidmat, I am planning a birthday/party celebration and would like to discuss catering in Noida.',
   private:
-    'Hi Khidmat Team, I am planning a private gathering and would like to discuss Khidmat catering.',
+    'Hello Khidmat, I am planning a private gathering and would like to discuss catering.',
   guestCount: (range: string) =>
-    `Hi Khidmat Team, I am planning an event for approximately ${range} guests. Please share suitable catering menu options and pricing.`,
+    `Hello Khidmat, I need catering for approximately ${range} guests. Please share suitable menu options.`,
   quoteEnquiry: (details: {
     name: string;
     phone: string;
@@ -31,7 +33,7 @@ export const whatsappMessages = {
     message: string;
   }) => {
     const lines = [
-      'Hi Khidmat Team, I would like a catering quote.',
+      'Hello Khidmat, I would like a catering quote.',
       '',
       `Name: ${details.name}`,
       `Phone: ${details.phone}`,
@@ -39,6 +41,24 @@ export const whatsappMessages = {
       `Event Date: ${details.eventDate}`,
       `Guest Count: ${details.guestCount}`,
       `Location: ${details.location}`,
+    ];
+    if (details.message.trim()) {
+      lines.push('', `Message: ${details.message.trim()}`);
+    }
+    return lines.join('\n');
+  },
+  restaurantEnquiry: (details: {
+    name: string;
+    phone: string;
+    branch: string;
+    message: string;
+  }) => {
+    const lines = [
+      'Hello Khidmat, I would like to enquire about dining at your restaurant.',
+      '',
+      `Name: ${details.name}`,
+      `Phone: ${details.phone}`,
+      `Preferred Branch: ${details.branch}`,
     ];
     if (details.message.trim()) {
       lines.push('', `Message: ${details.message.trim()}`);

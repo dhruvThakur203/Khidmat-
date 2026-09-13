@@ -100,7 +100,19 @@ export const eventTypeCards: EventTypeCard[] = [
 ];
 
 export const servedAreas = [
-  { name: 'Noida', description: 'Sector 50 and across Noida' },
-  { name: 'Greater Noida', description: 'Celebrations and corporate events' },
-  { name: 'Delhi NCR', description: 'Kalkaji, Delhi and surrounding areas' },
+  {
+    name: 'Noida',
+    description:
+      'Wedding, corporate and party catering across Noida — supported from our Sector 50 restaurant and established kitchen operations.',
+  },
+  {
+    name: 'Greater Noida',
+    description:
+      'Catering for celebrations, corporate gatherings and private events across Greater Noida.',
+  },
+  {
+    name: 'Delhi NCR',
+    description:
+      'Catering and restaurant hospitality from our Kalkaji, Delhi location and across the wider Delhi NCR region.',
+  },
 ] as const;

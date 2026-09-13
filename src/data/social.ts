@@ -1,16 +1,16 @@
-import { branches } from './branches';
-import { siteConfig } from './site';
+import { getGoogleBusinessUrl, verifiedProfiles } from './businessEntity';
 
+/** @deprecated Prefer verifiedProfiles from businessEntity.ts — kept for backward compatibility. */
 export const social = {
-  facebook: 'https://www.facebook.com/KhidmatRestaurant/',
-  instagram: 'https://www.instagram.com/khidmatrestaurant',
-  zomato: 'https://www.zomato.com/ncr/khidmat-sector-50-noida',
+  facebook: verifiedProfiles.facebook.url,
+  instagram: verifiedProfiles.instagram.url,
+  zomato: verifiedProfiles.zomato.url,
   email: 'info@khidmat.co.in',
 } as const;
 
-/** Google Business Profile / Maps — Noida branch unless overridden in site config. */
+/** Google Business Profile / Maps — uses siteConfig.googleBusinessUrl when set. */
 export function getGoogleProfileUrl(): string {
-  return siteConfig.googleBusinessUrl || branches.noida.mapsUrl;
+  return getGoogleBusinessUrl();
 }
 
 export const mailtoLink = `mailto:${social.email}`;
