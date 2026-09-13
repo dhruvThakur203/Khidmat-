@@ -226,3 +226,35 @@
   max-width: 100%;
   height: auto;
 }
+.catering-events-list {
+  display: grid;
+  gap: 0;
+  max-width: 640px;
+}
+
+.catering-events-list__item {
+  display: block;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(166, 139, 91, 0.15);
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-base);
+}
+
+.catering-events-list__item:hover {
+  color: var(--color-maroon);
+}
+
+.catering-events-list__title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--color-maroon);
+}
+
+.catering-events-list__text {
+  margin-top: 0.35rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}

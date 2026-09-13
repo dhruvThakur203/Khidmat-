@@ -149,3 +149,40 @@ export const homepageGalleryCurated: string[] = [
 export function getGalleryImageById(id: string): GalleryImage | undefined {
   return galleryImages.find((img) => img.id === id);
 }
+
+export interface EventShowcaseItem {
+  id: string;
+  src: string;
+  alt: string;
+  type: string;
+  description: string;
+}
+
+function cateringsImagePath(filename: string): string {
+  return `/images/caterings/${encodeURIComponent(filename)}`;
+}
+
+/** Homepage "Real events" showcase — first two cards use caterings folder images */
+export const eventShowcaseItems: EventShowcaseItem[] = [
+  {
+    id: 'celebration',
+    src: cateringsImagePath('celebration.jpg'),
+    alt: 'Khidmat celebration catering with buffet service',
+    type: 'Celebration',
+    description: 'Large gathering',
+  },
+  {
+    id: 'corporate-event',
+    src: cateringsImagePath('corporate events.webp'),
+    alt: 'Khidmat corporate event catering buffet setup',
+    type: 'Corporate Event',
+    description: 'Buffet service',
+  },
+  {
+    id: 'catering-setup',
+    src: '/images/delhi/gallery/delhi-09.jpeg',
+    alt: 'Khidmat Delhi catering and event setup',
+    type: 'Catering Setup',
+    description: 'Event catering',
+  },
+];

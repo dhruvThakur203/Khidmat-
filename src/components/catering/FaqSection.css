@@ -1,0 +1,26 @@
+.faq-list {
+  margin-top: var(--space-lg);
+  max-width: 720px;
+}
+
+.faq-item {
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid rgba(74, 21, 27, 0.1);
+}
+
+.faq-item:first-child {
+  padding-top: 0;
+}
+
+.faq-item__question {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-maroon);
+  margin-bottom: 0.5rem;
+}
+
+.faq-item__answer {
+  color: var(--color-text);
+  line-height: 1.65;
+}

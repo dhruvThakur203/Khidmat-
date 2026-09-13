@@ -1,0 +1,38 @@
+.catering-menu__intro {
+  max-width: 640px;
+  color: var(--color-text-muted);
+}
+
+.catering-menu__categories {
+  display: grid;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+  max-width: 720px;
+}
+
+.catering-menu__category {
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid rgba(166, 139, 91, 0.15);
+}
+
+.catering-menu__category:last-child {
+  border-bottom: none;
+}
+
+.catering-menu__category-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--color-maroon);
+  margin-bottom: 0.35rem;
+}
+
+.catering-menu__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: var(--space-xl);
+}
+
+.catering-menu__delivery {
+  max-width: 640px;
+}

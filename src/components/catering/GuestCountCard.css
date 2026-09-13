@@ -1,0 +1,97 @@
+.guest-count-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  min-height: 108px;
+  padding: 1.25rem 1rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  background-color: var(--color-ivory);
+  border: 1px solid rgba(166, 139, 91, 0.22);
+  box-shadow: 0 1px 0 rgba(26, 20, 16, 0.04);
+  cursor: pointer;
+  transition:
+    border-color var(--transition-base),
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    background-color var(--transition-base);
+}
+
+.guest-count-card__range {
+  font-family: var(--font-sans);
+  font-size: clamp(1.35rem, 2.5vw, 1.65rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--color-maroon);
+  letter-spacing: -0.01em;
+}
+
+.guest-count-card__label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.guest-count-card__helper {
+  margin-top: 0.35rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 400;
+  line-height: 1.35;
+  color: rgba(44, 36, 32, 0.55);
+  max-width: 12rem;
+}
+
+.guest-count-card__arrow {
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+  font-size: 0.85rem;
+  color: rgba(166, 139, 91, 0.45);
+  transition: transform var(--transition-base), color var(--transition-base);
+}
+
+.guest-count-card:hover {
+  border-color: var(--color-gold);
+  background-color: var(--color-cream);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(26, 20, 16, 0.08);
+}
+
+.guest-count-card:hover .guest-count-card__arrow {
+  transform: translateX(2px);
+  color: var(--color-gold);
+}
+
+.guest-count-card:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.guest-count-grid {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+@media (min-width: 640px) {
+  .guest-count-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .guest-count-grid--five {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .guest-count-grid--three {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

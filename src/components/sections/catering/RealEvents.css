@@ -1,0 +1,66 @@
+.real-events__intro {
+  margin-top: var(--space-sm);
+  max-width: 560px;
+  color: rgba(247, 243, 235, 0.75);
+}
+
+.real-events__grid {
+  display: grid;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .real-events__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.real-event-card__image {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: rgba(26, 20, 16, 0.35);
+}
+
+.real-event-card__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Celebration — landscape buffet line */
+.real-event-card__image--celebration img {
+  object-position: center 58%;
+}
+
+/* Corporate — food spread with serving counter */
+.real-event-card__image--corporate-event img {
+  object-position: center 42%;
+}
+
+/* Catering setup — unchanged composition */
+.real-event-card__image--catering-setup img {
+  object-position: center center;
+}
+
+.real-event-card__meta {
+  padding-top: var(--space-sm);
+}
+
+.real-event-card__meta h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--color-text-light);
+}
+
+.real-event-card__meta p {
+  font-size: 0.85rem;
+  color: rgba(247, 243, 235, 0.65);
+  margin-top: 0.2rem;
+}
+
+.real-events__cta {
+  margin-top: var(--space-lg);
+}

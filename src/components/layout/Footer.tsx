@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { branchList, formatPhoneLink } from '../../data/branches';
 import { brand } from '../../data/brand';
-import { footerLinks } from '../../data/heritage';
+import { footerNavigation } from '../../data/navigation';
 import { mailtoLink, social } from '../../data/social';
 import { logo } from '../../data/brandAssets';
 import { SocialLinks } from '../ui/SocialLinks';
@@ -34,7 +34,7 @@ export function Footer() {
           <div>
             <h3 className="footer__heading">Explore</h3>
             <nav className="footer__links" aria-label="Footer navigation">
-              {footerLinks.map((link) => (
+              {footerNavigation.map((link) => (
                 <Link key={link.path} to={link.path} className="footer__link">
                   {link.label}
                 </Link>

@@ -1,0 +1,288 @@
+.catering-page-breadcrumbs {
+  padding-top: calc(var(--header-height) + var(--space-sm));
+}
+
+.catering-page-hero {
+  position: relative;
+  min-height: 72vh;
+  display: flex;
+  align-items: flex-end;
+  color: var(--color-text-light);
+}
+
+.catering-page-hero__media {
+  position: absolute;
+  inset: 0;
+}
+
+.catering-page-hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.catering-page-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(26, 20, 16, 0.88) 0%,
+    rgba(26, 20, 16, 0.45) 55%,
+    rgba(26, 20, 16, 0.25) 100%
+  );
+}
+
+.catering-page-hero__content {
+  position: relative;
+  z-index: 1;
+  padding-block: var(--space-2xl);
+  max-width: 720px;
+}
+
+.catering-page-hero__text {
+  margin-top: var(--space-md);
+  color: rgba(247, 243, 235, 0.85);
+}
+
+.catering-page-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: var(--space-lg);
+}
+
+.catering-hub__intro {
+  margin-top: 0.75rem;
+  max-width: 600px;
+  color: var(--color-text-muted);
+}
+
+.catering-hub__grid {
+  display: grid;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+@media (min-width: 640px) {
+  .catering-hub__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .catering-hub__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
+.catering-hub__card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  background: var(--color-ivory);
+  border: 1px solid rgba(166, 139, 91, 0.18);
+  transition:
+    border-color var(--transition-base),
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.catering-hub__card:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(26, 20, 16, 0.08);
+}
+
+.catering-hub__card-image {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.catering-hub__card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.5s ease;
+}
+
+.catering-hub__card-image--wedding img,
+.catering-page-hero__media--wedding img {
+  object-position: center 48%;
+}
+
+.catering-hub__card:hover .catering-hub__card-image img {
+  transform: scale(1.03);
+}
+
+.catering-hub__card-body {
+  padding: var(--space-md);
+}
+
+.catering-hub__card-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--color-maroon);
+}
+
+.catering-hub__card-text {
+  margin-top: 0.5rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+.catering-hub__card-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.catering-benefits {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: var(--space-lg);
+  max-width: 720px;
+}
+
+@media (min-width: 768px) {
+  .catering-benefits {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.catering-benefits li {
+  padding-left: 1.25rem;
+  position: relative;
+  line-height: 1.5;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+}
+
+.catering-benefits li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-gold);
+  transform: rotate(45deg);
+}
+
+.perfect-for__grid {
+  display: grid;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+  max-width: 720px;
+}
+
+@media (min-width: 640px) {
+  .perfect-for__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .perfect-for__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.perfect-for__card {
+  padding: 1rem 1.15rem;
+  background: var(--color-ivory);
+  border: 1px solid rgba(166, 139, 91, 0.18);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-maroon);
+  text-align: center;
+}
+
+.catering-food__intro {
+  margin-top: 0.75rem;
+  max-width: 560px;
+  color: var(--color-text-muted);
+}
+
+.catering-food__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: var(--space-md);
+  max-width: 640px;
+}
+
+.catering-food__list li {
+  padding: 0.45rem 0.85rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+  background: var(--color-ivory);
+  border: 1px solid rgba(166, 139, 91, 0.2);
+}
+
+.catering-guest-cta__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  align-items: flex-start;
+  padding: var(--space-lg);
+  background: var(--color-ivory);
+  border: 1px solid rgba(166, 139, 91, 0.2);
+}
+
+@media (min-width: 768px) {
+  .catering-guest-cta__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.catering-guest-cta__text {
+  margin-top: 0.5rem;
+  max-width: 480px;
+  color: var(--color-text-muted);
+}
+
+.catering-related__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  margin-top: var(--space-sm);
+}
+
+.catering-related__links a {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-maroon);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-base);
+}
+
+.catering-related__links a:hover {
+  color: var(--color-gold);
+}
+
+.catering-page-cta .btn--outline {
+  color: var(--color-text-light);
+  border-color: rgba(247, 243, 235, 0.45);
+}
+
+.catering-page-cta__call {
+  color: rgba(247, 243, 235, 0.75);
+}

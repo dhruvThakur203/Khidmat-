@@ -1,11 +1,17 @@
+import { PageMeta } from '../components/seo/PageMeta';
+import { pageSeo } from '../data/seo';
 import { branchList, formatPhoneLink } from '../data/branches';
 import { brand } from '../data/brand';
+import { contactConfig, siteConfig } from '../data/site';
 import { social, mailtoLink } from '../data/social';
 import { SocialLinks } from '../components/ui/SocialLinks';
+import { ContactEnquiryForm } from '../components/contact/ContactEnquiryForm';
+import { buildWhatsAppUrl, whatsappMessages } from '../utils/whatsapp';
 
 export function ContactPage() {
   return (
     <>
+      <PageMeta seo={pageSeo.contact} />
       <header className="page-header">
         <div className="container">
           <p className="eyebrow">Contact</p>
@@ -13,6 +19,8 @@ export function ContactPage() {
           <p className="page-header__subtitle body-lg">{brand.contact.subtitle}</p>
         </div>
       </header>
+
+      <ContactEnquiryForm />
 
       <section className="section">
         <div className="container">
@@ -26,6 +34,22 @@ export function ContactPage() {
             <a href={mailtoLink} className="contact-summary__email">
               {social.email}
             </a>
+            <p className="contact-summary__hours body-lg" style={{ marginTop: '0.75rem' }}>
+              {siteConfig.openingHours}
+            </p>
+            <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
+              <a href={formatPhoneLink(contactConfig.phonePrimary)} className="btn btn--outline-dark btn--compact">
+                Call {contactConfig.phoneDisplay}
+              </a>
+              <a
+                href={buildWhatsAppUrl(whatsappMessages.cateringQuote)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn--primary btn--compact"
+              >
+                WhatsApp
+              </a>
+            </div>
           </div>
 
           <div className="contact-grid">
@@ -54,7 +78,7 @@ export function ContactPage() {
                   </a>
                   {branch.whatsapp && (
                     <a
-                      href={`https://wa.me/${branch.whatsapp}`}
+                      href={`https://wa.me/${branch.whatsapp}?text=${encodeURIComponent(whatsappMessages.generalCatering)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn btn--outline-dark"

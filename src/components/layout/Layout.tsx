@@ -1,6 +1,7 @@
 import { Outlet, ScrollRestoration } from 'react-router-dom';
 import { Footer } from './Footer';
 import { Header } from './Header';
+import { StickyMobileCta } from './StickyMobileCta';
 
 interface LayoutProps {
   transparentHeader?: boolean;
@@ -17,6 +18,7 @@ export function Layout({ transparentHeader = false }: LayoutProps) {
         <Outlet />
       </main>
       <Footer />
+      <StickyMobileCta />
       <ScrollRestoration />
     </>
   );

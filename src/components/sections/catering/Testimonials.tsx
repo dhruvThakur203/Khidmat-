@@ -1,0 +1,54 @@
+import { getGoogleProfileUrl } from '../../../data/social';
+import { getPublishedTestimonials } from '../../../data/testimonials';
+import { useReveal } from '../../../hooks/useReveal';
+import './Testimonials.css';
+
+const googleReviewsUrl = getGoogleProfileUrl();
+
+export function Testimonials() {
+  const ref = useReveal();
+  const published = getPublishedTestimonials();
+
+  return (
+    <section className="section testimonials" aria-labelledby="testimonials-heading">
+      <div className="container reveal" ref={ref}>
+        <p className="eyebrow">Reviews &amp; testimonials</p>
+        <h2 className="display-lg" id="testimonials-heading">
+          What Our Guests Say
+        </h2>
+
+        {published.length > 0 ? (
+          <div className="testimonials__grid">
+            {published.map((item) => (
+              <blockquote key={item.id} className="testimonial-card">
+                <p className="testimonial-card__quote">&ldquo;{item.quote}&rdquo;</p>
+                <footer className="testimonial-card__footer">
+                  <cite className="testimonial-card__author">{item.author}</cite>
+                  <p className="testimonial-card__context">{item.context}</p>
+                </footer>
+              </blockquote>
+            ))}
+          </div>
+        ) : (
+          <div className="testimonials__empty">
+            <p className="body-lg">
+              Khidmat has welcomed generations of guests since 1992 — at our restaurant tables
+              and at celebrations across Noida and Delhi NCR. Read what guests share on Google,
+              or message our team to discuss your event.
+            </p>
+            <div className="testimonials__actions">
+              <a
+                href={googleReviewsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn--outline"
+              >
+                Read Google Reviews
+              </a>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}

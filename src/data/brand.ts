@@ -8,7 +8,7 @@ export const brand = {
   brandStatement: '34 years of trust, tradition and the taste of Delhi.',
   legacy: {
     title: 'OUR LEGACY',
-    statement: 'A tradition worth coming back to.',
+    statement: 'A Legacy of Taste & Hospitality Since 1992',
     intro:
       'For 34 years, Khidmat has welcomed generations of guests with food that stays true to its roots and hospitality that feels genuinely personal.',
     body:
@@ -47,7 +47,7 @@ export const brand = {
     ] as const,
   },
   food: {
-    heading: 'From the Khidmat Kitchen',
+    heading: 'Exceptional Food Begins with Experience',
     subtitle:
       'Slow-cooked classics, fragrant biryanis and rich North Indian flavours — prepared with the patience and care they deserve.',
   },

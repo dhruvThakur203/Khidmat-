@@ -1,3 +1,5 @@
+import { PageMeta } from '../components/seo/PageMeta';
+import { pageSeo } from '../data/seo';
 import { GalleryGrid } from '../components/gallery/GalleryGrid';
 import { brand } from '../data/brand';
 import { SocialLinks } from '../components/ui/SocialLinks';
@@ -5,6 +7,7 @@ import { SocialLinks } from '../components/ui/SocialLinks';
 export function GalleryPage() {
   return (
     <>
+      <PageMeta seo={pageSeo.gallery} />
       <header className="page-header">
         <div className="container">
           <p className="eyebrow">Khidmat Gallery</p>
