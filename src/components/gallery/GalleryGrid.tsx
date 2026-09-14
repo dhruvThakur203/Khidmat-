@@ -20,13 +20,26 @@ function GalleryThumbnail({ item }: { item: GalleryImage }) {
 
   return (
     <div className="gallery-item__media">
-      <img
-        src={isVideo ? (item.poster ?? item.src) : item.src}
-        alt={item.alt}
-        loading="lazy"
-        decoding="async"
-        className="gallery-item__img"
-      />
+      {isVideo ? (
+        <video
+          src={item.src}
+          poster={item.poster}
+          muted
+          playsInline
+          preload="metadata"
+          className="gallery-item__img gallery-item__video-thumb"
+          aria-hidden="true"
+          tabIndex={-1}
+        />
+      ) : (
+        <img
+          src={item.src}
+          alt={item.alt}
+          loading="lazy"
+          decoding="async"
+          className="gallery-item__img"
+        />
+      )}
       {isVideo && (
         <span className="gallery-item__play" aria-hidden="true">
           <span className="gallery-item__play-icon" />

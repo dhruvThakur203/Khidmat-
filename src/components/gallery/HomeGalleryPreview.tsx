@@ -1,17 +1,17 @@
 import { Link } from 'react-router-dom';
 import {
-  getGalleryImageById,
+  getBranchGalleryImageById,
   homepageGalleryCurated,
-  type GalleryImage,
-} from '../../data/gallery';
+  type BranchGalleryImage,
+} from '../../data/branchGallery';
 import { useLightbox } from '../../hooks/useLightbox';
 import { useReveal } from '../../hooks/useReveal';
 import { Lightbox } from '../ui/Lightbox';
 import './HomeGalleryPreview.css';
 
-const curatedImages: GalleryImage[] = homepageGalleryCurated
-  .map((id) => getGalleryImageById(id))
-  .filter((img): img is GalleryImage => img !== undefined);
+const curatedImages: BranchGalleryImage[] = homepageGalleryCurated
+  .map((id) => getBranchGalleryImageById(id))
+  .filter((img): img is BranchGalleryImage => img !== undefined);
 
 export function HomeGalleryPreview() {
   const ref = useReveal();

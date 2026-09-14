@@ -26,8 +26,9 @@ export function EventsPage() {
       <section className="section" aria-labelledby="events-gallery-heading">
         <div className="container">
           <h2 className="display-md" id="events-gallery-heading">Event Gallery</h2>
-          <p className="body-lg" style={{ marginTop: '0.5rem', marginBottom: 'var(--space-lg)', maxWidth: '560px', color: 'var(--color-text-muted)' }}>
-            Restaurant spaces, catering setups and celebrations from Khidmat&apos;s Delhi and Noida locations.
+          <p className="body-lg" style={{ marginTop: '0.5rem', marginBottom: 'var(--space-lg)', maxWidth: '640px', color: 'var(--color-text-muted)' }}>
+            A closer look at the food, people and celebrations that make every Khidmat experience special — from
+            weddings and private gatherings to institutional events and professional catering setups.
           </p>
           <GalleryGrid showFilters />
         </div>

@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
-import type { GalleryImage } from '../../data/gallery';
+import type { LightboxMedia } from '../../data/gallery';
 import './Lightbox.css';
 
 interface LightboxProps {
-  image: GalleryImage | null;
+  image: LightboxMedia | null;
   onClose: () => void;
   onNext: () => void;
   onPrev: () => void;
@@ -33,7 +33,7 @@ export function Lightbox({
     return () => {
       video.pause();
     };
-  }, [image?.id, image?.type]);
+  }, [image?.src, image?.type]);
 
   if (!image) return null;
 
@@ -76,7 +76,7 @@ export function Lightbox({
           {isVideo ? (
             <video
               ref={videoRef}
-              key={image.id}
+              key={image.src}
               src={image.src}
               poster={image.poster}
               className="lightbox__video"

@@ -1,163 +1,77 @@
-import type { BranchId } from './branches';
-import { photoGalleryItems } from './photoGallery';
+import { eventGalleryItems } from './eventGallery';
 
 export type GalleryCategory =
-  | 'ambience'
-  | 'food'
+  | 'weddings'
   | 'celebrations'
-  | 'catering';
+  | 'private-gatherings'
+  | 'food-setups'
+  | 'school-events'
+  | 'team';
 
-export type GalleryFilter =
-  | 'all'
-  | BranchId
-  | GalleryCategory;
+export type GalleryFilter = 'all' | GalleryCategory;
 
 export type GalleryMediaType = 'image' | 'video';
 
-export interface GalleryImage {
-  id: string;
+/** Minimal shape for gallery lightbox — shared by Events gallery and branch previews. */
+export interface LightboxMedia {
   src: string;
-  type?: GalleryMediaType;
-  branch?: BranchId;
-  category: GalleryCategory;
   alt: string;
   caption?: string;
+  type?: GalleryMediaType;
   poster?: string;
-  width?: number;
-  height?: number;
+  id?: string;
 }
 
-const branchGalleryImages: GalleryImage[] = [
-  {
-    id: 'noida-01',
-    src: '/images/noida/gallery/noida-01.jpeg',
-    branch: 'noida',
-    category: 'ambience',
-    alt: 'Khidmat Noida dining area with Delhi heritage mural',
-    caption: 'Noida — dining room',
-  },
-  {
-    id: 'noida-02',
-    src: '/images/noida/gallery/noida-02.jpeg',
-    branch: 'noida',
-    category: 'ambience',
-    alt: 'Khidmat Noida restaurant exterior at night',
-    caption: 'Noida — exterior',
-  },
-  {
-    id: 'delhi-01',
-    src: '/images/delhi/gallery/delhi-01.jpeg',
-    branch: 'delhi',
-    category: 'ambience',
-    alt: 'Khidmat Delhi bar and lounge area',
-    caption: 'Delhi — bar',
-  },
-  {
-    id: 'delhi-02',
-    src: '/images/delhi/gallery/delhi-02.jpeg',
-    branch: 'delhi',
-    category: 'ambience',
-    alt: 'Khidmat Delhi lounge seating with floral wall art',
-    caption: 'Delhi — lounge',
-  },
-  {
-    id: 'delhi-03',
-    src: '/images/delhi/gallery/delhi-03.jpeg',
-    branch: 'delhi',
-    category: 'ambience',
-    alt: 'Khidmat Delhi dining area with wood paneling',
-    caption: 'Delhi — dining',
-  },
-  {
-    id: 'delhi-04',
-    src: '/images/delhi/gallery/delhi-04.jpeg',
-    branch: 'delhi',
-    category: 'ambience',
-    alt: 'Khidmat Delhi interior with red seating',
-    caption: 'Delhi — seating',
-  },
-  {
-    id: 'delhi-05',
-    src: '/images/delhi/gallery/delhi-05.jpeg',
-    branch: 'delhi',
-    category: 'celebrations',
-    alt: 'Khidmat Delhi banquet and celebration space',
-    caption: 'Delhi — celebrations',
-  },
-  {
-    id: 'delhi-06',
-    src: '/images/delhi/gallery/delhi-06.jpeg',
-    branch: 'delhi',
-    category: 'ambience',
-    alt: 'Khidmat Delhi restaurant interior detail',
-    caption: 'Delhi — interior',
-  },
-  {
-    id: 'delhi-07',
-    src: '/images/delhi/gallery/delhi-07.jpeg',
-    branch: 'delhi',
-    category: 'ambience',
-    alt: 'Khidmat Delhi dining hall with buffet',
-    caption: 'Delhi — dining hall',
-  },
-  {
-    id: 'delhi-08',
-    src: '/images/delhi/gallery/delhi-08.jpeg',
-    branch: 'delhi',
-    category: 'ambience',
-    alt: 'Khidmat Delhi restaurant space',
-    caption: 'Delhi — restaurant',
-  },
-  {
-    id: 'delhi-09',
-    src: '/images/delhi/gallery/delhi-09.jpeg',
-    branch: 'delhi',
-    category: 'catering',
-    alt: 'Khidmat Delhi catering and event setup',
-    caption: 'Delhi — catering',
-  },
-];
+export interface GalleryItem extends LightboxMedia {
+  id: string;
+  type: GalleryMediaType;
+  category: GalleryCategory;
+  title: string;
+}
 
-export const galleryImages: GalleryImage[] = [
-  ...branchGalleryImages,
-  ...(photoGalleryItems as GalleryImage[]),
-];
+/** @deprecated Use GalleryItem */
+export type GalleryImage = GalleryItem;
+
+export const galleryCategoryMeta: Record<
+  GalleryCategory,
+  { displayName: string; filterLabel: string }
+> = {
+  weddings: { displayName: 'Wedding Celebrations', filterLabel: 'Weddings' },
+  celebrations: { displayName: 'Celebrations & Special Occasions', filterLabel: 'Celebrations' },
+  'private-gatherings': { displayName: 'Private Gatherings', filterLabel: 'Private Gatherings' },
+  'food-setups': { displayName: 'Food & Catering Setups', filterLabel: 'Food & Setups' },
+  'school-events': { displayName: 'School & Institutional Events', filterLabel: 'School Events' },
+  team: { displayName: 'The Khidmat Team', filterLabel: 'Our Team' },
+};
 
 export const galleryFilters: { id: GalleryFilter; label: string }[] = [
   { id: 'all', label: 'All' },
-  { id: 'delhi', label: 'Delhi' },
-  { id: 'noida', label: 'Noida' },
-  { id: 'food', label: 'Food' },
-  { id: 'ambience', label: 'Ambience' },
+  { id: 'weddings', label: 'Weddings' },
   { id: 'celebrations', label: 'Celebrations' },
-  { id: 'catering', label: 'Catering' },
+  { id: 'private-gatherings', label: 'Private Gatherings' },
+  { id: 'food-setups', label: 'Food & Setups' },
+  { id: 'school-events', label: 'School Events' },
+  { id: 'team', label: 'Our Team' },
 ];
+
+/** Events & Gallery — sourced from public/images/gallery/ */
+export const galleryImages: GalleryItem[] = eventGalleryItems as GalleryItem[];
 
 export function filterGallery(
-  images: GalleryImage[],
+  images: GalleryItem[],
   filter: GalleryFilter,
-): GalleryImage[] {
+): GalleryItem[] {
   if (filter === 'all') return images;
-  if (filter === 'delhi' || filter === 'noida') {
-    return images.filter((img) => img.branch === filter);
-  }
-  return images.filter((img) => img.category === filter);
+  return images.filter((item) => item.category === filter);
 }
 
-export function getBranchGallery(branch: BranchId): GalleryImage[] {
-  return galleryImages.filter((img) => img.branch === branch && img.type !== 'video');
+export function getGalleryItemById(id: string): GalleryItem | undefined {
+  return galleryImages.find((item) => item.id === id);
 }
 
-/** Curated selection for homepage editorial preview */
-export const homepageGalleryCurated: string[] = [
-  'noida-01',
-  'delhi-02',
-  'delhi-01',
-  'noida-02',
-];
-
-export function getGalleryImageById(id: string): GalleryImage | undefined {
-  return galleryImages.find((img) => img.id === id);
+/** @deprecated Use getGalleryItemById */
+export function getGalleryImageById(id: string): GalleryItem | undefined {
+  return getGalleryItemById(id);
 }
 
 export interface EventShowcaseItem {
@@ -172,7 +86,7 @@ function cateringsImagePath(filename: string): string {
   return `/images/caterings/${encodeURIComponent(filename)}`;
 }
 
-/** Homepage "Real events" showcase — first two cards use caterings folder images */
+/** Homepage "Real events" showcase cards */
 export const eventShowcaseItems: EventShowcaseItem[] = [
   {
     id: 'celebration',

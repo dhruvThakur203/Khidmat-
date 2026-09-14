@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { branchList, formatPhoneLink } from '../../data/branches';
 import { brand } from '../../data/brand';
 import { useReveal } from '../../hooks/useReveal';
-import { getBranchGallery } from '../../data/gallery';
+import { getBranchGallery } from '../../data/branchGallery';
 import { BranchDeliveryMenuCta } from '../locations/BranchDeliveryMenuCta';
 import './LocationsPreview.css';
 

@@ -13,7 +13,8 @@ export function GalleryPage() {
           <p className="eyebrow">Khidmat Gallery</p>
           <h1 className="page-header__title display-lg">Inside Khidmat</h1>
           <p className="page-header__subtitle body-lg">
-            Restaurant spaces, celebrations, and moments from our Delhi and Noida locations.
+            A closer look at the food, people and celebrations that make every Khidmat experience special — from
+            weddings and private gatherings to institutional events and professional catering setups.
           </p>
         </div>
       </header>

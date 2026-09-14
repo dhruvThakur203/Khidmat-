@@ -1,5 +1,5 @@
 import { branchList, formatPhoneLink } from '../data/branches';
-import { getBranchGallery } from '../data/gallery';
+import { getBranchGallery } from '../data/branchGallery';
 import { BranchDeliveryMenuCta } from '../components/locations/BranchDeliveryMenuCta';
 import { PageMeta } from '../components/seo/PageMeta';
 import { pageSeo } from '../data/seo';

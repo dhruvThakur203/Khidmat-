@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
-import type { GalleryImage } from '../data/gallery';
+import type { LightboxMedia } from '../data/gallery';
 
-export function useLightbox(images: GalleryImage[]) {
+export function useLightbox(images: LightboxMedia[]) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const open = useCallback((index: number) => setActiveIndex(index), []);

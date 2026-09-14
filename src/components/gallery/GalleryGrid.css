@@ -84,6 +84,12 @@
   transition: transform 0.5s ease;
 }
 
+.gallery-item__video-thumb {
+  min-height: 200px;
+  background-color: var(--color-cream);
+  pointer-events: none;
+}
+
 .gallery-item:hover .gallery-item__img {
   transform: scale(1.03);
 }
