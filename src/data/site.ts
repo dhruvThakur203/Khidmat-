@@ -13,7 +13,7 @@ export const siteConfig = {
    * Set once here — automatically used in trust links, schema sameAs, and testimonials.
    * Falls back to Noida Google Maps URL until confirmed.
    */
-  googleBusinessUrl: '',
+  googleBusinessUrl: 'https://share.google/anfnFjJYsBBpwLKq5',
   openingHours: 'Open daily — contact branch for timings',
 } as const;
 
