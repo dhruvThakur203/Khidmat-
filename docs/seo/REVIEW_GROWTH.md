@@ -60,7 +60,7 @@ find us when planning their events. We would truly appreciate your feedback:
 Thank you again for your trust in Khidmat.
 
 — Team Khidmat
-99992 62580
+99714 77902
 ```
 
 📋 Replace `[Google Review Link]` with the direct GBP review URL once `googleBusinessUrl` is configured. Format is typically: `https://g.page/r/[ID]/review`
@@ -124,7 +124,7 @@ We look forward to serving you again.
 Dear [Name], thank you for your honest feedback. We're glad you appreciated
 [positive point]. We're sorry [concern] didn't fully meet expectations — we'd
 welcome the chance to discuss how we can do better. Please reach us at
-info@khidmat.co.in or 99992 62580.
+info@khidmat.co.in or 99714 77902.
 — Team Khidmat
 ```
 
@@ -133,7 +133,7 @@ info@khidmat.co.in or 99992 62580.
 ```
 Dear [Name], we're sorry your experience with Khidmat fell short of what we
 aim to deliver. We take this seriously and would like to understand what
-happened. Please contact us directly at info@khidmat.co.in or 99992 62580 so
+happened. Please contact us directly at info@khidmat.co.in or 99714 77902 so
 we can address your concerns personally.
 — [Manager name], Khidmat
 ```

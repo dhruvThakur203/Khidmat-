@@ -35,10 +35,10 @@ export const branches: Record<BranchId, Branch> = {
     area: 'Sector 50',
     city: 'Noida',
     address: 'B-1/56, Central Market, Sector 50, Noida',
-    phones: ['99992 62580', '99992 12111', '0120-4549300', '0120-4549301', '0120-4549302'],
+    phones: ['99714 77902', '99712 00153', '0120-4549300', '0120-4549301', '0120-4549302'],
     mapsUrl:
       'https://www.google.com/maps/place/khidmat+noida/data=!4m2!3m1!1s0x390ce59baf0554df:0xe728e390eee0fbd3',
-    whatsapp: '919999262580',
+    whatsapp: '919971477902',
     deliveryMenu: noidaDeliveryMenu,
   },
 };

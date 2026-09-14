@@ -15,7 +15,7 @@ export function RealEvents() {
       <div className="container reveal" ref={ref}>
         <p className="eyebrow">Real events</p>
         <h2 className="display-lg" id="real-events-heading">
-          Every Celebration Has a Story
+          Catering That Looks As Good As It Tastes
         </h2>
         <p className="real-events__intro body-lg">
           {hasCaseStudies

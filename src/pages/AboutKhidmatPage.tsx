@@ -4,6 +4,7 @@ import { brand } from '../data/brand';
 import { pageSeo } from '../data/seo';
 import { siteConfig, siteStats } from '../data/site';
 import { PlatformProfiles } from '../components/trust/PlatformProfiles';
+import { AwardRecognition } from '../components/heritage/AwardRecognition';
 import { HeritageTimeline } from '../components/heritage/HeritageTimeline';
 import { useReveal } from '../hooks/useReveal';
 import { DelhiSilhouette } from '../components/ui/DelhiSilhouette';
@@ -73,6 +74,8 @@ export function AboutKhidmatPage() {
           </p>
         </div>
       </section>
+
+      <AwardRecognition />
 
       <HeritageTimeline />
 

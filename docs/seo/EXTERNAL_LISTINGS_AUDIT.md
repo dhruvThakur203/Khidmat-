@@ -11,7 +11,7 @@ Use this checklist to verify NAP (Name, Address, Phone) and entity consistency a
 | **Legal name** | Khidmat Restaurant |
 | **Website** | https://khidmat.co.in/ |
 | **Email** | info@khidmat.co.in |
-| **Primary phone** | 99992 62580 |
+| **Primary phone** | 99714 77902 |
 | **Since** | 1992 |
 
 ### Branch — Delhi
@@ -28,7 +28,7 @@ Use this checklist to verify NAP (Name, Address, Phone) and entity consistency a
 |-------|-------|
 | Area | Sector 50, Noida |
 | Address | B-1/56, Central Market, Sector 50, Noida |
-| Phone | 99992 62580, 99992 12111, 0120-4549300–302 |
+| Phone | 99714 77902, 99712 00153, 0120-4549300–302 |
 
 ---
 

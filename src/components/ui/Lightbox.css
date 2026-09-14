@@ -35,12 +35,14 @@
   margin: 0;
 }
 
-.lightbox__image {
+.lightbox__image,
+.lightbox__video {
   max-width: 90vw;
   max-height: 80vh;
   width: auto;
   height: auto;
   object-fit: contain;
+  background-color: rgba(26, 20, 16, 0.4);
 }
 
 .lightbox__caption {

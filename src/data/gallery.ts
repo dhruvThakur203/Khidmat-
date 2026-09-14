@@ -1,4 +1,5 @@
 import type { BranchId } from './branches';
+import { photoGalleryItems } from './photoGallery';
 
 export type GalleryCategory =
   | 'ambience'
@@ -11,18 +12,22 @@ export type GalleryFilter =
   | BranchId
   | GalleryCategory;
 
+export type GalleryMediaType = 'image' | 'video';
+
 export interface GalleryImage {
   id: string;
   src: string;
-  branch: BranchId;
+  type?: GalleryMediaType;
+  branch?: BranchId;
   category: GalleryCategory;
   alt: string;
   caption?: string;
+  poster?: string;
   width?: number;
   height?: number;
 }
 
-export const galleryImages: GalleryImage[] = [
+const branchGalleryImages: GalleryImage[] = [
   {
     id: 'noida-01',
     src: '/images/noida/gallery/noida-01.jpeg',
@@ -113,6 +118,11 @@ export const galleryImages: GalleryImage[] = [
   },
 ];
 
+export const galleryImages: GalleryImage[] = [
+  ...branchGalleryImages,
+  ...(photoGalleryItems as GalleryImage[]),
+];
+
 export const galleryFilters: { id: GalleryFilter; label: string }[] = [
   { id: 'all', label: 'All' },
   { id: 'delhi', label: 'Delhi' },
@@ -135,7 +145,7 @@ export function filterGallery(
 }
 
 export function getBranchGallery(branch: BranchId): GalleryImage[] {
-  return galleryImages.filter((img) => img.branch === branch);
+  return galleryImages.filter((img) => img.branch === branch && img.type !== 'video');
 }
 
 /** Curated selection for homepage editorial preview */
@@ -180,8 +190,8 @@ export const eventShowcaseItems: EventShowcaseItem[] = [
   },
   {
     id: 'catering-setup',
-    src: '/images/delhi/gallery/delhi-09.jpeg',
-    alt: 'Khidmat Delhi catering and event setup',
+    src: cateringsImagePath('setUp.png'),
+    alt: 'Khidmat event catering setup',
     type: 'Catering Setup',
     description: 'Event catering',
   },

@@ -17,7 +17,7 @@ Production website: **https://khidmat.co.in/**
 | **Business name** | Khidmat | 📋 Must match signage and website exactly — no keyword stuffing in name |
 | **Website** | https://khidmat.co.in/ | ✓ Live — verify in GBP |
 | **Email** | info@khidmat.co.in | 📋 Add to GBP if field available |
-| **Primary phone** | 99992 62580 (Noida) | 📋 Match Noida listing |
+| **Primary phone** | 99714 77902 (Noida) | 📋 Match Noida listing |
 | **Delhi phone** | 011-41600195 | 📋 Delhi listing only |
 
 ### Noida — Sector 50 (primary catering market)
@@ -25,9 +25,9 @@ Production website: **https://khidmat.co.in/**
 | Field | Value |
 |-------|-------|
 | Address | B-1/56, Central Market, Sector 50, Noida |
-| Phones | 99992 62580, 99992 12111, 0120-4549300–302 |
+| Phones | 99714 77902, 99712 00153, 0120-4549300–302 |
 | Maps (fallback) | [Noida Google Maps](https://www.google.com/maps/place/khidmat+noida) |
-| WhatsApp | +91 99992 62580 |
+| WhatsApp | +91 99714 77902 |
 
 ### Delhi — Kalkaji
 

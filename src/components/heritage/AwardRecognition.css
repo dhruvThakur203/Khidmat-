@@ -1,0 +1,54 @@
+.award-recognition__grid {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+  max-width: 960px;
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .award-recognition__grid {
+    grid-template-columns: minmax(200px, 280px) 1fr;
+    gap: var(--space-2xl);
+  }
+}
+
+.award-recognition__image-wrap {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-md);
+}
+
+.award-recognition__image {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 12px 32px rgba(26, 20, 16, 0.12));
+}
+
+@media (min-width: 768px) {
+  .award-recognition__image {
+    max-width: 260px;
+  }
+}
+
+.award-recognition__text {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .award-recognition__text {
+    text-align: left;
+  }
+}
+
+.award-recognition__copy {
+  margin-top: 1rem;
+  color: var(--color-text-muted);
+  max-width: 36rem;
+}
+
+.award-recognition__copy + .award-recognition__copy {
+  margin-top: 0.75rem;
+}

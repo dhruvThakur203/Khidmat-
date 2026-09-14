@@ -36,7 +36,11 @@ export function ContactPage() {
           </p>
           <ul className="contact-entity__list body-lg" style={{ marginTop: '1rem' }}>
             <li>Email: <a href={mailtoLink}>{businessEntity.email}</a></li>
-            <li>Phone: <a href={formatPhoneLink(contactConfig.phonePrimary)}>{contactConfig.phoneDisplay}</a></li>
+            <li>Phone: <a href={formatPhoneLink(contactConfig.phonePrimary)}>{contactConfig.phoneFormatted}</a></li>
+            <li>
+              Alternate Number:{' '}
+              <a href={formatPhoneLink(contactConfig.phoneAlternate)}>{contactConfig.phoneAlternateFormatted}</a>
+            </li>
             <li>WhatsApp: {contactConfig.whatsappDisplay}</li>
             <li>{siteConfig.openingHours}</li>
           </ul>

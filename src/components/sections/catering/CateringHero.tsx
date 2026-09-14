@@ -1,5 +1,5 @@
 import { contactConfig, siteConfig } from '../../../data/site';
-import { kitchenVideo } from '../../../data/heritage';
+import { landingHeroVideo } from '../../../data/heritage';
 import { usePrefersReducedMotion } from '../../../hooks/usePrefersReducedMotion';
 import { trackConversion } from '../../../utils/analytics';
 import { QuoteCtaLink } from '../../analytics/QuoteCtaLink';
@@ -16,8 +16,8 @@ export function CateringHero() {
       <div className="catering-hero__media">
         <video
           className="catering-hero__video"
-          src={kitchenVideo.src}
-          poster={kitchenVideo.poster}
+          src={landingHeroVideo.src}
+          poster={landingHeroVideo.poster}
           autoPlay={!reducedMotion}
           muted
           loop
@@ -32,27 +32,34 @@ export function CateringHero() {
         <p className="eyebrow catering-hero__eyebrow">{siteConfig.tagline}</p>
         <p className="catering-hero__since">Trusted Since {siteConfig.since}</p>
         <h1 className="catering-hero__title display-lg">
-          Catering Services in Noida, Trusted Since 1992
+          Premium Catering Services in Noida &amp; Delhi NCR
         </h1>
         <p className="catering-hero__text body-lg">
-          For over three decades, Khidmat has brought restaurant-quality food and trusted
-          hospitality to weddings, corporate events, birthday parties and private gatherings
-          across Noida and Delhi NCR — from the same kitchen that has welcomed dining guests
-          since 1992.
+          Restaurant-quality food and professional hospitality for weddings, corporate events,
+          parties and private celebrations across Noida and Delhi NCR.
         </p>
         <div className="catering-hero__actions">
-          <WhatsAppButton message={whatsappMessages.cateringMenu} ctaLocation="homepage-catering-hero">
-            WhatsApp Khidmat
-          </WhatsAppButton>
-          <QuoteCtaLink ctaLocation="homepage-catering-hero" className="btn btn--outline">
+          <QuoteCtaLink ctaLocation="homepage-catering-hero" className="btn btn--primary">
             Get a Catering Quote
           </QuoteCtaLink>
+          <WhatsAppButton
+            message={whatsappMessages.generalCatering}
+            ctaLocation="homepage-catering-hero"
+            className="btn btn--outline"
+          >
+            WhatsApp Khidmat
+          </WhatsAppButton>
           <a
             href={formatPhoneLink(contactConfig.phonePrimary)}
             className="btn btn--ghost catering-hero__call"
-            onClick={() => trackConversion('phone_click', { ctaLocation: 'homepage-catering-hero', label: 'primary' })}
+            onClick={() =>
+              trackConversion('phone_click', {
+                ctaLocation: 'homepage-catering-hero',
+                label: 'primary',
+              })
+            }
           >
-            Call Khidmat
+            {contactConfig.phoneDisplay}
           </a>
         </div>
       </div>

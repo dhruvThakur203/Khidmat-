@@ -4,6 +4,7 @@ import {
   galleryFilters,
   galleryImages,
   type GalleryFilter,
+  type GalleryImage,
 } from '../../data/gallery';
 import { useLightbox } from '../../hooks/useLightbox';
 import { Lightbox } from '../ui/Lightbox';
@@ -12,6 +13,27 @@ import './GalleryGrid.css';
 interface GalleryGridProps {
   limit?: number;
   showFilters?: boolean;
+}
+
+function GalleryThumbnail({ item }: { item: GalleryImage }) {
+  const isVideo = item.type === 'video';
+
+  return (
+    <div className="gallery-item__media">
+      <img
+        src={isVideo ? (item.poster ?? item.src) : item.src}
+        alt={item.alt}
+        loading="lazy"
+        decoding="async"
+        className="gallery-item__img"
+      />
+      {isVideo && (
+        <span className="gallery-item__play" aria-hidden="true">
+          <span className="gallery-item__play-icon" />
+        </span>
+      )}
+    </div>
+  );
 }
 
 export function GalleryGrid({ limit, showFilters = true }: GalleryGridProps) {
@@ -40,28 +62,22 @@ export function GalleryGrid({ limit, showFilters = true }: GalleryGridProps) {
       )}
 
       <div className="gallery-masonry" role="list">
-        {displayed.map((image, index) => (
+        {displayed.map((item, index) => (
           <button
-            key={image.id}
+            key={item.id}
             type="button"
-            className="gallery-item"
+            className={`gallery-item${item.type === 'video' ? ' gallery-item--video' : ''}`}
             role="listitem"
             onClick={() => open(index)}
-            aria-label={`View ${image.alt}`}
+            aria-label={`View ${item.caption ?? item.alt}${item.type === 'video' ? ' (video)' : ''}`}
           >
-            <img
-              src={image.src}
-              alt={image.alt}
-              loading="lazy"
-              decoding="async"
-              className="gallery-item__img"
-            />
+            <GalleryThumbnail item={item} />
           </button>
         ))}
       </div>
 
       {displayed.length === 0 && (
-        <p className="gallery-empty">No images found for this filter.</p>
+        <p className="gallery-empty">No gallery items found for this filter.</p>
       )}
 
       <Lightbox

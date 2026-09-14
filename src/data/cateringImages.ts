@@ -24,13 +24,13 @@ export const cateringCategoryImages = {
     alt: 'Corporate event catering by Khidmat in Noida',
   },
   party: {
-    filename: 'birthday catering.jpg',
-    src: cateringImagePath('birthday catering.jpg'),
+    filename: 'birthday catering.png',
+    src: cateringImagePath('birthday catering.png'),
     alt: 'Birthday and party catering setup by Khidmat',
   },
   private: {
-    filename: 'private caterings.jpeg',
-    src: cateringImagePath('private caterings.jpeg'),
+    filename: 'private caterings.png',
+    src: cateringImagePath('private caterings.png'),
     alt: 'Private gathering catering by Khidmat',
   },
 } as const satisfies Record<string, CateringCategoryImage>;

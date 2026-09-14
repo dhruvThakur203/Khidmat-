@@ -42,8 +42,12 @@ export const siteStats = {
 
 export const contactConfig = {
   email: 'info@khidmat.co.in',
-  whatsapp: '919999262580',
-  whatsappDisplay: '+91 99992 62580',
-  phonePrimary: '9999262580',
-  phoneDisplay: '99992 62580',
+  whatsapp: '919971477902',
+  whatsappDisplay: '+91 99714 77902',
+  phonePrimary: '9971477902',
+  phoneDisplay: '99714 77902',
+  phoneFormatted: '+91 99714 77902',
+  phoneAlternate: '9971200153',
+  phoneAlternateDisplay: '99712 00153',
+  phoneAlternateFormatted: '+91 99712 00153',
 } as const;

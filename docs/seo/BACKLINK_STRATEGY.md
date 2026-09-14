@@ -18,7 +18,7 @@ Citations = consistent NAP (Name, Address, Phone) mentions across the web. They 
 | Website | https://khidmat.co.in/ |
 | Email | info@khidmat.co.in |
 | Noida address | B-1/56, Central Market, Sector 50, Noida |
-| Noida phone | 99992 62580 |
+| Noida phone | 99714 77902 |
 | Delhi address | E-9, Main Road, Near Deshbandhu College, Kalkaji, New Delhi |
 | Delhi phone | 011-41600195 |
 

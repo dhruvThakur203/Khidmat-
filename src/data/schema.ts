@@ -21,6 +21,7 @@ export function organizationSchema() {
     logo: absoluteUrl(logo.src),
     image: absoluteUrl('/images/noida/gallery/noida-01.jpeg'),
     email: contactConfig.email,
+    telephone: `+91-${contactConfig.phonePrimary}`,
     foundingDate: String(siteConfig.since),
     servesCuisine: ['North Indian', 'Mughlai', 'Indian'],
     sameAs: getSchemaSameAs(),

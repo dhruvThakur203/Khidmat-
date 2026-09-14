@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { branchList, formatPhoneLink } from '../../data/branches';
 import { brand } from '../../data/brand';
+import { contactConfig } from '../../data/site';
 import { footerNavigation } from '../../data/navigation';
 import { mailtoLink, social } from '../../data/social';
 import { logo } from '../../data/brandAssets';
@@ -28,6 +29,15 @@ export function Footer() {
             <a href={mailtoLink} className="footer__email">
               {social.email}
             </a>
+            <a href={formatPhoneLink(contactConfig.phonePrimary)} className="footer__phone">
+              {contactConfig.phoneFormatted}
+            </a>
+            <p className="footer__phone-alt">
+              Alternate Number:{' '}
+              <a href={formatPhoneLink(contactConfig.phoneAlternate)} className="footer__phone">
+                {contactConfig.phoneAlternateFormatted}
+              </a>
+            </p>
             <PlatformProfiles variant="footer" heading="" />
           </div>
 

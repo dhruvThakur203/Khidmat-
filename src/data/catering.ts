@@ -8,6 +8,39 @@ export {
   getCateringSubServices,
 } from './cateringServices';
 
+/** Homepage trust strip — verified facts only */
+export const homeTrustBarItems = [
+  '34+ Years of Experience',
+  'Weddings',
+  'Corporate Events',
+  'Private Parties',
+  'Noida & Delhi NCR',
+] as const;
+
+/** Homepage "Why Choose Khidmat?" pillars — verified differentiators */
+export const homeWhyPillars = [
+  {
+    id: 'heritage',
+    title: 'Heritage',
+    description: 'Trusted hospitality since 1992 across Delhi and Noida.',
+  },
+  {
+    id: 'food',
+    title: 'Food Quality',
+    description: 'Restaurant-quality North Indian and Mughlai food for every event.',
+  },
+  {
+    id: 'hospitality',
+    title: 'Hospitality',
+    description: 'Professional service and presentation for weddings, corporate and private events.',
+  },
+  {
+    id: 'experience',
+    title: 'Experience',
+    description: 'Catering for every occasion — from intimate gatherings to celebrations of 500+ guests.',
+  },
+] as const;
+
 /** Homepage "Why Khidmat" — mirrors the Noida catering hub benefits */
 export const whyKhidmatBenefits = [
   '34+ Years of Hospitality Experience',

@@ -1,4 +1,4 @@
-import { whyKhidmatBenefits } from '../../../data/catering';
+import { homeWhyPillars } from '../../../data/catering';
 import { useReveal } from '../../../hooks/useReveal';
 import './WhyKhidmat.css';
 
@@ -10,13 +10,16 @@ export function WhyKhidmat() {
       <div className="container reveal" ref={ref}>
         <p className="eyebrow">Why Khidmat</p>
         <h2 className="display-lg" id="why-khidmat-heading">
-          Why Families &amp; Businesses Have Trusted Khidmat Since 1992
+          Why Choose Khidmat?
         </h2>
-        <ul className="why-khidmat__list">
-          {whyKhidmatBenefits.map((item) => (
-            <li key={item}>{item}</li>
+        <div className="why-khidmat__grid">
+          {homeWhyPillars.map((pillar) => (
+            <article key={pillar.id} className="why-khidmat__card">
+              <h3 className="why-khidmat__card-title">{pillar.title}</h3>
+              <p className="why-khidmat__card-text">{pillar.description}</p>
+            </article>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );

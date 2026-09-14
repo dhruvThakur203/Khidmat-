@@ -34,7 +34,6 @@ export const mainNavigation: NavItem[] = [
   { label: 'About Khidmat', path: '/about-khidmat' },
   { label: 'Areas We Serve', path: '/areas-we-serve' },
   { label: 'Restaurant', path: '/restaurant' },
-  { label: 'Contact', path: '/contact' },
 ];
 
 export const footerNavigation = [

@@ -1,16 +1,13 @@
 import { PageMeta } from '../components/seo/PageMeta';
 import { defaultSeo } from '../data/seo';
 import { CateringHero } from '../components/sections/catering/CateringHero';
+import { HomeTrustBar } from '../components/sections/catering/HomeTrustBar';
 import { TrustStats } from '../components/sections/catering/TrustStats';
-import { Legacy } from '../components/sections/Legacy';
 import { EventPlanning } from '../components/sections/catering/EventPlanning';
-import { GuestCountSection } from '../components/sections/catering/GuestCountSection';
 import { SignatureDishes } from '../components/sections/SignatureDishes';
-import { RealEvents } from '../components/sections/catering/RealEvents';
-import { BehindTheScenes } from '../components/sections/catering/BehindTheScenes';
 import { WhyKhidmat } from '../components/sections/catering/WhyKhidmat';
+import { RealEvents } from '../components/sections/catering/RealEvents';
 import { Testimonials } from '../components/sections/catering/Testimonials';
-import { AreasServe } from '../components/sections/catering/AreasServe';
 import { FinalCta } from '../components/sections/catering/FinalCta';
 
 export function HomePage() {
@@ -18,16 +15,13 @@ export function HomePage() {
     <>
       <PageMeta seo={defaultSeo} />
       <CateringHero />
+      <HomeTrustBar />
       <TrustStats />
-      <Legacy />
       <EventPlanning />
-      <GuestCountSection />
-      <SignatureDishes />
-      <RealEvents />
-      <BehindTheScenes />
+      <SignatureDishes variant="catering" />
       <WhyKhidmat />
+      <RealEvents />
       <Testimonials />
-      <AreasServe />
       <FinalCta />
     </>
   );

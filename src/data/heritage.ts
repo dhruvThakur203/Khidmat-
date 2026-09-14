@@ -43,6 +43,18 @@ export const kitchenVideo = {
   alt: 'Khidmat base kitchen in Okhla',
 } as const;
 
+/** Homepage catering hero background — separate from kitchen behind-the-scenes video */
+export const landingHeroVideo = {
+  src: '/images/caterings/landing page video.mp4',
+  poster: '/images/caterings/celebration.webp',
+  alt: 'Khidmat catering events and celebrations',
+} as const;
+
+export const khidmatAward = {
+  src: '/images/caterings/award.png',
+  alt: 'Khidmat Restaurant award for Excellence Fine Dining of Noida at Flavours of India',
+} as const;
+
 // ---------------------------------------------------------------------------
 // Heritage authority — verified history only. Do not invent milestones.
 // ---------------------------------------------------------------------------

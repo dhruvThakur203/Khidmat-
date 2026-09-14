@@ -10,7 +10,7 @@ export function EventPlanning() {
     <section className="section event-planning" aria-labelledby="event-planning-heading">
       <div className="container">
         <div className="event-planning__header reveal" ref={ref}>
-          <p className="eyebrow">What are you planning?</p>
+          <p className="eyebrow">Catering Services</p>
           <h2 className="display-lg" id="event-planning-heading">
             Catering for Every Occasion
           </h2>

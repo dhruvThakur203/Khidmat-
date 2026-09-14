@@ -121,6 +121,18 @@
   color: var(--color-gold-muted);
 }
 
+.footer__phone-alt {
+  font-size: 0.8rem;
+  color: rgba(247, 243, 235, 0.65);
+  margin-top: 0.35rem;
+  line-height: 1.5;
+}
+
+.footer__phone-alt .footer__phone {
+  display: inline;
+  margin-top: 0;
+}
+
 .footer__bottom {
   display: flex;
   flex-direction: column;
