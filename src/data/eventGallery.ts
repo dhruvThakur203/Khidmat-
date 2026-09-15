@@ -4,11 +4,56 @@
  */
 export const eventGalleryItems = [
   {
+    "id": "weddings-whatsapp-image-2019-08-17-at-1-42-25-pm",
+    "src": "/images/gallery/Wedding%20catering/WhatsApp%20Image%202019-08-17%20at%201.42.25%20PM.jpeg",
+    "type": "image",
+    "category": "weddings",
+    "alt": "Khidmat Wedding Celebrations — photograph 1",
+    "caption": "Wedding Celebrations",
+    "title": "Wedding Celebrations"
+  },
+  {
+    "id": "weddings-whatsapp-image-2019-08-17-at-1-46-45-pm",
+    "src": "/images/gallery/Wedding%20catering/WhatsApp%20Image%202019-08-17%20at%201.46.45%20PM.jpeg",
+    "type": "image",
+    "category": "weddings",
+    "alt": "Khidmat Wedding Celebrations — photograph 2",
+    "caption": "Wedding Celebrations",
+    "title": "Wedding Celebrations"
+  },
+  {
+    "id": "weddings-whatsapp-image-2019-08-17-at-1-46-51-pm",
+    "src": "/images/gallery/Wedding%20catering/WhatsApp%20Image%202019-08-17%20at%201.46.51%20PM.jpeg",
+    "type": "image",
+    "category": "weddings",
+    "alt": "Khidmat Wedding Celebrations — photograph 3",
+    "caption": "Wedding Celebrations",
+    "title": "Wedding Celebrations"
+  },
+  {
+    "id": "weddings-whatsapp-image-2019-08-17-at-1-47-40-pm",
+    "src": "/images/gallery/Wedding%20catering/WhatsApp%20Image%202019-08-17%20at%201.47.40%20PM.jpeg",
+    "type": "image",
+    "category": "weddings",
+    "alt": "Khidmat Wedding Celebrations — photograph 4",
+    "caption": "Wedding Celebrations",
+    "title": "Wedding Celebrations"
+  },
+  {
+    "id": "weddings-whatsapp-image-2019-08-17-at-1-47-49-pm",
+    "src": "/images/gallery/Wedding%20catering/WhatsApp%20Image%202019-08-17%20at%201.47.49%20PM.jpeg",
+    "type": "image",
+    "category": "weddings",
+    "alt": "Khidmat Wedding Celebrations — photograph 5",
+    "caption": "Wedding Celebrations",
+    "title": "Wedding Celebrations"
+  },
+  {
     "id": "weddings-whatsapp-image-2026-09-13-at-11-58-59-pm-1",
     "src": "/images/gallery/Wedding%20catering/WhatsApp%20Image%202026-09-13%20at%2011.58.59%20PM%20(1).jpeg",
     "type": "image",
     "category": "weddings",
-    "alt": "Khidmat Wedding Celebrations — photograph 1",
+    "alt": "Khidmat Wedding Celebrations — photograph 6",
     "caption": "Wedding Celebrations",
     "title": "Wedding Celebrations"
   },
@@ -17,7 +62,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/Wedding%20catering/WhatsApp%20Image%202026-09-13%20at%2011.58.59%20PM.jpeg",
     "type": "image",
     "category": "weddings",
-    "alt": "Khidmat Wedding Celebrations — photograph 2",
+    "alt": "Khidmat Wedding Celebrations — photograph 7",
     "caption": "Wedding Celebrations",
     "title": "Wedding Celebrations"
   },
@@ -26,7 +71,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/Wedding%20catering/WhatsApp%20Image%202026-09-13%20at%2011.59.00%20PM%20(1).jpeg",
     "type": "image",
     "category": "weddings",
-    "alt": "Khidmat Wedding Celebrations — photograph 3",
+    "alt": "Khidmat Wedding Celebrations — photograph 8",
     "caption": "Wedding Celebrations",
     "title": "Wedding Celebrations"
   },
@@ -35,7 +80,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/Wedding%20catering/WhatsApp%20Image%202026-09-13%20at%2011.59.00%20PM%20(2).jpeg",
     "type": "image",
     "category": "weddings",
-    "alt": "Khidmat Wedding Celebrations — photograph 4",
+    "alt": "Khidmat Wedding Celebrations — photograph 9",
     "caption": "Wedding Celebrations",
     "title": "Wedding Celebrations"
   },
@@ -44,7 +89,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/Wedding%20catering/WhatsApp%20Image%202026-09-13%20at%2011.59.00%20PM%20(3).jpeg",
     "type": "image",
     "category": "weddings",
-    "alt": "Khidmat Wedding Celebrations — photograph 5",
+    "alt": "Khidmat Wedding Celebrations — photograph 10",
     "caption": "Wedding Celebrations",
     "title": "Wedding Celebrations"
   },
@@ -53,7 +98,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/Wedding%20catering/WhatsApp%20Image%202026-09-13%20at%2011.59.00%20PM.jpeg",
     "type": "image",
     "category": "weddings",
-    "alt": "Khidmat Wedding Celebrations — photograph 6",
+    "alt": "Khidmat Wedding Celebrations — photograph 11",
     "caption": "Wedding Celebrations",
     "title": "Wedding Celebrations"
   },
@@ -62,7 +107,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/Wedding%20catering/WhatsApp%20Image%202026-09-13%20at%2011.59.01%20PM%20(1).jpeg",
     "type": "image",
     "category": "weddings",
-    "alt": "Khidmat Wedding Celebrations — photograph 7",
+    "alt": "Khidmat Wedding Celebrations — photograph 12",
     "caption": "Wedding Celebrations",
     "title": "Wedding Celebrations"
   },
@@ -71,7 +116,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/Wedding%20catering/WhatsApp%20Image%202026-09-13%20at%2011.59.01%20PM%20(2).jpeg",
     "type": "image",
     "category": "weddings",
-    "alt": "Khidmat Wedding Celebrations — photograph 8",
+    "alt": "Khidmat Wedding Celebrations — photograph 13",
     "caption": "Wedding Celebrations",
     "title": "Wedding Celebrations"
   },
@@ -80,7 +125,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/Wedding%20catering/WhatsApp%20Image%202026-09-13%20at%2011.59.01%20PM.jpeg",
     "type": "image",
     "category": "weddings",
-    "alt": "Khidmat Wedding Celebrations — photograph 9",
+    "alt": "Khidmat Wedding Celebrations — photograph 14",
     "caption": "Wedding Celebrations",
     "title": "Wedding Celebrations"
   },
@@ -89,7 +134,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/Wedding%20catering/WhatsApp%20Image%202026-09-13%20at%2011.59.12%20PM%20(1).jpeg",
     "type": "image",
     "category": "weddings",
-    "alt": "Khidmat Wedding Celebrations — photograph 10",
+    "alt": "Khidmat Wedding Celebrations — photograph 15",
     "caption": "Wedding Celebrations",
     "title": "Wedding Celebrations"
   },
@@ -98,7 +143,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/Wedding%20catering/WhatsApp%20Image%202026-09-13%20at%2011.59.13%20PM%20(1).jpeg",
     "type": "image",
     "category": "weddings",
-    "alt": "Khidmat Wedding Celebrations — photograph 11",
+    "alt": "Khidmat Wedding Celebrations — photograph 16",
     "caption": "Wedding Celebrations",
     "title": "Wedding Celebrations"
   },
@@ -107,7 +152,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/Wedding%20catering/WhatsApp%20Image%202026-09-13%20at%2011.59.13%20PM.jpeg",
     "type": "image",
     "category": "weddings",
-    "alt": "Khidmat Wedding Celebrations — photograph 12",
+    "alt": "Khidmat Wedding Celebrations — photograph 17",
     "caption": "Wedding Celebrations",
     "title": "Wedding Celebrations"
   },
@@ -116,7 +161,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/Wedding%20catering/WhatsApp%20Image%202026-09-13%20at%2011.59.14%20PM.jpeg",
     "type": "image",
     "category": "weddings",
-    "alt": "Khidmat Wedding Celebrations — photograph 13",
+    "alt": "Khidmat Wedding Celebrations — photograph 18",
     "caption": "Wedding Celebrations",
     "title": "Wedding Celebrations"
   },
@@ -229,11 +274,38 @@ export const eventGalleryItems = [
     "title": "Private Gatherings"
   },
   {
+    "id": "private-gatherings-whatsapp-image-2019-08-17-at-1-46-52-pm-1",
+    "src": "/images/gallery/private%20gathering/WhatsApp%20Image%202019-08-17%20at%201.46.52%20PM%20(1).jpeg",
+    "type": "image",
+    "category": "private-gatherings",
+    "alt": "Khidmat Private Gatherings — photograph 3",
+    "caption": "Private Gatherings",
+    "title": "Private Gatherings"
+  },
+  {
+    "id": "private-gatherings-whatsapp-image-2019-08-17-at-1-46-53-pm",
+    "src": "/images/gallery/private%20gathering/WhatsApp%20Image%202019-08-17%20at%201.46.53%20PM.jpeg",
+    "type": "image",
+    "category": "private-gatherings",
+    "alt": "Khidmat Private Gatherings — photograph 4",
+    "caption": "Private Gatherings",
+    "title": "Private Gatherings"
+  },
+  {
+    "id": "private-gatherings-whatsapp-image-2019-08-17-at-1-46-55-pm",
+    "src": "/images/gallery/private%20gathering/WhatsApp%20Image%202019-08-17%20at%201.46.55%20PM.jpeg",
+    "type": "image",
+    "category": "private-gatherings",
+    "alt": "Khidmat Private Gatherings — photograph 5",
+    "caption": "Private Gatherings",
+    "title": "Private Gatherings"
+  },
+  {
     "id": "private-gatherings-whatsapp-image-2026-09-14-at-3-54-41-pm-1",
     "src": "/images/gallery/private%20gathering/WhatsApp%20Image%202026-09-14%20at%203.54.41%20PM%20(1).jpeg",
     "type": "image",
     "category": "private-gatherings",
-    "alt": "Khidmat Private Gatherings — photograph 3",
+    "alt": "Khidmat Private Gatherings — photograph 6",
     "caption": "Private Gatherings",
     "title": "Private Gatherings"
   },
@@ -242,16 +314,97 @@ export const eventGalleryItems = [
     "src": "/images/gallery/private%20gathering/WhatsApp%20Image%202026-09-14%20at%203.54.41%20PM.jpeg",
     "type": "image",
     "category": "private-gatherings",
-    "alt": "Khidmat Private Gatherings — photograph 4",
+    "alt": "Khidmat Private Gatherings — photograph 7",
     "caption": "Private Gatherings",
     "title": "Private Gatherings"
+  },
+  {
+    "id": "food-setups-whatsapp-image-2019-08-17-at-1-35-14-pm",
+    "src": "/images/gallery/food%20and%20set%20up/WhatsApp%20Image%202019-08-17%20at%201.35.14%20PM.jpeg",
+    "type": "image",
+    "category": "food-setups",
+    "alt": "Khidmat Food and Catering Setups — photograph 1",
+    "caption": "Food & Catering Setups",
+    "title": "Food & Catering Setups"
+  },
+  {
+    "id": "food-setups-whatsapp-image-2019-08-17-at-1-40-21-pm",
+    "src": "/images/gallery/food%20and%20set%20up/WhatsApp%20Image%202019-08-17%20at%201.40.21%20PM.jpeg",
+    "type": "image",
+    "category": "food-setups",
+    "alt": "Khidmat Food and Catering Setups — photograph 2",
+    "caption": "Food & Catering Setups",
+    "title": "Food & Catering Setups"
+  },
+  {
+    "id": "food-setups-whatsapp-image-2019-08-17-at-1-42-18-pm",
+    "src": "/images/gallery/food%20and%20set%20up/WhatsApp%20Image%202019-08-17%20at%201.42.18%20PM.jpeg",
+    "type": "image",
+    "category": "food-setups",
+    "alt": "Khidmat Food and Catering Setups — photograph 3",
+    "caption": "Food & Catering Setups",
+    "title": "Food & Catering Setups"
+  },
+  {
+    "id": "food-setups-whatsapp-image-2019-08-17-at-1-47-42-pm",
+    "src": "/images/gallery/food%20and%20set%20up/WhatsApp%20Image%202019-08-17%20at%201.47.42%20PM.jpeg",
+    "type": "image",
+    "category": "food-setups",
+    "alt": "Khidmat Food and Catering Setups — photograph 4",
+    "caption": "Food & Catering Setups",
+    "title": "Food & Catering Setups"
+  },
+  {
+    "id": "food-setups-whatsapp-image-2019-08-17-at-1-47-43-pm",
+    "src": "/images/gallery/food%20and%20set%20up/WhatsApp%20Image%202019-08-17%20at%201.47.43%20PM.jpeg",
+    "type": "image",
+    "category": "food-setups",
+    "alt": "Khidmat Food and Catering Setups — photograph 5",
+    "caption": "Food & Catering Setups",
+    "title": "Food & Catering Setups"
+  },
+  {
+    "id": "food-setups-whatsapp-image-2019-08-17-at-1-47-44-pm",
+    "src": "/images/gallery/food%20and%20set%20up/WhatsApp%20Image%202019-08-17%20at%201.47.44%20PM.jpeg",
+    "type": "image",
+    "category": "food-setups",
+    "alt": "Khidmat Food and Catering Setups — photograph 6",
+    "caption": "Food & Catering Setups",
+    "title": "Food & Catering Setups"
+  },
+  {
+    "id": "food-setups-whatsapp-image-2019-08-17-at-1-47-47-pm",
+    "src": "/images/gallery/food%20and%20set%20up/WhatsApp%20Image%202019-08-17%20at%201.47.47%20PM.jpeg",
+    "type": "image",
+    "category": "food-setups",
+    "alt": "Khidmat Food and Catering Setups — photograph 7",
+    "caption": "Food & Catering Setups",
+    "title": "Food & Catering Setups"
+  },
+  {
+    "id": "food-setups-whatsapp-image-2019-08-17-at-1-47-50-pm-1",
+    "src": "/images/gallery/food%20and%20set%20up/WhatsApp%20Image%202019-08-17%20at%201.47.50%20PM%20(1).jpeg",
+    "type": "image",
+    "category": "food-setups",
+    "alt": "Khidmat Food and Catering Setups — photograph 8",
+    "caption": "Food & Catering Setups",
+    "title": "Food & Catering Setups"
+  },
+  {
+    "id": "food-setups-whatsapp-image-2019-08-17-at-1-47-51-pm",
+    "src": "/images/gallery/food%20and%20set%20up/WhatsApp%20Image%202019-08-17%20at%201.47.51%20PM.jpeg",
+    "type": "image",
+    "category": "food-setups",
+    "alt": "Khidmat Food and Catering Setups — photograph 9",
+    "caption": "Food & Catering Setups",
+    "title": "Food & Catering Setups"
   },
   {
     "id": "food-setups-whatsapp-image-2026-09-13-at-11-58-55-pm",
     "src": "/images/gallery/food%20and%20set%20up/WhatsApp%20Image%202026-09-13%20at%2011.58.55%20PM.jpeg",
     "type": "image",
     "category": "food-setups",
-    "alt": "Khidmat Food and Catering Setups — photograph 1",
+    "alt": "Khidmat Food and Catering Setups — photograph 10",
     "caption": "Food & Catering Setups",
     "title": "Food & Catering Setups"
   },
@@ -260,7 +413,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/food%20and%20set%20up/WhatsApp%20Image%202026-09-13%20at%2011.58.59%20PM%20(1).jpeg",
     "type": "image",
     "category": "food-setups",
-    "alt": "Khidmat Food and Catering Setups — photograph 2",
+    "alt": "Khidmat Food and Catering Setups — photograph 11",
     "caption": "Food & Catering Setups",
     "title": "Food & Catering Setups"
   },
@@ -269,7 +422,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/food%20and%20set%20up/WhatsApp%20Image%202026-09-13%20at%2011.59.12%20PM.jpeg",
     "type": "image",
     "category": "food-setups",
-    "alt": "Khidmat Food and Catering Setups — photograph 3",
+    "alt": "Khidmat Food and Catering Setups — photograph 12",
     "caption": "Food & Catering Setups",
     "title": "Food & Catering Setups"
   },
@@ -278,7 +431,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/food%20and%20set%20up/WhatsApp%20Image%202026-09-14%20at%203.54.43%20PM.jpeg",
     "type": "image",
     "category": "food-setups",
-    "alt": "Khidmat Food and Catering Setups — photograph 4",
+    "alt": "Khidmat Food and Catering Setups — photograph 13",
     "caption": "Food & Catering Setups",
     "title": "Food & Catering Setups"
   },
@@ -287,7 +440,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/food%20and%20set%20up/WhatsApp%20Image%202026-09-14%20at%203.54.45%20PM%20(1).jpeg",
     "type": "image",
     "category": "food-setups",
-    "alt": "Khidmat Food and Catering Setups — photograph 5",
+    "alt": "Khidmat Food and Catering Setups — photograph 14",
     "caption": "Food & Catering Setups",
     "title": "Food & Catering Setups"
   },
@@ -296,7 +449,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/food%20and%20set%20up/WhatsApp%20Image%202026-09-14%20at%204.02.02%20PM.jpeg",
     "type": "image",
     "category": "food-setups",
-    "alt": "Khidmat Food and Catering Setups — photograph 6",
+    "alt": "Khidmat Food and Catering Setups — photograph 15",
     "caption": "Food & Catering Setups",
     "title": "Food & Catering Setups"
   },
@@ -305,7 +458,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/food%20and%20set%20up/WhatsApp%20Image%202026-09-14%20at%204.02.04%20PM%20(1).jpeg",
     "type": "image",
     "category": "food-setups",
-    "alt": "Khidmat Food and Catering Setups — photograph 7",
+    "alt": "Khidmat Food and Catering Setups — photograph 16",
     "caption": "Food & Catering Setups",
     "title": "Food & Catering Setups"
   },
@@ -314,7 +467,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/food%20and%20set%20up/WhatsApp%20Image%202026-09-14%20at%204.02.04%20PM.jpeg",
     "type": "image",
     "category": "food-setups",
-    "alt": "Khidmat Food and Catering Setups — photograph 8",
+    "alt": "Khidmat Food and Catering Setups — photograph 17",
     "caption": "Food & Catering Setups",
     "title": "Food & Catering Setups"
   },
@@ -323,7 +476,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/food%20and%20set%20up/WhatsApp%20Image%202026-09-14%20at%204.02.05%20PM%20(1).jpeg",
     "type": "image",
     "category": "food-setups",
-    "alt": "Khidmat Food and Catering Setups — photograph 9",
+    "alt": "Khidmat Food and Catering Setups — photograph 18",
     "caption": "Food & Catering Setups",
     "title": "Food & Catering Setups"
   },
@@ -332,7 +485,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/food%20and%20set%20up/WhatsApp%20Image%202026-09-14%20at%204.02.05%20PM.jpeg",
     "type": "image",
     "category": "food-setups",
-    "alt": "Khidmat Food and Catering Setups — photograph 10",
+    "alt": "Khidmat Food and Catering Setups — photograph 19",
     "caption": "Food & Catering Setups",
     "title": "Food & Catering Setups"
   },
@@ -341,7 +494,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/food%20and%20set%20up/WhatsApp%20Image%202026-09-14%20at%204.02.09%20PM.jpeg",
     "type": "image",
     "category": "food-setups",
-    "alt": "Khidmat Food and Catering Setups — photograph 11",
+    "alt": "Khidmat Food and Catering Setups — photograph 20",
     "caption": "Food & Catering Setups",
     "title": "Food & Catering Setups"
   },
@@ -350,7 +503,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/food%20and%20set%20up/WhatsApp%20Image%202026-09-14%20at%204.02.14%20PM%20(1).jpeg",
     "type": "image",
     "category": "food-setups",
-    "alt": "Khidmat Food and Catering Setups — photograph 12",
+    "alt": "Khidmat Food and Catering Setups — photograph 21",
     "caption": "Food & Catering Setups",
     "title": "Food & Catering Setups"
   },
@@ -359,7 +512,7 @@ export const eventGalleryItems = [
     "src": "/images/gallery/food%20and%20set%20up/WhatsApp%20Image%202026-09-14%20at%204.02.28%20PM.jpeg",
     "type": "image",
     "category": "food-setups",
-    "alt": "Khidmat Food and Catering Setups — photograph 13",
+    "alt": "Khidmat Food and Catering Setups — photograph 22",
     "caption": "Food & Catering Setups",
     "title": "Food & Catering Setups"
   },
