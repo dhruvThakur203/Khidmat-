@@ -54,11 +54,10 @@ export function CateringServicePage({ service }: CateringServicePageProps) {
         }}
       />
 
-      <div className="container catering-page-breadcrumbs">
-        <Breadcrumbs items={breadcrumbItems} />
-      </div>
-
       <header className="catering-page-hero">
+        <div className="container catering-page-breadcrumbs">
+          <Breadcrumbs items={breadcrumbItems} />
+        </div>
         <div className={`catering-page-hero__media catering-page-hero__media--${service.id}`}>
           <img src={service.image} alt={service.imageAlt} />
           <div className="catering-page-hero__overlay" aria-hidden="true" />
@@ -89,7 +88,7 @@ export function CateringServicePage({ service }: CateringServicePageProps) {
         </div>
       </header>
 
-      <section className="section section--cream" aria-label="Catering planning steps">
+      <section className="section section--compact section--cream" aria-label="Catering planning steps">
         <div className="container">
           <CateringJourney steps={getServiceJourney(service.id)} />
         </div>
@@ -162,7 +161,7 @@ export function CateringServicePage({ service }: CateringServicePageProps) {
         </section>
       )}
 
-      <section className="section section--cream" aria-labelledby="why-choose-heading">
+      <section className="section section--compact section--cream" aria-labelledby="why-choose-heading">
         <div className="container">
           <h2 className="display-md" id="why-choose-heading">
             Why Choose Khidmat for {service.isHub ? 'Catering in Noida' : service.shortTitle}?
@@ -175,7 +174,7 @@ export function CateringServicePage({ service }: CateringServicePageProps) {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="perfect-for-heading">
+      <section className="section section--compact" aria-labelledby="perfect-for-heading">
         <div className="container">
           <h2 className="display-md" id="perfect-for-heading">Suitable For</h2>
           <div className="perfect-for__grid">
@@ -241,7 +240,7 @@ export function CateringServicePage({ service }: CateringServicePageProps) {
         </div>
       </section>
 
-      <section className="section catering-guest-cta" aria-labelledby="guest-count-cta-heading">
+      <section className="section section--compact catering-guest-cta" aria-labelledby="guest-count-cta-heading">
         <div className="container catering-guest-cta__inner">
           <div>
             <h2 className="display-md" id="guest-count-cta-heading">
@@ -291,7 +290,7 @@ export function CateringServicePage({ service }: CateringServicePageProps) {
 
       <FaqSection faqs={[...service.faqs]} />
 
-      <section className="section section--maroon catering-page-cta">
+      <section className="section section--compact section--maroon catering-page-cta">
         <div className="container" style={{ textAlign: 'center' }}>
           <h2 className="display-md">{service.finalCtaHeadline ?? 'Planning an Event?'}</h2>
           <p className="body-lg" style={{ maxWidth: '520px', margin: '1rem auto 1.5rem' }}>

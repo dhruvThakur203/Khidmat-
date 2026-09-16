@@ -23,6 +23,16 @@ export const whatsappMessages = {
     'Hello Khidmat, I am planning a private gathering and would like to discuss catering.',
   guestCount: (range: string) =>
     `Hello Khidmat, I need catering for approximately ${range} guests. Please share suitable menu options.`,
+  leadEnquiry: (details: { name: string; email: string; phone: string }) => {
+    const lines = [
+      'Hello Khidmat, I would like to enquire about catering services.',
+      '',
+      `Name: ${details.name}`,
+      `Email: ${details.email}`,
+      `Phone: ${details.phone}`,
+    ];
+    return lines.join('\n');
+  },
   quoteEnquiry: (details: {
     name: string;
     phone: string;

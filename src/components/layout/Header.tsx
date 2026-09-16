@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { logo } from '../../data/brandAssets';
-import { mainNavigation } from '../../data/navigation';
+import { mainNavigation, type NavChild } from '../../data/navigation';
 import { useScrollHeader } from '../../hooks/useScrollHeader';
 import './Header.css';
 
@@ -9,19 +9,126 @@ interface HeaderProps {
   transparent?: boolean;
 }
 
+function renderNavChildLink(
+  child: NavChild,
+  className: string,
+  onNavigate: () => void,
+  menuItem = false,
+) {
+  const menuProps = menuItem ? { role: 'menuitem' as const } : {};
+
+  if (child.external) {
+    return (
+      <a
+        href={child.path}
+        className={className}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={child.ariaLabel ?? child.label}
+        onClick={onNavigate}
+        {...menuProps}
+      >
+        {child.label}
+      </a>
+    );
+  }
+
+  return (
+    <NavLink
+      to={child.path}
+      className={({ isActive }) => `${className}${isActive ? ' is-active' : ''}`}
+      onClick={onNavigate}
+      {...menuProps}
+    >
+      {child.label}
+    </NavLink>
+  );
+}
+
+function isNavGroupActive(label: string, pathname: string): boolean {
+  if (label === 'Catering') {
+    return pathname.startsWith('/noida-catering') || pathname.includes('catering-noida');
+  }
+  if (label === 'Menus') {
+    return pathname.startsWith('/catering-menu') || pathname === '/catering-by-guest-count';
+  }
+  return false;
+}
+
 export function Header({ transparent = false }: HeaderProps) {
   const scrolled = useScrollHeader();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const location = useLocation();
+  const navRef = useRef<HTMLElement>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const isHome = location.pathname === '/';
   const isTransparent = transparent && isHome && !scrolled && !menuOpen;
   const headerClass = isTransparent ? 'header--transparent' : 'header--solid';
 
-  const closeMenu = () => setMenuOpen(false);
+  const clearCloseTimer = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+  };
 
-  const isCateringActive = location.pathname.startsWith('/noida-catering')
-    || location.pathname.includes('catering-noida');
+  const closeDropdown = () => {
+    clearCloseTimer();
+    setOpenDropdown(null);
+  };
+
+  const openDropdownMenu = (label: string) => {
+    clearCloseTimer();
+    setOpenDropdown(label);
+  };
+
+  const scheduleCloseDropdown = () => {
+    clearCloseTimer();
+    closeTimerRef.current = setTimeout(() => setOpenDropdown(null), 150);
+  };
+
+  const toggleDropdown = (label: string) => {
+    clearCloseTimer();
+    setOpenDropdown((current) => (current === label ? null : label));
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+    closeDropdown();
+  };
+
+  useEffect(() => {
+    setMenuOpen(false);
+    closeDropdown();
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (!openDropdown) return undefined;
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        closeDropdown();
+      }
+    };
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        closeDropdown();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleEscape);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, [openDropdown]);
+
+  useEffect(() => () => clearCloseTimer(), []);
 
   return (
     <>
@@ -42,37 +149,45 @@ export function Header({ transparent = false }: HeaderProps) {
             />
           </Link>
 
-          <nav className="header__nav" aria-label="Main navigation">
+          <nav className="header__nav" aria-label="Main navigation" ref={navRef}>
             {mainNavigation.map((item) =>
               item.children ? (
-                <div key={item.label} className="header__nav-group">
-                  <NavLink
-                    to={item.path!}
-                    className={`header__nav-label header__nav-label--link${
-                      item.label === 'Catering' && isCateringActive ? ' is-active' : ''
-                    }`}
+                <div
+                  key={item.label}
+                  className={`header__nav-group${
+                    openDropdown === item.label ? ' is-open' : ''
+                  }${isNavGroupActive(item.label, location.pathname) ? ' is-active' : ''}`}
+                  onMouseEnter={() => openDropdownMenu(item.label)}
+                  onMouseLeave={scheduleCloseDropdown}
+                >
+                  <button
+                    type="button"
+                    className="header__nav-label header__nav-label--trigger"
                     id={`nav-${item.label.toLowerCase()}`}
+                    aria-expanded={openDropdown === item.label}
+                    aria-haspopup="menu"
+                    onClick={() => toggleDropdown(item.label)}
                   >
                     {item.label}
-                  </NavLink>
-                  <span className="header__nav-chevron" aria-hidden="true">▾</span>
+                    <span className="header__nav-chevron" aria-hidden="true">▾</span>
+                  </button>
                   <div
                     className="header__nav-dropdown"
                     role="menu"
                     aria-labelledby={`nav-${item.label.toLowerCase()}`}
                   >
-                    {item.children.map((child) => (
-                      <NavLink
-                        key={child.path}
-                        to={child.path}
-                        role="menuitem"
-                        className={({ isActive }) =>
-                          `header__nav-dropdown-link${isActive ? ' is-active' : ''}`
-                        }
-                      >
-                        {child.label}
-                      </NavLink>
-                    ))}
+                    <div className="header__nav-dropdown-panel">
+                      {item.children.map((child) => (
+                        <span key={child.path} role="none">
+                          {renderNavChildLink(
+                            child,
+                            'header__nav-dropdown-link',
+                            closeDropdown,
+                            true,
+                          )}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ) : (
@@ -124,27 +239,18 @@ export function Header({ transparent = false }: HeaderProps) {
           {mainNavigation.map((item) =>
             item.children ? (
               <li key={item.label} className="mobile-nav__group">
-                <Link
-                  to={item.path!}
-                  className={`mobile-nav__link${item.label === 'Catering' && isCateringActive ? ' is-active' : ''}`}
-                  onClick={closeMenu}
-                >
-                  {item.label}
-                </Link>
                 <details className="mobile-nav__details">
-                  <summary className="mobile-nav__subsummary">
-                    All {item.label} Services
+                  <summary
+                    className={`mobile-nav__summary${
+                      isNavGroupActive(item.label, location.pathname) ? ' is-active' : ''
+                    }`}
+                  >
+                    {item.label}
                   </summary>
                   <ul className="mobile-nav__sub">
                     {item.children.map((child) => (
                       <li key={child.path}>
-                        <Link
-                          to={child.path}
-                          className="mobile-nav__sublink"
-                          onClick={closeMenu}
-                        >
-                          {child.label}
-                        </Link>
+                        {renderNavChildLink(child, 'mobile-nav__sublink', closeMenu)}
                       </li>
                     ))}
                   </ul>

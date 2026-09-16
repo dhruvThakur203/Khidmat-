@@ -48,7 +48,7 @@ export function StoryPage() {
               aspectRatio="4/5"
             />
           </div>
-          <div style={{ marginTop: '4rem' }}>
+          <div style={{ marginTop: 'var(--space-lg)' }}>
             <DelhiSilhouette />
           </div>
         </div>

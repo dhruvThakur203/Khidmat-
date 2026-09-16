@@ -1,0 +1,128 @@
+.event-enquiry-prompt {
+  position: fixed;
+  inset: 0;
+  z-index: 98;
+  pointer-events: none;
+}
+
+.event-enquiry-prompt__backdrop {
+  position: absolute;
+  inset: 0;
+  border: none;
+  background: transparent;
+  pointer-events: auto;
+  cursor: default;
+}
+
+.event-enquiry-prompt__card {
+  position: absolute;
+  right: var(--space-md);
+  bottom: calc(52px + var(--space-md));
+  width: min(100% - 2rem, 360px);
+  pointer-events: auto;
+  background-color: rgba(245, 241, 232, 0.98);
+  border: 1px solid rgba(166, 139, 91, 0.35);
+  box-shadow: 0 16px 48px rgba(26, 20, 16, 0.22);
+  padding: var(--space-md);
+  color: var(--color-text);
+  animation: event-enquiry-enter 0.35s ease forwards;
+}
+
+@media (min-width: 1100px) {
+  .event-enquiry-prompt__card {
+    bottom: var(--space-lg);
+    right: var(--space-lg);
+  }
+}
+
+@media (max-width: 1099px) {
+  .event-enquiry-prompt__card {
+    left: var(--space-md);
+    right: var(--space-md);
+    width: auto;
+    max-width: 420px;
+    margin-inline: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .event-enquiry-prompt__card {
+    animation: none;
+  }
+}
+
+@keyframes event-enquiry-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.event-enquiry-prompt__close {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-text-muted);
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: color var(--transition-base);
+}
+
+.event-enquiry-prompt__close:hover {
+  color: var(--color-maroon);
+}
+
+.event-enquiry-prompt__close:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.event-enquiry-prompt__eyebrow {
+  margin-right: 2rem;
+}
+
+.event-enquiry-prompt__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 3vw, 1.75rem);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--color-maroon);
+  line-height: 1.15;
+  margin-top: 0.35rem;
+}
+
+.event-enquiry-prompt__tagline {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--color-gold);
+  margin-top: 0.25rem;
+}
+
+.event-enquiry-prompt__intro {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.event-enquiry-prompt .home-lead-form {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin-top: var(--space-sm);
+}

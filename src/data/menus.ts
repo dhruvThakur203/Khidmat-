@@ -9,6 +9,18 @@ export interface BranchDeliveryMenu {
   ariaLabel: string;
 }
 
+export interface MenuPdfLink {
+  label: string;
+  href: string;
+  ariaLabel: string;
+}
+
+export const noidaDineInTableMenu: MenuPdfLink = {
+  label: 'Dine-In / Table Menu',
+  href: '/menus/khidmat table menu.pdf',
+  ariaLabel: 'View Khidmat dine-in and table menu',
+};
+
 export const noidaDeliveryMenu: BranchDeliveryMenu = {
   type: 'delivery-takeaway',
   label: 'Delivery / Take Away Menu',

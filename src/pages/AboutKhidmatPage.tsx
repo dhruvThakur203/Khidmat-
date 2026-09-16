@@ -5,6 +5,7 @@ import { pageSeo } from '../data/seo';
 import { siteConfig, siteStats } from '../data/site';
 import { PlatformProfiles } from '../components/trust/PlatformProfiles';
 import { AwardRecognition } from '../components/heritage/AwardRecognition';
+import { FssaiTrust } from '../components/trust/FssaiTrust';
 import { HeritageTimeline } from '../components/heritage/HeritageTimeline';
 import { useReveal } from '../hooks/useReveal';
 import { DelhiSilhouette } from '../components/ui/DelhiSilhouette';
@@ -52,7 +53,7 @@ export function AboutKhidmatPage() {
               aspectRatio="4/5"
             />
           </div>
-          <div style={{ marginTop: '4rem' }}>
+          <div style={{ marginTop: 'var(--space-lg)' }}>
             <DelhiSilhouette />
           </div>
         </div>
@@ -74,6 +75,8 @@ export function AboutKhidmatPage() {
           </p>
         </div>
       </section>
+
+      <FssaiTrust />
 
       <AwardRecognition />
 

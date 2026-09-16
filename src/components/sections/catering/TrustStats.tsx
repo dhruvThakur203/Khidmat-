@@ -195,7 +195,7 @@ export function TrustStats() {
     siteStats.zomato.rating > 0 && siteStats.zomato.reviewCount > 0;
 
   return (
-    <section className="section trust-stats" ref={sectionRef} aria-labelledby="trust-stats-heading">
+    <section className="section section--compact trust-stats" ref={sectionRef} aria-labelledby="trust-stats-heading">
       <div className="container reveal" ref={ref}>
         <p className="eyebrow trust-stats__eyebrow">Trusted since 1992</p>
         <h2 className="display-md trust-stats__heading" id="trust-stats-heading">

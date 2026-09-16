@@ -13,7 +13,7 @@ export function FinalCta() {
   const ref = useReveal();
 
   return (
-    <section className="section section--maroon final-cta" aria-labelledby="final-cta-heading">
+    <section className="section section--compact section--maroon final-cta" aria-labelledby="final-cta-heading">
       <div className="container reveal final-cta__inner" ref={ref}>
         <h2 className="display-lg" id="final-cta-heading">
           Planning an Event in Noida or Delhi NCR?

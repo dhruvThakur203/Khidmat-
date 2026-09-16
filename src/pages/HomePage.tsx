@@ -1,5 +1,6 @@
 import { PageMeta } from '../components/seo/PageMeta';
 import { defaultSeo } from '../data/seo';
+import { EventEnquiryPrompt } from '../components/contact/EventEnquiryPrompt';
 import { CateringHero } from '../components/sections/catering/CateringHero';
 import { HomeTrustBar } from '../components/sections/catering/HomeTrustBar';
 import { TrustStats } from '../components/sections/catering/TrustStats';
@@ -15,6 +16,7 @@ export function HomePage() {
     <>
       <PageMeta seo={defaultSeo} />
       <CateringHero />
+      <EventEnquiryPrompt />
       <HomeTrustBar />
       <TrustStats />
       <EventPlanning />

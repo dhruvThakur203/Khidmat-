@@ -1,6 +1,10 @@
+import { noidaDeliveryMenu, noidaDineInTableMenu } from './menus';
+
 export interface NavChild {
   label: string;
   path: string;
+  external?: boolean;
+  ariaLabel?: string;
 }
 
 export interface NavItem {
@@ -26,6 +30,18 @@ export const mainNavigation: NavItem[] = [
     label: 'Menus',
     path: '/catering-menu-noida',
     children: [
+      {
+        label: noidaDineInTableMenu.label,
+        path: noidaDineInTableMenu.href,
+        external: true,
+        ariaLabel: noidaDineInTableMenu.ariaLabel,
+      },
+      {
+        label: 'Delivery Menu',
+        path: noidaDeliveryMenu.href,
+        external: true,
+        ariaLabel: noidaDeliveryMenu.ariaLabel,
+      },
       { label: 'Catering Menu', path: '/catering-menu-noida' },
       { label: 'Catering by Guest Count', path: '/catering-by-guest-count' },
     ],

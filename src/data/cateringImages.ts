@@ -19,8 +19,8 @@ export const cateringCategoryImages = {
     alt: 'Wedding catering setup by Khidmat in Noida',
   },
   corporate: {
-    filename: 'corporate caterings.jpeg',
-    src: cateringImagePath('corporate caterings.jpeg'),
+    filename: 'corporate caterings.png',
+    src: cateringImagePath('corporate caterings.png'),
     alt: 'Corporate event catering by Khidmat in Noida',
   },
   party: {

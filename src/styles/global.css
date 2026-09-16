@@ -148,12 +148,56 @@ h6 {
 }
 
 .section {
-  padding-block: var(--space-2xl);
+  padding-block: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: var(--space-xl);
+  }
 }
 
 @media (min-width: 1024px) {
   .section {
-    padding-block: var(--space-3xl);
+    padding-block: var(--space-2xl);
+  }
+}
+
+.section + .section {
+  padding-top: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .section + .section {
+    padding-top: var(--space-lg);
+  }
+}
+
+.section--compact {
+  padding-block: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .section--compact {
+    padding-block: var(--space-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .section--compact {
+    padding-block: var(--space-xl);
+  }
+}
+
+.section--compact + .section,
+.section + .section--compact {
+  padding-top: var(--space-sm);
+}
+
+@media (min-width: 768px) {
+  .section--compact + .section,
+  .section + .section--compact {
+    padding-top: var(--space-md);
   }
 }
 
@@ -169,6 +213,20 @@ h6 {
 .section--maroon {
   background-color: var(--color-maroon-deep);
   color: var(--color-text-light);
+}
+
+.section--cream + .section--cream,
+.section--dark + .section--dark,
+.section--maroon + .section--maroon {
+  padding-top: var(--space-sm);
+}
+
+@media (min-width: 768px) {
+  .section--cream + .section--cream,
+  .section--dark + .section--dark,
+  .section--maroon + .section--maroon {
+    padding-top: var(--space-md);
+  }
 }
 
 /* Typography utilities */
@@ -402,6 +460,16 @@ h6 {
 .page-header__subtitle {
   margin-top: var(--space-sm);
   max-width: 36rem;
+}
+
+.page-header + .section {
+  padding-top: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .page-header + .section {
+    padding-top: var(--space-lg);
+  }
 }
 
 /* Separator */

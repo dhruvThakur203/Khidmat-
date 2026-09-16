@@ -11,7 +11,7 @@
 .trust-stats__heading {
   text-align: center;
   margin-top: var(--space-xs);
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
   color: var(--color-text-light);
 }
 
