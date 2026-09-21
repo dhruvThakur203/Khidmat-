@@ -10,7 +10,7 @@
 .lightbox__backdrop {
   position: absolute;
   inset: 0;
-  background-color: rgba(26, 20, 16, 0.92);
+  background-color: rgba(26, 20, 16, 0.94);
   border: none;
   cursor: pointer;
 }
@@ -58,13 +58,19 @@
   right: var(--space-md);
   width: 44px;
   height: 44px;
-  font-size: 2rem;
+  font-size: 1.75rem;
   line-height: 1;
   color: var(--color-text-light);
-  background: transparent;
-  border: none;
+  background: rgba(26, 20, 16, 0.5);
+  border: 1px solid rgba(247, 243, 235, 0.25);
   cursor: pointer;
   z-index: 2;
+  transition: border-color var(--transition-base), background-color var(--transition-base);
+}
+
+.lightbox__close:hover {
+  border-color: var(--color-gold-muted);
+  background: rgba(26, 20, 16, 0.75);
 }
 
 .lightbox__close:focus-visible {

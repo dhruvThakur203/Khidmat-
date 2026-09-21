@@ -25,6 +25,24 @@
   padding: var(--space-md);
   background: var(--color-ivory);
   border: 1px solid rgba(84, 32, 40, 0.14);
+  transition:
+    border-color var(--transition-base),
+    transform var(--transition-base);
+}
+
+.why-khidmat__card:hover {
+  border-color: rgba(154, 132, 96, 0.45);
+  transform: translateY(-2px);
+}
+
+.why-khidmat__index {
+  margin-bottom: 0.65rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .why-khidmat__card:hover {
+    transform: none;
+  }
 }
 
 .why-khidmat__card-title {

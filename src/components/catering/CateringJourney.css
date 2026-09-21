@@ -29,12 +29,14 @@
   height: 100%;
   transition:
     border-color var(--transition-base),
-    background-color var(--transition-base);
+    background-color var(--transition-base),
+    transform var(--motion-duration-fast, 0.22s) ease;
 }
 
 .catering-journey__link:hover {
   border-color: var(--color-maroon);
   background-color: var(--color-ivory);
+  transform: translateY(-2px);
 }
 
 .catering-journey__link:focus-visible {

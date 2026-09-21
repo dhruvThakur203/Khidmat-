@@ -17,7 +17,7 @@
 .event-enquiry-prompt__card {
   position: absolute;
   right: var(--space-md);
-  bottom: calc(52px + var(--space-md));
+  bottom: calc(var(--sticky-mobile-cta-height) + env(safe-area-inset-bottom, 0px) + var(--space-md));
   width: min(100% - 2rem, 360px);
   pointer-events: auto;
   background-color: rgba(245, 241, 232, 0.98);

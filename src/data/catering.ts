@@ -54,7 +54,11 @@ export const whyKhidmatBenefits = [
 export interface GuestCountOption {
   id: string;
   range: string;
+  /** Short UI descriptor — not a factual business claim */
+  descriptor?: string;
   helperText?: string;
+  /** Brief event examples for planning context */
+  eventExamples?: string;
   whatsappMessage: string;
 }
 
@@ -71,28 +75,36 @@ export const guestCountOptions: GuestCountOption[] = [
   {
     id: '20-50',
     range: '20–50',
-    helperText: 'Perfect for intimate gatherings',
+    descriptor: 'Intimate Gatherings',
+    eventExamples: 'Family dinners, anniversaries, small celebrations',
     whatsappMessage: whatsappMessages.guestCount('20–50'),
   },
   {
     id: '50-100',
     range: '50–100',
-    helperText: 'Ideal for medium-sized events',
+    descriptor: 'Mid-Size Celebrations',
+    eventExamples: 'Birthday parties, office lunches, pre-wedding functions',
     whatsappMessage: whatsappMessages.guestCount('50–100'),
   },
   {
     id: '100-250',
     range: '100–250',
+    descriptor: 'Large Events',
+    eventExamples: 'Wedding functions, corporate events, festive gatherings',
     whatsappMessage: whatsappMessages.guestCount('100–250'),
   },
   {
     id: '250-500',
     range: '250–500',
+    descriptor: 'Grand Celebrations',
+    eventExamples: 'Wedding receptions, corporate galas, community events',
     whatsappMessage: whatsappMessages.guestCount('250–500'),
   },
   {
     id: '500-plus',
     range: '500+',
+    descriptor: 'Large-Scale Events',
+    eventExamples: 'Major weddings, corporate conferences, institutional gatherings',
     whatsappMessage: whatsappMessages.guestCount('500+'),
   },
 ];

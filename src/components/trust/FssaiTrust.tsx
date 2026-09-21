@@ -12,7 +12,7 @@ export function FssaiTrust() {
 
   return (
     <section
-      className="section fssai-trust"
+      className="section section--compact fssai-trust"
       aria-labelledby="fssai-trust-heading"
     >
       <div className="container">

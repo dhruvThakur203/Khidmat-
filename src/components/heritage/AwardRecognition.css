@@ -8,7 +8,7 @@
 
 @media (min-width: 768px) {
   .award-recognition__grid {
-    grid-template-columns: minmax(200px, 280px) 1fr;
+    grid-template-columns: minmax(220px, 300px) 1fr;
     gap: var(--space-xl);
   }
 }
@@ -17,6 +17,9 @@
   display: flex;
   justify-content: center;
   padding: var(--space-md);
+  border: 1px solid rgba(154, 132, 96, 0.25);
+  background: var(--color-ivory);
+  box-shadow: 0 8px 28px rgba(26, 20, 16, 0.08);
 }
 
 .award-recognition__image {
@@ -24,7 +27,7 @@
   max-width: 240px;
   height: auto;
   display: block;
-  filter: drop-shadow(0 12px 32px rgba(26, 20, 16, 0.12));
+  filter: drop-shadow(0 8px 20px rgba(26, 20, 16, 0.1));
 }
 
 @media (min-width: 768px) {

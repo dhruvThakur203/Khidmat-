@@ -16,14 +16,17 @@ export function FaqSection({ faqs, heading = 'Frequently Asked Questions' }: Faq
     <section className="section section--cream faq-section" aria-labelledby="faq-heading">
       <div className="container reveal" ref={ref}>
         <h2 className="display-md" id="faq-heading">{heading}</h2>
-        <dl className="faq-list">
+        <div className="faq-list">
           {faqs.map((faq) => (
-            <div key={faq.id} className="faq-item">
-              <dt className="faq-item__question">{faq.question}</dt>
-              <dd className="faq-item__answer body-lg">{faq.answer}</dd>
-            </div>
+            <details key={faq.id} className="faq-item">
+              <summary className="faq-item__question">
+                <span>{faq.question}</span>
+                <span className="faq-item__icon" aria-hidden="true" />
+              </summary>
+              <p className="faq-item__answer body-lg">{faq.answer}</p>
+            </details>
           ))}
-        </dl>
+        </div>
       </div>
     </section>
   );

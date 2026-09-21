@@ -1,7 +1,8 @@
-import { Outlet, ScrollRestoration } from 'react-router-dom';
+import { ScrollRestoration } from 'react-router-dom';
 import { GlobalStructuredData } from '../seo/GlobalStructuredData';
 import { Footer } from './Footer';
 import { Header } from './Header';
+import { PageRoute } from './PageRoute';
 import { StickyMobileCta } from './StickyMobileCta';
 
 interface LayoutProps {
@@ -17,7 +18,7 @@ export function Layout({ transparentHeader = false }: LayoutProps) {
       </a>
       <Header transparent={transparentHeader} />
       <main id="main-content">
-        <Outlet />
+        <PageRoute />
       </main>
       <Footer />
       <StickyMobileCta />

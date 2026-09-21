@@ -12,6 +12,7 @@ import { QuoteCtaLink } from '../components/analytics/QuoteCtaLink';
 import { WhatsAppButton } from '../components/ui/WhatsAppButton';
 import { whatsappMessages } from '../utils/whatsapp';
 import { noidaDeliveryMenu, externalLinkProps } from '../data/menus';
+import { editorialIndex } from '../utils/editorialIndex';
 import './CateringMenuPage.css';
 
 const eventMenuLinks = [
@@ -97,14 +98,43 @@ export function CateringMenuPage() {
           <p className="body-lg catering-menu__intro">
             These restaurant favourites are often featured in Khidmat catering menus.
           </p>
-          <ul className="catering-menu__dishes">
-            {signatureDishes.map((dish) => (
-              <li key={dish.id} className="catering-menu__dish">
-                <strong>{dish.name}</strong>
-                <span>{dish.description}</span>
-              </li>
-            ))}
-          </ul>
+          <div className="catering-menu__editorial">
+            {signatureDishes.map((dish, index) => {
+              const reversed = index % 2 === 1;
+              const fitClass =
+                dish.imageFit === 'contain'
+                  ? ' catering-menu__visual--contain'
+                  : ' catering-menu__visual--cover';
+
+              return (
+                <article
+                  key={dish.id}
+                  className={`catering-menu__dish-row${reversed ? ' catering-menu__dish-row--reverse' : ''}`}
+                >
+                  <div className={`catering-menu__visual${fitClass}`}>
+                    <img
+                      src={dish.image}
+                      alt={dish.name}
+                      loading="lazy"
+                      decoding="async"
+                      style={{
+                        objectPosition: dish.objectPosition ?? 'center center',
+                        objectFit: dish.imageFit ?? 'cover',
+                      }}
+                    />
+                  </div>
+                  <div className="catering-menu__dish-copy">
+                    <span className="editorial-index" aria-hidden="true">
+                      {editorialIndex(index)}
+                    </span>
+                    <h3 className="catering-menu__dish-name">{dish.name}</h3>
+                    <div className="editorial-rule" aria-hidden="true" />
+                    <p className="body-lg">{dish.description}</p>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
 
           <div className="catering-menu__custom">
             <h2 className="display-md">Menu Customisation</h2>

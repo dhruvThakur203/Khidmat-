@@ -1,0 +1,41 @@
+.scroll-indicator {
+  position: absolute;
+  right: var(--space-md);
+  bottom: var(--space-md);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  pointer-events: none;
+}
+
+.scroll-indicator__label {
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(247, 243, 235, 0.55);
+}
+
+.scroll-indicator__line {
+  display: block;
+  width: 1px;
+  height: 36px;
+  background: rgba(247, 243, 235, 0.35);
+  transform-origin: top center;
+  animation: motion-scroll-line 2s ease-in-out infinite;
+}
+
+@media (max-width: 767px) {
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-indicator {
+    display: none;
+  }
+}

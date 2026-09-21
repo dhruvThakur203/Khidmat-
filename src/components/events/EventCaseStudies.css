@@ -2,7 +2,13 @@
   max-width: 560px;
   color: var(--color-text-muted);
   margin-top: 0.75rem;
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .event-case-studies__intro {
+    margin-bottom: var(--space-lg);
+  }
 }
 
 .event-case-studies__grid {

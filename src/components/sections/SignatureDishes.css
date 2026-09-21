@@ -21,13 +21,13 @@
 }
 
 .dishes--catering .dishes__visual--cover {
-  min-height: 180px;
-  max-height: 300px;
+  min-height: 220px;
+  max-height: 380px;
 }
 
 .dishes--catering .dishes__visual--cover .dishes__image {
-  min-height: 180px;
-  max-height: 300px;
+  min-height: 220px;
+  max-height: 380px;
 }
 
 .dishes--catering .dishes__cta {
@@ -54,7 +54,7 @@
 .dishes__editorial {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2xl);
+  gap: var(--space-xl);
 }
 
 .dishes__row {

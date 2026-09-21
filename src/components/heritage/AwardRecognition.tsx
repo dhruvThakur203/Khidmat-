@@ -7,7 +7,7 @@ export function AwardRecognition() {
 
   return (
     <section
-      className="section section--cream award-recognition"
+      className="section section--compact section--cream award-recognition"
       aria-labelledby="award-recognition-heading"
     >
       <div className="container">

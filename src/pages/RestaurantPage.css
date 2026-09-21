@@ -1,0 +1,46 @@
+.restaurant-bridge {
+  padding-block: var(--space-md) var(--space-sm);
+  background-color: var(--color-ivory);
+  border-bottom: 1px solid rgba(154, 132, 96, 0.15);
+}
+
+.restaurant-bridge__inner {
+  max-width: 560px;
+}
+
+.restaurant-bridge__title {
+  color: var(--color-maroon);
+  margin-top: 0.35rem;
+  line-height: 1.05;
+}
+
+.restaurant-bridge__rule {
+  margin-top: var(--space-sm);
+}
+
+.restaurant-bridge__text {
+  margin-top: var(--space-sm);
+  color: var(--color-text-muted);
+}
+
+.restaurant-delivery__callout {
+  max-width: 560px;
+  padding: var(--space-md);
+  background: var(--color-cream);
+  border: 1px solid rgba(84, 32, 40, 0.14);
+}
+
+.restaurant-delivery__title {
+  margin-top: 0.35rem;
+  color: var(--color-maroon);
+}
+
+.restaurant-delivery__text {
+  margin-top: 0.65rem;
+  color: var(--color-text-muted);
+}
+
+.restaurant-delivery__btn {
+  margin-top: var(--space-md);
+  display: inline-flex;
+}

@@ -16,10 +16,15 @@ export function GuestCountCard({ option }: GuestCountCardProps) {
       aria-label={`Enquire about catering for ${option.range} guests on WhatsApp`}
     >
       <span className="guest-count-card__range">{option.range}</span>
-      <span className="guest-count-card__label">Guests</span>
-      {option.helperText && (
-        <span className="guest-count-card__helper">{option.helperText}</span>
+      <span className="guest-count-card__label">
+        {option.descriptor ?? 'Guests'}
+      </span>
+      {(option.eventExamples ?? option.helperText) && (
+        <span className="guest-count-card__helper">
+          {option.eventExamples ?? option.helperText}
+        </span>
       )}
+      <span className="guest-count-card__cta">Enquire on WhatsApp</span>
       <span className="guest-count-card__arrow" aria-hidden="true">→</span>
     </a>
   );

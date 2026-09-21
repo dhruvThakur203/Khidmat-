@@ -10,7 +10,26 @@ html[data-cinematic] .header--transparent {
   right: 0;
   z-index: 100;
   height: var(--header-height);
-  transition: background-color 0.4s ease, border-color 0.4s ease;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    height 0.25s ease,
+    box-shadow 0.25s ease,
+    backdrop-filter 0.25s ease;
+}
+
+.header--scrolled {
+  height: 64px;
+  box-shadow: 0 1px 0 rgba(166, 139, 91, 0.12);
+}
+
+.header--scrolled.header--solid {
+  background-color: rgba(247, 243, 235, 0.97);
+  backdrop-filter: blur(8px);
+}
+
+.header--scrolled .header__logo-img {
+  width: clamp(88px, 7.5vw, 112px);
 }
 
 .header--transparent {
@@ -195,7 +214,8 @@ html[data-cinematic] .header--transparent {
   inset: 0;
   z-index: 99;
   background-color: var(--color-ivory);
-  padding: calc(var(--header-height) + 2rem) var(--space-md) var(--space-lg);
+  padding: calc(var(--header-height) + 2rem) var(--space-md)
+    calc(var(--space-lg) + var(--sticky-mobile-cta-height) + env(safe-area-inset-bottom, 0px));
   transform: translateX(100%);
   transition: transform var(--transition-base);
   overflow-y: auto;

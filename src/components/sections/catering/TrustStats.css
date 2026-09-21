@@ -20,6 +20,8 @@
   gap: var(--space-lg) var(--space-md);
   text-align: center;
   align-items: start;
+  padding-top: var(--space-sm);
+  border-top: 1px solid rgba(247, 243, 235, 0.12);
 }
 
 @media (min-width: 640px) {
@@ -32,7 +34,11 @@
 @media (min-width: 900px) {
   .trust-stats__grid {
     grid-template-columns: repeat(5, 1fr);
-    gap: var(--space-md);
+    gap: 0;
+  }
+
+  .trust-stat:not(:last-child) {
+    border-right: 1px solid rgba(247, 243, 235, 0.1);
   }
 }
 

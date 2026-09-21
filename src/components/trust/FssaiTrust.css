@@ -1,3 +1,7 @@
+.fssai-trust {
+  background-color: var(--color-ivory);
+}
+
 .fssai-trust__grid {
   display: grid;
   gap: var(--space-md);
@@ -8,7 +12,7 @@
 
 @media (min-width: 768px) {
   .fssai-trust__grid {
-    grid-template-columns: minmax(220px, 320px) 1fr;
+    grid-template-columns: minmax(240px, 340px) 1fr;
     gap: var(--space-lg);
   }
 }
@@ -21,12 +25,16 @@
 
 .fssai-trust__image {
   width: 100%;
-  max-width: 300px;
+  max-width: 320px;
   height: auto;
   display: block;
   object-fit: contain;
-  border: 1px solid rgba(166, 139, 91, 0.2);
-  box-shadow: 0 8px 28px rgba(26, 20, 16, 0.1);
+  border: 1px solid rgba(154, 132, 96, 0.3);
+  box-shadow:
+    0 1px 0 rgba(154, 132, 96, 0.15),
+    0 12px 32px rgba(26, 20, 16, 0.1);
+  background: #fff;
+  padding: 0.35rem;
 }
 
 .fssai-trust__text {
@@ -53,4 +61,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-gold);
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(154, 132, 96, 0.2);
+  display: inline-block;
 }

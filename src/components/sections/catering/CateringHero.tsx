@@ -6,6 +6,7 @@ import { QuoteCtaLink } from '../../analytics/QuoteCtaLink';
 import { WhatsAppButton } from '../../ui/WhatsAppButton';
 import { whatsappMessages } from '../../../utils/whatsapp';
 import { formatPhoneLink } from '../../../data/branches';
+import { HeroScrollIndicator } from '../../ui/HeroScrollIndicator';
 import './CateringHero.css';
 
 export function CateringHero() {
@@ -28,7 +29,9 @@ export function CateringHero() {
         <div className="catering-hero__overlay" aria-hidden="true" />
       </div>
 
-      <div className="catering-hero__content container">
+      <HeroScrollIndicator />
+
+      <div className="catering-hero__content container hero-enter">
         <p className="eyebrow catering-hero__eyebrow">{siteConfig.tagline}</p>
         <p className="catering-hero__since">Trusted Since {siteConfig.since}</p>
         <h1 className="catering-hero__title display-lg">

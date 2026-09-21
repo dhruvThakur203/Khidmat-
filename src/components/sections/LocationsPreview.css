@@ -3,7 +3,7 @@
 }
 
 .locations-preview__header {
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
   max-width: 400px;
 }
 
@@ -20,42 +20,54 @@
 
 .locations-preview__grid {
   display: grid;
-  gap: var(--space-xl);
+  gap: var(--space-lg);
 }
 
 @media (min-width: 768px) {
   .locations-preview__grid {
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-lg);
+    gap: var(--space-md) var(--space-lg);
+    align-items: start;
+  }
+
+  .location-card--offset {
+    margin-top: var(--space-lg);
   }
 }
 
 .location-card {
   display: flex;
   flex-direction: column;
+  border: 1px solid rgba(84, 32, 40, 0.12);
+  background: var(--color-cream);
+  transition:
+    border-color var(--transition-base),
+    transform var(--transition-base);
+}
+
+.location-card:hover {
+  border-color: rgba(154, 132, 96, 0.4);
+  transform: translateY(-2px);
 }
 
 .location-card__image {
   overflow: hidden;
-  margin-bottom: var(--space-md);
 }
 
 .location-card__image img {
   width: 100%;
   height: auto;
   object-fit: cover;
-  aspect-ratio: 3/2;
-  transition: transform 0.6s ease;
+  aspect-ratio: 4/3;
+  transition: transform 0.55s ease;
 }
 
 .location-card:hover .location-card__image img {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .location-card:hover .location-card__image img {
-    transform: none;
-  }
+.location-card__content {
+  padding: var(--space-md);
 }
 
 .location-card__area {
@@ -70,6 +82,7 @@
 .location-card__city {
   color: var(--color-maroon);
   margin-bottom: 0.5rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
 .location-card__address {
@@ -87,7 +100,17 @@
 }
 
 .locations-preview__cta {
-  margin-top: var(--space-xl);
-  padding-top: var(--space-lg);
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
   border-top: 1px solid rgba(154, 132, 96, 0.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .location-card:hover {
+    transform: none;
+  }
+
+  .location-card:hover .location-card__image img {
+    transform: none;
+  }
 }

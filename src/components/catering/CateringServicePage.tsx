@@ -16,6 +16,8 @@ import { StructuredData } from '../seo/StructuredData';
 import { WhatsAppButton } from '../ui/WhatsAppButton';
 import { buildWhatsAppUrl } from '../../utils/whatsapp';
 import { formatPhoneLink } from '../../data/branches';
+import { editorialIndex } from '../../utils/editorialIndex';
+import { useReveal } from '../../hooks/useReveal';
 import './CateringServicePage.css';
 
 interface CateringServicePageProps {
@@ -23,6 +25,7 @@ interface CateringServicePageProps {
 }
 
 export function CateringServicePage({ service }: CateringServicePageProps) {
+  const processRef = useReveal<HTMLOListElement>();
   const subServices = getCateringSubServices();
   const breadcrumbItems = service.isHub
     ? [{ name: 'Home', path: '/' }, { name: 'Catering Services in Noida' }]
@@ -55,16 +58,16 @@ export function CateringServicePage({ service }: CateringServicePageProps) {
       />
 
       <header className="catering-page-hero">
-        <div className="container catering-page-breadcrumbs">
-          <Breadcrumbs items={breadcrumbItems} />
-        </div>
         <div className={`catering-page-hero__media catering-page-hero__media--${service.id}`}>
           <img src={service.image} alt={service.imageAlt} />
           <div className="catering-page-hero__overlay" aria-hidden="true" />
         </div>
-        <div className="container catering-page-hero__content">
-          <p className="eyebrow">Khidmat Catering</p>
-          <h1 className="display-lg">{service.headline}</h1>
+        <div className="container catering-page-hero__inner hero-enter">
+          <p className="eyebrow catering-page-hero__eyebrow">Khidmat Catering</p>
+          <nav className="catering-page-breadcrumbs" aria-label="Breadcrumb">
+            <Breadcrumbs items={breadcrumbItems} />
+          </nav>
+          <h1 className="display-lg catering-page-hero__title">{service.headline}</h1>
           <p className="body-lg catering-page-hero__text">{service.description}</p>
           <div className="catering-page-hero__actions">
             <WhatsAppButton
@@ -106,10 +109,14 @@ export function CateringServicePage({ service }: CateringServicePageProps) {
               count, explore menu options and request a quote.
             </p>
             <div className="catering-hub__grid">
-              {subServices.map((sub) => (
+              {subServices.map((sub, index) => (
                 <Link key={sub.id} to={`/${sub.slug}`} className="catering-hub__card">
                   <div className={`catering-hub__card-image catering-hub__card-image--${sub.id}`}>
                     <img src={sub.image} alt={sub.imageAlt} loading="lazy" />
+                    <div className="catering-hub__card-overlay" aria-hidden="true" />
+                    <span className="catering-hub__card-index" aria-hidden="true">
+                      {editorialIndex(index)}
+                    </span>
                   </div>
                   <div className="catering-hub__card-body">
                     <h3 className="catering-hub__card-title">{sub.shortTitle}</h3>
@@ -213,7 +220,10 @@ export function CateringServicePage({ service }: CateringServicePageProps) {
           <p className="body-lg catering-process__intro">
             A straightforward process — from your first enquiry to food served at your event.
           </p>
-          <ol className="catering-process__steps">
+          <ol
+            className="catering-process__steps catering-process__steps--animated reveal"
+            ref={processRef}
+          >
             {cateringProcessSteps.map((step) => (
               <li key={step.step} className="catering-process__step">
                 <span className="catering-process__number" aria-hidden="true">{step.step}</span>

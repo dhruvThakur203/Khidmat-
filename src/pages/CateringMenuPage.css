@@ -69,29 +69,97 @@
   margin-top: 0.5rem;
 }
 
-.catering-menu__dishes {
-  list-style: none;
-  padding: 0;
-  margin: var(--space-md) 0 0;
-  max-width: 640px;
-}
-
-.catering-menu__dish {
+.catering-menu__editorial {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  padding: var(--space-sm) 0;
-  border-bottom: 1px solid rgba(84, 32, 40, 0.14);
+  gap: var(--space-lg);
+  margin-top: var(--space-md);
 }
 
-.catering-menu__dish strong {
+.catering-menu__dish-row {
+  display: grid;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .catering-menu__dish-row {
+    grid-template-columns: 1.1fr 1fr;
+    gap: var(--space-lg);
+  }
+
+  .catering-menu__dish-row--reverse .catering-menu__visual {
+    order: 2;
+  }
+
+  .catering-menu__dish-row--reverse .catering-menu__dish-copy {
+    order: 1;
+    text-align: right;
+  }
+
+  .catering-menu__dish-row--reverse .editorial-rule {
+    margin-left: auto;
+  }
+}
+
+.catering-menu__visual {
+  overflow: hidden;
+  background: var(--color-cream);
+}
+
+.catering-menu__visual--cover {
+  min-height: 200px;
+  max-height: 360px;
+}
+
+.catering-menu__visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  max-height: 360px;
+  transition: transform 0.55s ease;
+}
+
+.catering-menu__visual--contain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm);
+}
+
+.catering-menu__visual--contain img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  min-height: auto;
+  max-height: 320px;
+}
+
+.catering-menu__visual:hover img {
+  transform: scale(1.02);
+}
+
+.catering-menu__dish-name {
   font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
   color: var(--color-maroon);
+  margin-bottom: 0.35rem;
 }
 
-.catering-menu__dish span {
+.catering-menu__dish-copy .body-lg {
   color: var(--color-text-muted);
-  font-size: 0.95rem;
+  max-width: 380px;
+}
+
+.catering-menu__dish-row--reverse .catering-menu__dish-copy .body-lg {
+  margin-left: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .catering-menu__visual:hover img {
+    transform: none;
+  }
 }
 
 .catering-menu__custom {

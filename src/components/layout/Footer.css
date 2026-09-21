@@ -109,10 +109,18 @@
   line-height: 1.5;
 }
 
+.footer__brand > .footer__phone {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-text-light);
+  margin-top: var(--space-sm);
+}
+
 .footer__phone {
   display: block;
   font-size: 0.85rem;
-  color: rgba(247, 243, 235, 0.8);
+  color: rgba(247, 243, 235, 0.88);
   margin-top: 0.35rem;
   transition: color var(--transition-base);
 }

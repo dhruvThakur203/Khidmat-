@@ -1,0 +1,428 @@
+/* Khidmat motion system — subtle, premium, transform/opacity only */
+
+:root {
+  --motion-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-duration-fast: 0.22s;
+  --motion-duration-base: 0.32s;
+  --motion-duration-slow: 0.55s;
+  --motion-duration-hero: 0.6s;
+  --motion-stagger: 90ms;
+}
+
+@keyframes motion-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes motion-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes motion-slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes motion-slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes motion-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes motion-line-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes motion-line-grow-y {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+@keyframes motion-scroll-line {
+  0%, 100% { transform: scaleY(0.35); opacity: 0.5; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
+@keyframes motion-route-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes motion-lightbox-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes motion-gallery-item-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Page route transition */
+.page-route {
+  animation: motion-route-in var(--motion-duration-fast) var(--motion-ease-out);
+}
+
+/* Page header entry — runs on load, content stays in DOM */
+.page-enter > * {
+  opacity: 0;
+  animation: motion-fade-up var(--motion-duration-slow) var(--motion-ease-out) forwards;
+}
+
+.page-enter > *:nth-child(1) { animation-delay: 0ms; }
+.page-enter > *:nth-child(2) { animation-delay: 80ms; }
+.page-enter > *:nth-child(3) { animation-delay: 160ms; }
+.page-enter > *:nth-child(4) { animation-delay: 240ms; }
+.page-enter > *:nth-child(5) { animation-delay: 320ms; }
+
+/* Hero foreground stagger */
+.hero-enter > * {
+  opacity: 0;
+  animation: motion-fade-up var(--motion-duration-hero) var(--motion-ease-out) forwards;
+}
+
+.hero-enter > *:nth-child(1) { animation-delay: 0ms; }
+.hero-enter > *:nth-child(2) { animation-delay: 90ms; }
+.hero-enter > *:nth-child(3) { animation-delay: 180ms; }
+.hero-enter > *:nth-child(4) { animation-delay: 270ms; }
+.hero-enter > *:nth-child(5) { animation-delay: 360ms; }
+.hero-enter > *:nth-child(6) { animation-delay: 450ms; }
+
+/* Scroll-triggered reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity var(--motion-duration-slow) var(--motion-ease-out),
+    transform var(--motion-duration-slow) var(--motion-ease-out);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children when parent becomes visible */
+.reveal-stagger .reveal-stagger__item {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.reveal-stagger.is-visible .reveal-stagger__item {
+  animation: motion-fade-up var(--motion-duration-slow) var(--motion-ease-out) forwards;
+}
+
+.reveal-stagger.is-visible .reveal-stagger__item:nth-child(1) { animation-delay: 0ms; }
+.reveal-stagger.is-visible .reveal-stagger__item:nth-child(2) { animation-delay: calc(var(--motion-stagger) * 1); }
+.reveal-stagger.is-visible .reveal-stagger__item:nth-child(3) { animation-delay: calc(var(--motion-stagger) * 2); }
+.reveal-stagger.is-visible .reveal-stagger__item:nth-child(4) { animation-delay: calc(var(--motion-stagger) * 3); }
+.reveal-stagger.is-visible .reveal-stagger__item:nth-child(5) { animation-delay: calc(var(--motion-stagger) * 4); }
+.reveal-stagger.is-visible .reveal-stagger__item:nth-child(6) { animation-delay: calc(var(--motion-stagger) * 5); }
+
+/* Dish row reveal */
+.reveal-row .dishes__visual,
+.reveal-row .dishes__copy {
+  opacity: 0;
+}
+
+.reveal-row.is-visible .dishes__visual {
+  animation: motion-slide-in-left var(--motion-duration-slow) var(--motion-ease-out) forwards;
+}
+
+.reveal-row.is-visible .dishes__copy {
+  animation: motion-fade-up var(--motion-duration-slow) var(--motion-ease-out) 0.12s forwards;
+}
+
+.reveal-row--reverse.is-visible .dishes__visual {
+  animation-name: motion-slide-in-right;
+}
+
+/* Gold line draw */
+.motion-line-draw {
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.reveal.is-visible .motion-line-draw,
+.is-visible .motion-line-draw {
+  animation: motion-line-grow 0.55s var(--motion-ease-out) forwards;
+}
+
+/* Process timeline */
+.catering-process__steps--animated {
+  position: relative;
+  padding-left: 1.75rem;
+}
+
+.catering-process__steps--animated::before {
+  content: '';
+  position: absolute;
+  left: 0.35rem;
+  top: 0.15rem;
+  bottom: 0.15rem;
+  width: 1px;
+  background: rgba(154, 132, 96, 0.45);
+  transform: scaleY(0);
+  transform-origin: top center;
+}
+
+.catering-process__steps--animated.is-visible::before {
+  animation: motion-line-grow-y 0.75s var(--motion-ease-out) forwards;
+}
+
+.catering-process__steps--animated .catering-process__step {
+  opacity: 0;
+}
+
+.catering-process__steps--animated.is-visible .catering-process__step {
+  animation: motion-fade-up var(--motion-duration-slow) var(--motion-ease-out) forwards;
+}
+
+.catering-process__steps--animated.is-visible .catering-process__step:nth-child(1) { animation-delay: 0.15s; }
+.catering-process__steps--animated.is-visible .catering-process__step:nth-child(2) { animation-delay: 0.28s; }
+.catering-process__steps--animated.is-visible .catering-process__step:nth-child(3) { animation-delay: 0.41s; }
+.catering-process__steps--animated.is-visible .catering-process__step:nth-child(4) { animation-delay: 0.54s; }
+
+/* Areas footprint line */
+.areas-serve__footprint-line {
+  height: 1px;
+  background: rgba(154, 132, 96, 0.4);
+  margin: var(--space-sm) auto var(--space-md);
+  max-width: 520px;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.reveal.is-visible .areas-serve__footprint-line {
+  animation: motion-line-grow 0.8s var(--motion-ease-out) 0.1s forwards;
+}
+
+/* Lightbox */
+.lightbox {
+  animation: motion-fade-in 0.22s ease forwards;
+}
+
+.lightbox__backdrop {
+  animation: motion-fade-in 0.25s ease forwards;
+}
+
+.lightbox__figure {
+  animation: motion-lightbox-in 0.28s var(--motion-ease-out) forwards;
+}
+
+.lightbox--closing {
+  animation: motion-fade-in 0.18s ease reverse forwards;
+}
+
+.lightbox--closing .lightbox__figure {
+  animation: motion-lightbox-in 0.18s ease reverse forwards;
+}
+
+/* Why Khidmat gold rule per card */
+.why-khidmat__card-rule {
+  display: block;
+  width: 0;
+  height: 1px;
+  background: var(--color-gold);
+  margin: 0.45rem 0 0.55rem;
+}
+
+.reveal-stagger.is-visible .why-khidmat__card:nth-child(1) .why-khidmat__card-rule {
+  animation: motion-line-grow 0.45s var(--motion-ease-out) 0.2s forwards;
+}
+.reveal-stagger.is-visible .why-khidmat__card:nth-child(2) .why-khidmat__card-rule {
+  animation: motion-line-grow 0.45s var(--motion-ease-out) 0.32s forwards;
+}
+.reveal-stagger.is-visible .why-khidmat__card:nth-child(3) .why-khidmat__card-rule {
+  animation: motion-line-grow 0.45s var(--motion-ease-out) 0.44s forwards;
+}
+.reveal-stagger.is-visible .why-khidmat__card:nth-child(4) .why-khidmat__card-rule {
+  animation: motion-line-grow 0.45s var(--motion-ease-out) 0.56s forwards;
+}
+
+/* Heritage year reveal */
+.about-heritage__year {
+  opacity: 0;
+  transform: scale(0.98);
+}
+
+.reveal.is-visible .about-heritage__year {
+  animation: motion-scale-in 0.65s var(--motion-ease-out) forwards;
+}
+
+.about-heritage__connector .about-heritage__line {
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.reveal.is-visible .about-heritage__connector .about-heritage__line {
+  animation: motion-line-grow 0.5s var(--motion-ease-out) 0.25s forwards;
+}
+
+/* FSSAI certificate */
+.fssai-trust__image-wrap {
+  opacity: 0;
+  transform: scale(0.98);
+}
+
+.reveal.is-visible .fssai-trust__image-wrap {
+  animation: motion-scale-in 0.55s var(--motion-ease-out) forwards;
+}
+
+.fssai-trust__image-wrap {
+  transition:
+    transform var(--motion-duration-base) var(--motion-ease-out),
+    box-shadow var(--motion-duration-base) var(--motion-ease-out);
+}
+
+.fssai-trust__image-wrap:hover {
+  transform: translateY(-2px);
+}
+
+.reveal.is-visible .fssai-trust__image-wrap:hover {
+  transform: translateY(-2px) scale(1);
+}
+
+/* Award reveal */
+.award-recognition__image-wrap {
+  opacity: 0;
+}
+
+.reveal.is-visible .award-recognition__image-wrap {
+  animation: motion-scale-in 0.6s var(--motion-ease-out) 0.1s forwards;
+}
+
+/* Location directional reveal */
+.reveal-location--left .location-card__image {
+  opacity: 0;
+  transform: translateX(-18px);
+}
+
+.reveal-location--right .location-card__image {
+  opacity: 0;
+  transform: translateX(18px);
+}
+
+.reveal-location.is-visible.reveal-location--left .location-card__image {
+  animation: motion-slide-in-left 0.6s var(--motion-ease-out) forwards;
+}
+
+.reveal-location.is-visible.reveal-location--right .location-card__image {
+  animation: motion-slide-in-right 0.6s var(--motion-ease-out) forwards;
+}
+
+.reveal-location.is-visible .location-card__content {
+  animation: motion-fade-up var(--motion-duration-slow) var(--motion-ease-out) 0.15s forwards;
+  opacity: 0;
+}
+
+/* Subtle parallax target */
+.parallax-image {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* Premium CTA decorative line */
+.premium-page-cta__rule.motion-line-draw {
+  margin-inline: auto;
+}
+
+.reveal.is-visible .premium-page-cta__rule.motion-line-draw {
+  animation-delay: 0.15s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-route,
+  .page-enter > *,
+  .hero-enter > *,
+  .reveal,
+  .reveal-stagger > .reveal-stagger__item,
+  .reveal-row .dishes__visual,
+  .reveal-row .dishes__copy,
+  .gallery-grid-wrap--motion .gallery-item:not(.gallery-item--shown),
+  .gallery-grid-wrap--motion .gallery-item.gallery-item--shown,
+  .lightbox,
+  .lightbox__figure,
+  .about-heritage__year,
+  .fssai-trust__image-wrap,
+  .award-recognition__image-wrap,
+  .reveal-location .location-card__image,
+  .reveal-location .location-card__content,
+  .catering-process__steps--animated .catering-process__step,
+  .catering-process__steps--animated::before {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .motion-line-draw,
+  .why-khidmat__card-rule,
+  .areas-serve__footprint-line {
+    transform: none;
+    width: auto;
+    animation: none !important;
+  }
+
+  .parallax-image {
+    transform: none !important;
+  }
+}

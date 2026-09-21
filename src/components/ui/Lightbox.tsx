@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import type { LightboxMedia } from '../../data/gallery';
 import './Lightbox.css';
 
@@ -20,10 +20,27 @@ export function Lightbox({
   total,
 }: LightboxProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [closing, setClosing] = useState(false);
+  const [displayImage, setDisplayImage] = useState<LightboxMedia | null>(image);
+
+  useEffect(() => {
+    if (image) {
+      setDisplayImage(image);
+      setClosing(false);
+    }
+  }, [image]);
+
+  const handleClose = useCallback(() => {
+    setClosing(true);
+    window.setTimeout(() => {
+      onClose();
+      setClosing(false);
+    }, 180);
+  }, [onClose]);
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video || image?.type !== 'video') return;
+    if (!video || displayImage?.type !== 'video') return;
 
     video.currentTime = 0;
     void video.play().catch(() => {
@@ -33,23 +50,23 @@ export function Lightbox({
     return () => {
       video.pause();
     };
-  }, [image?.src, image?.type]);
+  }, [displayImage?.src, displayImage?.type]);
 
-  if (!image) return null;
+  if (!displayImage || !image) return null;
 
-  const isVideo = image.type === 'video';
+  const isVideo = displayImage.type === 'video';
 
   return (
     <div
-      className="lightbox"
+      className={`lightbox${closing ? ' lightbox--closing' : ''}`}
       role="dialog"
       aria-modal="true"
-      aria-label={`${isVideo ? 'Video' : 'Image'} ${currentIndex + 1} of ${total}: ${image.alt}`}
+      aria-label={`${isVideo ? 'Video' : 'Image'} ${currentIndex + 1} of ${total}: ${displayImage.alt}`}
     >
       <button
         type="button"
         className="lightbox__backdrop"
-        onClick={onClose}
+        onClick={handleClose}
         aria-label="Close lightbox"
       />
 
@@ -57,7 +74,7 @@ export function Lightbox({
         <button
           type="button"
           className="lightbox__close"
-          onClick={onClose}
+          onClick={handleClose}
           aria-label="Close"
         >
           ×
@@ -76,9 +93,9 @@ export function Lightbox({
           {isVideo ? (
             <video
               ref={videoRef}
-              key={image.src}
-              src={image.src}
-              poster={image.poster}
+              key={displayImage.src}
+              src={displayImage.src}
+              poster={displayImage.poster}
               className="lightbox__video"
               controls
               muted
@@ -87,13 +104,13 @@ export function Lightbox({
             />
           ) : (
             <img
-              src={image.src}
-              alt={image.alt}
+              src={displayImage.src}
+              alt={displayImage.alt}
               className="lightbox__image"
             />
           )}
-          {image.caption && (
-            <figcaption className="lightbox__caption">{image.caption}</figcaption>
+          {displayImage.caption && (
+            <figcaption className="lightbox__caption">{displayImage.caption}</figcaption>
           )}
         </figure>
 

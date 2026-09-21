@@ -132,7 +132,10 @@ export function Header({ transparent = false }: HeaderProps) {
 
   return (
     <>
-      <header className={`header ${headerClass}`} role="banner">
+      <header
+        className={`header ${headerClass}${scrolled ? ' header--scrolled' : ''}`}
+        role="banner"
+      >
         <div className="header__inner">
           <Link
             to="/"

@@ -1,0 +1,9 @@
+.gallery-page__grid {
+  padding-top: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .gallery-page__grid {
+    padding-top: var(--space-lg);
+  }
+}

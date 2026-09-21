@@ -1,0 +1,15 @@
+.events-gallery__intro {
+  max-width: 640px;
+  margin-bottom: var(--space-md);
+}
+
+.events-gallery__lead {
+  margin-top: 0.5rem;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 768px) {
+  .events-gallery__intro {
+    margin-bottom: var(--space-lg);
+  }
+}

@@ -1,7 +1,50 @@
 import { Link } from 'react-router-dom';
 import { featuredDishes } from '../../data/featuredDishes';
+import type { FeaturedDish } from '../../data/featuredDishes';
 import { useReveal } from '../../hooks/useReveal';
+import { editorialIndex } from '../../utils/editorialIndex';
 import './SignatureDishes.css';
+
+interface DishRowProps {
+  dish: FeaturedDish;
+  index: number;
+}
+
+function DishRow({ dish, index }: DishRowProps) {
+  const ref = useReveal();
+  const reversed = index % 2 === 1;
+  const fitClass =
+    dish.imageFit === 'contain' ? ' dishes__visual--contain' : ' dishes__visual--cover';
+
+  return (
+    <article
+      ref={ref}
+      className={`dishes__row reveal-row${reversed ? ' dishes__row--reverse reveal-row--reverse' : ''}`}
+    >
+      <div className={`dishes__visual${fitClass}`}>
+        <img
+          src={dish.image}
+          alt={dish.name}
+          className="dishes__image"
+          loading="lazy"
+          decoding="async"
+          style={{
+            objectPosition: dish.objectPosition ?? 'center center',
+            objectFit: dish.imageFit ?? 'cover',
+          }}
+        />
+      </div>
+      <div className="dishes__copy">
+        <span className="editorial-index" aria-hidden="true">
+          {editorialIndex(index)}
+        </span>
+        <h3 className="dishes__name">{dish.name}</h3>
+        <div className="editorial-rule" aria-hidden="true" />
+        <p className="dishes__description">{dish.description}</p>
+      </div>
+    </article>
+  );
+}
 
 interface SignatureDishesProps {
   /** Homepage catering menu showcase */
@@ -31,36 +74,9 @@ export function SignatureDishes({ variant = 'default' }: SignatureDishesProps) {
         </div>
 
         <div className="dishes__editorial">
-          {featuredDishes.map((dish, index) => {
-            const reversed = index % 2 === 1;
-            const fitClass =
-              dish.imageFit === 'contain' ? ' dishes__visual--contain' : ' dishes__visual--cover';
-
-            return (
-              <article
-                key={dish.id}
-                className={`dishes__row${reversed ? ' dishes__row--reverse' : ''}`}
-              >
-                <div className={`dishes__visual${fitClass}`}>
-                  <img
-                    src={dish.image}
-                    alt={dish.name}
-                    className="dishes__image"
-                    loading="lazy"
-                    decoding="async"
-                    style={{
-                      objectPosition: dish.objectPosition ?? 'center center',
-                      objectFit: dish.imageFit ?? 'cover',
-                    }}
-                  />
-                </div>
-                <div className="dishes__copy">
-                  <h3 className="dishes__name">{dish.name}</h3>
-                  <p className="dishes__description">{dish.description}</p>
-                </div>
-              </article>
-            );
-          })}
+          {featuredDishes.map((dish, index) => (
+            <DishRow key={dish.id} dish={dish} index={index} />
+          ))}
         </div>
 
         <div className="dishes__cta">
